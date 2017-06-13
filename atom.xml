@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>King&#39;s blog</title>
-  <subtitle>the stack of it nerds</subtitle>
+  <subtitle>stay true to the mission</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://loeuy.cn/"/>
   <updated>2017-06-05T09:09:03.237Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://loeuy.cn/</id>
   
   <author>
-    <name>King</name>
+    <name>荣嬷嬷</name>
     
   </author>
   
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Flex布局</title>
-    <link href="http://yoursite.com/2017/06/05/Flex%E5%B8%83%E5%B1%80/"/>
-    <id>http://yoursite.com/2017/06/05/Flex布局/</id>
+    <link href="http://loeuy.cn/Flex%E5%B8%83%E5%B1%80/"/>
+    <id>http://loeuy.cn/Flex布局/</id>
     <published>2017-06-05T09:07:50.000Z</published>
     <updated>2017-06-05T09:09:03.237Z</updated>
     
@@ -190,8 +190,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2017/05/25/hello-world/"/>
-    <id>http://yoursite.com/2017/05/25/hello-world/</id>
+    <link href="http://loeuy.cn/hello-world/"/>
+    <id>http://loeuy.cn/hello-world/</id>
     <published>2017-05-25T07:07:00.413Z</published>
     <updated>2017-05-25T07:07:00.413Z</updated>
     

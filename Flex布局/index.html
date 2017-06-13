@@ -7,17 +7,18 @@
   
   
   
-  <title>Archives | King&#39;s blog</title>
+  <title>Flex布局 | King&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="start from zero">
-<meta property="og:type" content="website">
-<meta property="og:title" content="King&#39;s blog">
-<meta property="og:url" content="http://loeuy.cn/archives/index.html">
+  <meta name="description" content="定义容器的display属性123456789.box&amp;#123;  	display: -webkit-flex;  	dispaly: flex;&amp;#125;/*行内样式*/.box&amp;#123;  	display: -webkit-inline-flex;  	display: inline-flex;&amp;#125; 容器样式主轴方向（flex-direction）    属性值 属性的含义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flex布局">
+<meta property="og:url" content="http://loeuy.cn/Flex布局/index.html">
 <meta property="og:site_name" content="King&#39;s blog">
-<meta property="og:description" content="start from zero">
+<meta property="og:description" content="定义容器的display属性123456789.box&amp;#123;  	display: -webkit-flex;  	dispaly: flex;&amp;#125;/*行内样式*/.box&amp;#123;  	display: -webkit-inline-flex;  	display: inline-flex;&amp;#125; 容器样式主轴方向（flex-direction）    属性值 属性的含义">
+<meta property="og:updated_time" content="2017-06-05T09:09:03.237Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="King&#39;s blog">
-<meta name="twitter:description" content="start from zero">
+<meta name="twitter:title" content="Flex布局">
+<meta name="twitter:description" content="定义容器的display属性123456789.box&amp;#123;  	display: -webkit-flex;  	dispaly: flex;&amp;#125;/*行内样式*/.box&amp;#123;  	display: -webkit-inline-flex;  	display: inline-flex;&amp;#125; 容器样式主轴方向（flex-direction）    属性值 属性的含义">
   
     <link rel="alternative" href="/atom.xml" title="King&#39;s blog" type="application/atom+xml">
   
@@ -42,8 +43,8 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
-          isArchive: true,
+          isPost: true,
+          isArchive: false,
           isTag: false,
           isCategory: false,
           open_in_new: false
@@ -276,81 +277,344 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-Flex布局" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a  href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/Flex布局/" class="archive-article-date">
-      <time datetime="2017-06-05T09:07:50.000Z" itemprop="datePublished">06-05</time>
+    <div class="article-meta">
+      <a  href="/Flex布局/" class="article-date">
+      <time datetime="2017-06-05T09:07:50.000Z" itemprop="datePublished">2017-06-05</time>
 </a>
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/Flex布局/">Flex布局</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Flex布局
     </h1>
   
 
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
-        </div>
+        
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+      </div>
+      
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/hello-world/" class="archive-article-date">
-      <time datetime="2017-05-25T07:07:00.413Z" itemprop="datePublished">05-25</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/hello-world/">Hello World</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <h3 id="定义容器的display属性"><a href="#定义容器的display属性" class="headerlink" title="定义容器的display属性"></a>定义容器的display属性</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  	<span class="attribute">display</span>: -webkit-flex;</div><div class="line">  	<span class="attribute">dispaly</span>: flex;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*行内样式*/</span></div><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  	<span class="attribute">display</span>: -webkit-inline-flex;</div><div class="line">  	<span class="attribute">display</span>: inline-flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="容器样式"><a href="#容器样式" class="headerlink" title="容器样式"></a>容器样式</h3><p><strong>主轴方向（flex-direction）</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>属性的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row</td>
+<td>左到右（默认）</td>
+</tr>
+<tr>
+<td>row-reverse</td>
+<td>右到左</td>
+</tr>
+<tr>
+<td>column</td>
+<td>上到下</td>
+</tr>
+<tr>
+<td>column-reverse</td>
+<td>下到上</td>
+</tr>
+</tbody>
+</table>
+<p><strong>换行（flex-wrap）</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>属性的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nowrap</td>
+<td>不换行（默认）</td>
+</tr>
+<tr>
+<td>wrap</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>wrap-reverse</td>
+<td>换行并第一行在下方</td>
+</tr>
+</tbody>
+</table>
+<p><strong>主轴方向和换行简写</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flew-flow:&lt;flex-direction&gt;||&lt;flex-wrap&gt;</div></pre></td></tr></table></figure>
+<p><strong>主轴对齐方式（justify-content）</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>属性的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>flex-start</td>
+<td>左对齐（默认）</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>右对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>居中对齐</td>
+</tr>
+<tr>
+<td>space-between</td>
+<td>两端对齐</td>
+</tr>
+<tr>
+<td>space-around</td>
+<td>平均分布</td>
+</tr>
+</tbody>
+</table>
+<p><strong>交叉轴对齐方式（align-items）</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>属性的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>flex-start</td>
+<td>顶部对齐</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>底部对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>居中对齐</td>
+</tr>
+<tr>
+<td>baseline</td>
+<td>文本基线对齐</td>
+</tr>
+<tr>
+<td>stretch</td>
+<td>如果项目未设置高度或设为auto，将占满整个容器的高度。（默认）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="子元素属性"><a href="#子元素属性" class="headerlink" title="子元素属性"></a>子元素属性</h3><p><strong>排序（order：<number>）</number></strong>：排序，数值越小，越排前，默认为0</p>
+<p><strong>放大（flex-grow: <number>）</number></strong>：放大：默认0（即如果有剩余空间也不放大，值为1则放大，2是1的双倍大小，以此类推）</p>
+<p><strong>缩小（flex-shrink:<number>）</number></strong>：缩小：如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。负值对该属性无效。</p>
+<p><strong>固定大小（flex-basis:<length> | auto）</length></strong>:固定大小：默认为0，可以设置px值，也可以设置百分比大小</p>
+<p><strong>flex:none | [ &lt;’flex-grow’&gt; &lt;’flex-shrink’&gt;? || &lt;’flex-basis’&gt; ]</strong>：flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。</p>
+<p><strong>单独对齐方式（align-self）</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auto</td>
+<td>自动（默认）</td>
+</tr>
+<tr>
+<td>flex-start</td>
+<td>顶部对齐</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>底部对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>居中对齐</td>
+</tr>
+<tr>
+<td>baseline</td>
+<td>文本基线对齐</td>
+</tr>
+<tr>
+<td>stretch</td>
+<td>上下对齐并铺满</td>
+</tr>
+</tbody>
+</table>
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/Flex布局/">Flex布局</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 荣嬷嬷 的个人博客">荣嬷嬷</a></p>
+        <p><span>发布时间:</span>2017年06月05日 - 17时07分</p>
+        <p><span>最后更新:</span>2017年06月05日 - 17时09分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/Flex布局/" title="Flex布局">http://loeuy.cn/Flex布局/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://loeuy.cn/Flex布局/　　作者: 荣嬷嬷" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义容器的display属性"><span class="toc-number">1.</span> <span class="toc-text">定义容器的display属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#容器样式"><span class="toc-number">2.</span> <span class="toc-text">容器样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子元素属性"><span class="toc-number">3.</span> <span class="toc-text">子元素属性</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
 
     
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'cyt3Oo2AJ',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
 
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/hello-world/" title="下一篇: Hello World">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Flex布局/">Flex布局</a></li><li class="post-list-item"><a class="post-list-link" href="/hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
 
 </div>
       <footer id="footer">
@@ -440,17 +704,6 @@ ga('send', 'pageview');
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
