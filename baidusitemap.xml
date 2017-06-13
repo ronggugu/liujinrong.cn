@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/06/05/Flex%E5%B8%83%E5%B1%80/</loc>
+    <lastmod>2017-06-05T09:09:03.237Z</lastmod>
+    <data>
+        <display>
+        <title>Flex布局</title>
+        <pubTime>2017-06-05T09:07:50.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
+    <loc>http://yoursite.com/2017/05/25/hello-world/</loc>
+    <lastmod>2017-05-25T07:07:00.413Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2017-05-25T07:07:00.413Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+</urlset>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>King&#39;s blog</title>
+  <subtitle>the stack of it nerds</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-06-05T09:09:03.237Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>King</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Flex布局</title>
+    <link href="http://yoursite.com/2017/06/05/Flex%E5%B8%83%E5%B1%80/"/>
+    <id>http://yoursite.com/2017/06/05/Flex布局/</id>
+    <published>2017-06-05T09:07:50.000Z</published>
+    <updated>2017-06-05T09:09:03.237Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="定义容器的display属性"><a href="#定义容器的display属性" class="headerlink" title="定义容器的display属性"></a>定义容器的display属性</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  	<span class="attribute">display</span>: -webkit-flex;</div><div class="line">  	<span class="attribute">dispaly</span>: flex;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*行内样式*/</span></div><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  	<span class="attribute">display</span>: -webkit-inline-flex;</div><div class="line">  	<span class="attribute">display</span>: inline-flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="容器样式"><a href="#容器样式" class="headerlink" title="容器样式"></a>容器样式</h3><p><strong>主轴方向（flex-direction）</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>属性的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row</td>
+<td>左到右（默认）</td>
+</tr>
+<tr>
+<td>row-reverse</td>
+<td>右到左</td>
+</tr>
+<tr>
+<td>column</td>
+<td>上到下</td>
+</tr>
+<tr>
+<td>column-reverse</td>
+<td>下到上</td>
+</tr>
+</tbody>
+</table>
+<p><strong>换行（flex-wrap）</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>属性的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nowrap</td>
+<td>不换行（默认）</td>
+</tr>
+<tr>
+<td>wrap</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>wrap-reverse</td>
+<td>换行并第一行在下方</td>
+</tr>
+</tbody>
+</table>
+<p><strong>主轴方向和换行简写</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flew-flow:&lt;flex-direction&gt;||&lt;flex-wrap&gt;</div></pre></td></tr></table></figure>
+<p><strong>主轴对齐方式（justify-content）</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>属性的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>flex-start</td>
+<td>左对齐（默认）</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>右对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>居中对齐</td>
+</tr>
+<tr>
+<td>space-between</td>
+<td>两端对齐</td>
+</tr>
+<tr>
+<td>space-around</td>
+<td>平均分布</td>
+</tr>
+</tbody>
+</table>
+<p><strong>交叉轴对齐方式（align-items）</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>属性的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>flex-start</td>
+<td>顶部对齐</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>底部对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>居中对齐</td>
+</tr>
+<tr>
+<td>baseline</td>
+<td>文本基线对齐</td>
+</tr>
+<tr>
+<td>stretch</td>
+<td>如果项目未设置高度或设为auto，将占满整个容器的高度。（默认）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="子元素属性"><a href="#子元素属性" class="headerlink" title="子元素属性"></a>子元素属性</h3><p><strong>排序（order：<number>）</number></strong>：排序，数值越小，越排前，默认为0</p>
+<p><strong>放大（flex-grow: <number>）</number></strong>：放大：默认0（即如果有剩余空间也不放大，值为1则放大，2是1的双倍大小，以此类推）</p>
+<p><strong>缩小（flex-shrink:<number>）</number></strong>：缩小：如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。负值对该属性无效。</p>
+<p><strong>固定大小（flex-basis:<length> | auto）</length></strong>:固定大小：默认为0，可以设置px值，也可以设置百分比大小</p>
+<p><strong>flex:none | [ &lt;’flex-grow’&gt; &lt;’flex-shrink’&gt;? || &lt;’flex-basis’&gt; ]</strong>：flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。</p>
+<p><strong>单独对齐方式（align-self）</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auto</td>
+<td>自动（默认）</td>
+</tr>
+<tr>
+<td>flex-start</td>
+<td>顶部对齐</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>底部对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>居中对齐</td>
+</tr>
+<tr>
+<td>baseline</td>
+<td>文本基线对齐</td>
+</tr>
+<tr>
+<td>stretch</td>
+<td>上下对齐并铺满</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;定义容器的display属性&quot;&gt;&lt;a href=&quot;#定义容器的display属性&quot; class=&quot;headerlink&quot; title=&quot;定义容器的display属性&quot;&gt;&lt;/a&gt;定义容器的display属性&lt;/h3&gt;&lt;figure class=&quot;highlight 
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2017/05/25/hello-world/"/>
+    <id>http://yoursite.com/2017/05/25/hello-world/</id>
+    <published>2017-05-25T07:07:00.413Z</published>
+    <updated>2017-05-25T07:07:00.413Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
