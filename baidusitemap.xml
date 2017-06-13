@@ -4,13 +4,32 @@
 
     
   <url>
+    <loc>http://loeuy.cn/ES6%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/</loc>
+    <lastmod>2017-06-13T09:08:06.426Z</lastmod>
+    <data>
+        <display>
+        <title>ES6常用的新特性</title>
+        <pubTime>2017-06-13T09:03:01.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://loeuy.cn/Flex%E5%B8%83%E5%B1%80/</loc>
-    <lastmod>2017-06-05T09:09:03.237Z</lastmod>
+    <lastmod>2017-06-13T09:03:57.742Z</lastmod>
     <data>
         <display>
         <title>Flex布局</title>
         <pubTime>2017-06-05T09:07:50.000Z</pubTime>
         
+        <tag>css3</tag>
+         
          
            
         </display>
@@ -19,19 +38,4 @@
 
     
     
-    
-  <url>
-    <loc>http://loeuy.cn/hello-world/</loc>
-    <lastmod>2017-05-25T07:07:00.413Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2017-05-25T07:07:00.413Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>
