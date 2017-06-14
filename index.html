@@ -198,7 +198,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/ES6-JavaScript/" style="font-size: 10px;">ES6 JavaScript</a> <a href="/tags/JavaScript-ES6/" style="font-size: 10px;">JavaScript,ES6</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a>
+                        <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a>
                     </div>
                 </section>
                 
@@ -312,11 +312,6 @@
 <p>JavaScript函数的最大的一个特点就是在传递参数的时候，参数的个数不受限制的。为了健壮性考虑，一般在函数内部需要做一些默认值的处理。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeRequest</span>(<span class="params">url, timeout, callback</span>) </span>&#123;</div><div class="line">    timeout = timeout || <span class="number">2000</span>;</div><div class="line">    callback = callback || <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>其实上面的默认值方法有个bug：当timeout是0的时候也会当做假值来处理，从而给赋值默认值2000.</p>
-<blockquote>
-<p>ES6从语言层面面上增加了 <strong>默认值的</strong> 支持。看下面的代码：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这个函数如果只传入第一个参数，后面两个不传入，则会使用默认值。如果后面两个也传入了参数，则不会使用默认值。</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeRequest</span>(<span class="params">url, timeout = <span class="number">2000</span>, callback = function(</span>) </span>&#123;&#125;) &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 其余代码</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
           
       
     </div>
@@ -327,7 +322,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6-JavaScript/">ES6 JavaScript</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
     </div>
 
       
@@ -401,7 +396,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-ES6/">JavaScript,ES6</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
     </div>
 
       

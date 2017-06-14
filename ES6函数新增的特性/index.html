@@ -10,13 +10,13 @@
   <title>ES6函数新增的特性 | King&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="函数新增特性带默认参数的函数 JavaScript函数的最大的一个特点就是在传递参数的时候，参数的个数不受限制的。为了健壮性考虑，一般在函数内部需要做一些默认值的处理。  1234function makeRequest(url, timeout, callback) &amp;#123;    timeout = timeout || 2000;    callback = callback || fu">
-<meta name="keywords" content="ES6 JavaScript">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6函数新增的特性">
 <meta property="og:url" content="http://loeuy.cn/ES6函数新增的特性/index.html">
 <meta property="og:site_name" content="King&#39;s blog">
 <meta property="og:description" content="函数新增特性带默认参数的函数 JavaScript函数的最大的一个特点就是在传递参数的时候，参数的个数不受限制的。为了健壮性考虑，一般在函数内部需要做一些默认值的处理。  1234function makeRequest(url, timeout, callback) &amp;#123;    timeout = timeout || 2000;    callback = callback || fu">
-<meta property="og:updated_time" content="2017-06-14T06:14:11.565Z">
+<meta property="og:updated_time" content="2017-06-14T06:21:47.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6函数新增的特性">
 <meta name="twitter:description" content="函数新增特性带默认参数的函数 JavaScript函数的最大的一个特点就是在传递参数的时候，参数的个数不受限制的。为了健壮性考虑，一般在函数内部需要做一些默认值的处理。  1234function makeRequest(url, timeout, callback) &amp;#123;    timeout = timeout || 2000;    callback = callback || fu">
@@ -197,7 +197,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/ES6-JavaScript/" style="font-size: 10px;">ES6 JavaScript</a> <a href="/tags/JavaScript-ES6/" style="font-size: 10px;">JavaScript,ES6</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a>
+                        <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a>
                     </div>
                 </section>
                 
@@ -306,7 +306,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6-JavaScript/">ES6 JavaScript</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -320,12 +320,12 @@
 <p>JavaScript函数的最大的一个特点就是在传递参数的时候，参数的个数不受限制的。为了健壮性考虑，一般在函数内部需要做一些默认值的处理。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeRequest</span>(<span class="params">url, timeout, callback</span>) </span>&#123;</div><div class="line">    timeout = timeout || <span class="number">2000</span>;</div><div class="line">    callback = callback || <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>其实上面的默认值方法有个bug：当timeout是0的时候也会当做假值来处理，从而给赋值默认值2000.</p>
 <blockquote>
 <p>ES6从语言层面面上增加了 <strong>默认值的</strong> 支持。看下面的代码：</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这个函数如果只传入第一个参数，后面两个不传入，则会使用默认值。如果后面两个也传入了参数，则不会使用默认值。</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeRequest</span>(<span class="params">url, timeout = <span class="number">2000</span>, callback = function(</span>) </span>&#123;&#125;) &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 其余代码</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <h2 id="默认参数对-arguments-对象的影响"><a href="#默认参数对-arguments-对象的影响" class="headerlink" title="默认参数对 arguments 对象的影响"></a>默认参数对 arguments 对象的影响</h2><blockquote>
 <p>在非严格模式下，arguments总是能反映出命名参数的变化。看下面的代码：</p>
 </blockquote>
@@ -464,7 +464,7 @@
         <p><span>本文标题:</span><a  href="/ES6函数新增的特性/">ES6函数新增的特性</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 荣嬷嬷 的个人博客">荣嬷嬷</a></p>
         <p><span>发布时间:</span>2017年06月14日 - 14时09分</p>
-        <p><span>最后更新:</span>2017年06月14日 - 14时14分</p>
+        <p><span>最后更新:</span>2017年06月14日 - 14时21分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/ES6函数新增的特性/" title="ES6函数新增的特性">http://loeuy.cn/ES6函数新增的特性/</a>
             <span class="copy-path" data-clipboard-text="原文: http://loeuy.cn/ES6函数新增的特性/　　作者: 荣嬷嬷" title=""></span>
