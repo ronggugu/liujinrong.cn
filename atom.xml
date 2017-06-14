@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://loeuy.cn/"/>
-  <updated>2017-06-14T10:19:10.302Z</updated>
+  <updated>2017-06-14T10:21:47.908Z</updated>
   <id>http://loeuy.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://loeuy.cn/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%B8%E8%A7%81%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/"/>
     <id>http://loeuy.cn/移动端常见的一些兼容性问题/</id>
     <published>2017-06-14T10:04:45.000Z</published>
-    <updated>2017-06-14T10:19:10.302Z</updated>
+    <updated>2017-06-14T10:21:47.908Z</updated>
     
     <content type="html"><![CDATA[<p>随着手机的普及，移动端的开发也成了一个重要的方向，但由于设备的不统一会造成一些兼容性问题，</p>
 <h5 id="1、安卓浏览器看背景图片，有些设备会模糊。"><a href="#1、安卓浏览器看背景图片，有些设备会模糊。" class="headerlink" title="1、安卓浏览器看背景图片，有些设备会模糊。"></a>1、安卓浏览器看背景图片，有些设备会模糊。</h5><p>用同等比例的图片在PC机上很清楚，但是手机上很模糊，原因是什么呢？</p>
@@ -28,9 +28,7 @@
 <a id="more"></a>
 <p>想让图片在手机里显示更为清晰，必须使用2x的背景图来代替img标签（一般情况都是用2倍）。例如一个div的宽高是100 <em> 100，背景图必须得200 </em> 200，然后background-size:contain;，这样显示出来的图片就比较清晰了。</p>
 <p>代码可以如下：</p>
-<p><code>background:url(../images/icon/all.png) no-repeat center center;</code></p>
-<p><code>-webkit-background-size:50px 50px;</code></p>
-<p><code>background-size: 50px 50px;display:inline-block; width:100%; height:50px;</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">background:url(../images/icon/all.png) no-repeat center center;</div><div class="line"></div><div class="line">-webkit-background-size:50px 50px;</div><div class="line"></div><div class="line">background-size: 50px 50px;display:inline-block; width:100%; height:50px;</div></pre></td></tr></table></figure>
 <p>或者指定 background-size:contain;都可以，大家试试！</p>
 <p>#####2、图片加载</p>
 <p>若您遇到图片加载很慢的问题，对这种情况，手机开发一般用canvas方法加载：</p>
