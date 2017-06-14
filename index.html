@@ -198,7 +198,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a>
+                        <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a>
                     </div>
                 </section>
                 
@@ -278,6 +278,77 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-移动端常见的一些兼容性问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/移动端常见的一些兼容性问题/" class="article-date">
+      <time datetime="2017-06-14T10:04:45.000Z" itemprop="datePublished">2017-06-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/移动端常见的一些兼容性问题/">移动端常见的一些兼容性问题</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p><strong>随着手机的普及，移动端的开发也成了一个重要的方向，但由于设备的不统一会造成一些兼容性问题，</strong></p>
+<p><strong>1、安卓浏览器看背景图片，有些设备会模糊。</strong></p>
+<p>用同等比例的图片在PC机上很清楚，但是手机上很模糊，原因是什么呢？</p>
+<p>经过研究，是devicePixelRatio作怪，因为手机分辨率太小，如果按照分辨率来显示网页，这样字会非常小，所以苹果当初就把iPhone 4的960 <em> 640分辨率，在网页里只显示了480 </em> 320，这样devicePixelRatio＝2。现在android比较乱，有1.5的，有2的也有3的。</p>
+<p>想让图片在手机里显示更为清晰，必须使用2x的背景图来代替img标签（一般情况都是用2倍）。例如一个div的宽高是100 <em> 100，背景图必须得200 </em> 200，然后background-size:contain;，这样显示出来的图片就比较清晰了。</p>
+<p>代码可以如下：</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a   href="/移动端常见的一些兼容性问题/#more">more&gt;&gt; >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-ES6函数新增的特性" class="article article-type-post" itemscope itemprop="blogPost">
   

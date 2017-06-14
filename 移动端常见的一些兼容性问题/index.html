@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>移动端常见的一些兼容性问题 | 一人一马一江湖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="随着手机的普及，移动端的开发也成了一个重要的方向，但由于设备的不统一会造成一些兼容性问题， 1、安卓浏览器看背景图片，有些设备会模糊。 用同等比例的图片在PC机上很清楚，但是手机上很模糊，原因是什么呢？ 经过研究，是devicePixelRatio作怪，因为手机分辨率太小，如果按照分辨率来显示网页，这样字会非常小，所以苹果当初就把iPhone 4的960  640分辨率，在网页里只显示了480">
+<meta name="keywords" content="移动端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端常见的一些兼容性问题">
+<meta property="og:url" content="http://loeuy.cn/移动端常见的一些兼容性问题/index.html">
+<meta property="og:site_name" content="一人一马一江湖">
+<meta property="og:description" content="随着手机的普及，移动端的开发也成了一个重要的方向，但由于设备的不统一会造成一些兼容性问题， 1、安卓浏览器看背景图片，有些设备会模糊。 用同等比例的图片在PC机上很清楚，但是手机上很模糊，原因是什么呢？ 经过研究，是devicePixelRatio作怪，因为手机分辨率太小，如果按照分辨率来显示网页，这样字会非常小，所以苹果当初就把iPhone 4的960  640分辨率，在网页里只显示了480">
+<meta property="og:updated_time" content="2017-06-14T10:06:06.076Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端常见的一些兼容性问题">
+<meta name="twitter:description" content="随着手机的普及，移动端的开发也成了一个重要的方向，但由于设备的不统一会造成一些兼容性问题， 1、安卓浏览器看背景图片，有些设备会模糊。 用同等比例的图片在PC机上很清楚，但是手机上很模糊，原因是什么呢？ 经过研究，是devicePixelRatio作怪，因为手机分辨率太小，如果按照分辨率来显示网页，这样字会非常小，所以苹果当初就把iPhone 4的960  640分辨率，在网页里只显示了480">
+  
+    <link rel="alternative" href="/atom.xml" title="一人一马一江湖" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/author.jpg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">荣嬷嬷</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">愿你可以朝九晚五，又可以浪迹天涯</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder=" Search...">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/wandering/">浪迹天涯</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/RongMo" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="http://weibo.com/omgonR" title="weibo">weibo</a>
+                            
+                                <a class="fl zhihu"  target="_blank" href="https://www.zhihu.com/people/rongmo" title="zhihu">zhihu</a>
+                            
+                                <a class="fl facebook"  target="_blank" href="https://www.facebook.com/Rongmomo2014" title="facebook">facebook</a>
+                            
+                                <a class="fl twitter"  target="_blank" href="https://twitter.com/RongM0Mo" title="twitter">twitter</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/u/rongmo">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/u/21d6f5b55dc9">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱游戏(亡者农药),爱编程(前端小白),爱运动,爱的太多了!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">荣嬷嬷</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/author.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">荣嬷嬷</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">愿你可以朝九晚五，又可以浪迹天涯</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/wandering/">浪迹天涯</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/RongMo" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/omgonR" title="weibo">weibo</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/rongmo" title="zhihu">zhihu</a>
+                    
+                        <a class="facebook" target="_blank" href="https://www.facebook.com/Rongmomo2014" title="facebook">facebook</a>
+                    
+                        <a class="twitter" target="_blank" href="https://twitter.com/RongM0Mo" title="twitter">twitter</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-移动端常见的一些兼容性问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/移动端常见的一些兼容性问题/" class="article-date">
+      <time datetime="2017-06-14T10:04:45.000Z" itemprop="datePublished">2017-06-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      移动端常见的一些兼容性问题
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>随着手机的普及，移动端的开发也成了一个重要的方向，但由于设备的不统一会造成一些兼容性问题，</strong></p>
+<p><strong>1、安卓浏览器看背景图片，有些设备会模糊。</strong></p>
+<p>用同等比例的图片在PC机上很清楚，但是手机上很模糊，原因是什么呢？</p>
+<p>经过研究，是devicePixelRatio作怪，因为手机分辨率太小，如果按照分辨率来显示网页，这样字会非常小，所以苹果当初就把iPhone 4的960 <em> 640分辨率，在网页里只显示了480 </em> 320，这样devicePixelRatio＝2。现在android比较乱，有1.5的，有2的也有3的。</p>
+<p>想让图片在手机里显示更为清晰，必须使用2x的背景图来代替img标签（一般情况都是用2倍）。例如一个div的宽高是100 <em> 100，背景图必须得200 </em> 200，然后background-size:contain;，这样显示出来的图片就比较清晰了。</p>
+<p>代码可以如下：</p>
+<a id="more"></a>
+<p><code>background:url(../images/icon/all.png) no-repeat center center;</code></p>
+<p><code>-webkit-background-size:50px 50px;</code></p>
+<p><code>background-size: 50px 50px;display:inline-block; width:100%; height:50px;</code></p>
+<p>或者指定 background-size:contain;都可以，大家试试！</p>
+<p><strong>2、图片加载</strong></p>
+<p>若您遇到图片加载很慢的问题，对这种情况，手机开发一般用canvas方法加载：</p>
+<p>具体的canvas API 参见：<a href="http://javascript.ruanyifeng.com/htmlapi/canvas.html" target="_blank" rel="external">http://javascript.ruanyifeng.com/htmlapi/canvas.html</a></p>
+<p>下面举例说明一个canvas的例子：</p>
+<li><canvas></canvas></li>
+
+<p>js动态加载图片和li 总共举例17张图片！</p>
+<p>vartotal=17;<br>varzWin=$(window);<br>varrender=function(){<br>  varpadding=2;<br>  varwinWidth=zWin.width();<br>  varpicWidth=Math.floor((winWidth-padding*3)/4);<br>  vartmpl =’’;<br>  for(vari=1;i&lt;=totla;i++){<br>​     varp=padding;<br>​     varimgSrc=’img/‘+i+’.jpg’;<br>​     if(i%4==1){<br>​        p=0;<br>​     }<br>  tmpl +=’<li style="width:'+picWidth+'px;height:'+picWidth+'px;padding-left:'+p+'px;padding-top:'+padding+'px;"><canvas id="cvs_'+i+'"></canvas></li>‘;<br>  varimageObj = newImage();<br>  imageObj.index = i;<br>  imageObj.onload = function(){<br>​    varcvs =$(‘#cvs_’+this.index)[0].getContext(‘2d’);<br>​    cvs.width = this.width;<br>​    cvs.height=this.height;<br>​    cvs.drawImage(this,0,0);<br>  }<br>  imageObj.src=imgSrc;<br>  }<br>}<br>render();</p>
+<p><strong>3、假如手机网站不用兼容IE浏览器，一般我们会使用zeptojs</strong>。</p>
+<p>zeptojs内置Touch events方法，具体可以看<a href="http://zeptojs.com/#Touch" target="_blank" rel="external">http://zeptojs.com/#Touch</a> events</p>
+<p>看了一下zeptio新版的API，已经支持IE10以上浏览器，对zeptojs可以选择使用！</p>
+<p><strong>4、防止手机中网页放大和缩小。</strong></p>
+<p>这点是最基本的，最为手机网站开发者来说应该都知道的，就是设置meta中的viewport</p>
+<p>还有就是，有些手机网站我们看到如下声明：</p>
+<p>代码如下:</p>
+<p>&lt;!DOCTYPE html PUBLIC “-//WAPFORUM//DTD XHTML Mobile 1.0//EN” “<a href="http://www.wapforum.org/DTD/xhtml-mobile10.dtd&quot;&gt;" target="_blank" rel="external">http://www.wapforum.org/DTD/xhtml-mobile10.dtd&quot;&gt;</a></p>
+<p>设置了DTD的方式是XHTML的写法，假如我们页面运用的是html5，可以不用设置DTD,直接声明&lt;!DOCTYPE html&gt;。</p>
+<p>使用viewport使页面禁止缩放。 通常把user-scalable设置为0来关闭用户对页面视图缩放的行为。</p>
+<meta name="viewport" content="user-scalable=0">
+
+<p>但是为了更好的兼容，我们会使用完整的viewport设置。</p>
+<p><a href="">复制代码</a>代码如下:</p>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+
+<p>当然，user-scalable=0,有的人也写成user-scalable=no，都可以的。</p>
+<p><strong>5、apple-mobile-web-app-capable</strong></p>
+<p>apple-mobile-web-app-capable是设置Web应用是否以全屏模式运行。</p>
+<p>语法：</p>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<p>说明：</p>
+<p>如果content设置为yes，Web应用会以全屏模式运行，反之，则不会。content的默认值是no，表示正常显示。你可以通过只读属性window.navigator.standalone来确定网页是否以全屏模式显示。</p>
+<p><strong>6、format-detection</strong></p>
+<p>format-detection 启动或禁用自动识别页面中的电话号码。</p>
+<p>语法：</p>
+<meta name="format-detection" content="telephone=no">
+
+<p>说明：</p>
+<p>默认情况下，设备会自动识别任何可能是电话号码的字符串。设置telephone=no可以禁用这项功能。</p>
+<p><strong>7、html5调用安卓或者ios的拨号功能</strong></p>
+<p>html5提供了自动调用拨号的标签，只要在a标签的href中添加tel:就可以了。</p>
+<p>如下：</p>
+<p><code>&lt;a href=&quot;tel:4008106999,1034&quot;&gt;400-810-6999 转 1034&lt;/a&gt;</code></p>
+<p>拨打手机直接如下</p>
+<p><code>&lt;a href=&quot;tel:15677776767&quot;&gt;点击拨打15677776767&lt;/a&gt;</code><br><strong>8、html5GPS定位功能</strong></p>
+<p>具体请看：<a href="http://www.w3school.com.cn/html5/html_5_geolocation.asp" target="_blank" rel="external">http://www.w3school.com.cn/html5/html_5_geolocation.asp</a></p>
+<p><strong>9、上下拉动滚动条时卡顿、慢</strong></p>
+<p>body {-webkit-overflow-scrolling: touch; overflow-scrolling: touch;}</p>
+<p>Android3+和iOS5+支持CSS3的新属性为overflow-scrolling</p>
+<p><strong>10、禁止复制、选中文本</strong></p>
+<p>Element {-webkit-user-select:none;<br>  -moz-user-select:none;<br>  -khtml-user-select:none;<br>   user-select:none;<br>}</p>
+<p>解决移动设备可选中页面文本(视产品需要而定)</p>
+<p>11、长时间按住页面出现闪退</p>
+<p>element {<br>  -webkit-touch-callout:none;<br>}<strong>
+</strong></p>
+<p><strong>12、iphone及ipad下输入框默认内阴影</strong></p>
+<p>Element{<br>  -webkit-appearance:none;<br>}</p>
+<p><strong>13、ios和android下触摸元素时出现半透明灰色遮罩</strong></p>
+<p>Element {<br>  -webkit-tap-highlight-color:rgba(255,255,255,0)<br>}</p>
+<p>设置alpha值为0就可以去除半透明灰色遮罩，备注：transparent的属性值在android下无效。</p>
+<p>后面一篇文章有详细介绍，地址：<a href="http://www.jb51.net/post/phone_web_ysk" target="_blank" rel="external">http://www.jb51.net/post/phone_web_ysk</a></p>
+<p><strong>14、active兼容处理 即 伪类 :active 失效</strong></p>
+<p>方法一：body添加ontouchstart</p>
+<body ontouchstart="">
+
+<p>方法二：js给 document 绑定 touchstart 或 touchend 事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">   a &#123;</div><div class="line">     color:#000;</div><div class="line">   &#125;</div><div class="line">   a:active &#123;</div><div class="line">      color:#fff;</div><div class="line">    &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">    &lt;a herf=foo &gt;bar&lt;/a&gt;</div><div class="line"> &lt;script&gt;</div><div class="line">    document.addEventListener(&apos;touchstart&apos;,function()&#123;&#125;,false);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>15、动画定义3D启用硬件加速</strong></p>
+<p>Element {<br>  -webkit-transform:translate3d(0,0,0)<br>  transform: translate3d(0,0,0);<br>}</p>
+<p>注意：3D变形会消耗更多的内存与功耗</p>
+<p><strong>16、Retina屏的1px边框</strong></p>
+<p>Element{<br>  border-width:thin;<br>}</p>
+<p><strong>17、webkit mask 兼容处理</strong></p>
+<p>某些低端手机不支持css3 mask，可以选择性的降级处理。</p>
+<p>比如可以使用js判断来引用不同class：</p>
+<p>if(‘WebkitMask’indocument.documentElement.style){<br>  alert(‘支持mask’);<br>}else{<br>  alert(‘不支持mask’);<br>}</p>
+<p><strong>18、旋转屏幕时，字体大小调整的问题</strong></p>
+<p>html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6{<br>  -webkit-text-size-adjust:100%;<br>}</p>
+<p><strong>19、transition闪屏</strong></p>
+<p>/设置内嵌的元素在3D 空间如何呈现：保留3D /<br>-webkit-transform-style: preserve-3d;<br>/ 设置进行转换的元素的背面在面对用户时是否可见：隐藏 /<br>-webkit-backface-visibility:hidden;</p>
+<p><strong>20、圆角bug</strong></p>
+<p>某些Android手机圆角失效</p>
+<p>background-clip: padding-box;</p>
+<p><strong>21、顶部状态栏背景色</strong></p>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<p>说明：</p>
+<p>除非你先使用apple-mobile-web-app-capable指定全屏模式，否则这个meta标签不会起任何作用。</p>
+<p>如果content设置为default，则状态栏正常显示。如果设置为blank，则状态栏会有一个黑色的背景。如果设置为blank-translucent，则状态栏显示为黑色半透明。如果设置为default或blank，则页面显示在状态栏的下方，即状态栏占据上方部分，页面占据下方部分，二者没有遮挡对方或被遮挡。如果设置为blank-translucent，则页面会充满屏幕，其中页面顶部会被状态栏遮盖住（会覆盖页面20px高度，而iphone4和itouch4的Retina屏幕为40px）。默认值是default。</p>
+<p><strong>22、设置缓存</strong></p>
+<meta http-equiv="Cache-Control" content="no-cache">
+
+<p>手机页面通常在第一次加载后会进行缓存，然后每次刷新会使用缓存而不是去重新向服务器发送请求。如果不希望使用缓存可以设置no-cache。</p>
+<p><strong>23、桌面图标</strong></p>
+<p><link rel="apple-touch-icon" href="touch-icon-iphone.png"></p>
+<p><link rel="apple-touch-icon" sizes="76x76" href="touch-icon-ipad.png"></p>
+<p><link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png"></p>
+<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png">
+
+<p>iOS下针对不同设备定义不同的桌面图标。如果不定义则以当前屏幕截图作为图标。</p>
+<p>上面的写法可能大家会觉得会有默认光泽，下面这种设置方法可以去掉光泽效果，还原设计图的效果！</p>
+   <link rel="apple-touch-icon-precomposed" href="touch-icon-iphone.png">
+
+<p>图片尺寸可以设定为5757（px）或者Retina可以定为114114（px），ipad尺寸为72*72（px)</p>
+<p><strong>24、启动画面</strong></p>
+<link rel="apple-touch-startup-image" href="start.png">
+
+<p>iOS下页面启动加载时显示的画面图片，避免加载时的白屏。</p>
+<p>可以通过madia来指定不同的大小：</p>
+<!--iPhone-->
+<p><link href="apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image"><br><!-- iPhone Retina --></p>
+<p><link href="apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image"><br><!-- iPhone 5--></p>
+<p><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="apple-touch-startup-image-640x1096.png"><br><!-- iPad portrait--></p>
+<p><link href="apple-touch-startup-image-768x1004.png" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image"><br><!-- iPad landscape--></p>
+<p><link href="apple-touch-startup-image-748x1024.png" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image"><br><!-- iPad Retina portrait--></p>
+<p><link href="apple-touch-startup-image-1536x2008.png" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image"><br><!-- iPad Retina landscape--></p>
+<link href="apple-touch-startup-image-1496x2048.png" media="(device-width: 1536px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+<p><strong>25、浏览器私有及其它meta</strong></p>
+<p>以下属性在项目中没有应用过，可以写一个demo测试以下！</p>
+<p>QQ浏览器私有</p>
+<p>全屏模式</p>
+<meta name="x5-fullscreen" content="true">
+
+<p>强制竖屏</p>
+<meta name="x5-orientation" content="portrait">
+
+<p>强制横屏</p>
+<meta name="x5-orientation" content="landscape">
+
+<p>应用模式</p>
+<meta name="x5-page-mode" content="app">
+
+<p>UC浏览器私有</p>
+<p>全屏模式</p>
+<meta name="full-screen" content="yes">
+
+<p>强制竖屏</p>
+<meta name="screen-orientation" content="portrait">
+
+<p>强制横屏</p>
+<meta name="screen-orientation" content="landscape">
+
+<p>应用模式</p>
+<meta name="browsermode" content="application">
+
+<p>其它</p>
+<p>针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓</p>
+<meta name="HandheldFriendly" content="true">
+
+<p>微软的老式浏览器</p>
+<meta name="MobileOptimized" content="320">
+
+<p>windows phone 点击无高光</p>
+<meta name="msapplication-tap-highlight" content="no">
+
+<p><strong>26、 IOS中input键盘事件keyup、keydown、keypress支持不是很好</strong></p>
+<p>问题是这样的，用input search做模糊搜索的时候，在键盘里面输入关键词，会通过ajax后台查询，然后返回数据，然后再对返回的数据进行关键词标红。用input监听键盘keyup事件，在安卓手机浏览器中是可以的，但是在ios手机浏览器中变红很慢，用输入法输入之后，并未立刻相应keyup事件，只有在通过删除之后才能相应！</p>
+<p>解决办法：</p>
+<p>可以用html5的oninput事件去代替keyup<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot;id=&quot;testInput&quot;&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">  document.getElementById(&apos;testInput&apos;).addEventListener(&apos;input&apos;,function(e)&#123;</div><div class="line">​    varvalue = e.target.value;</div><div class="line">  &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>然后就达到类似keyup的效果！</p>
+<p><strong>27、h5网站input 设置为type=number的问题</strong></p>
+<p>h5网页input 的type设置为number一般会产生三个问题，一个问题是maxlength属性不好用了。另外一个是form提交的时候，默认给取整了。三是部分安卓手机出现样式问题。</p>
+<p>问题一解决，我目前用的是js。如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;number&quot;oninput=&quot;checkTextLength(this ,10)&quot;&gt;</div><div class="line">function checkTextLength(obj, length) &#123;  </div><div class="line">      if(obj.value.length &gt; length)  &#123;     </div><div class="line">        obj.value = obj.value.substr(0, length);  </div><div class="line">      &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>问题二，是因为form提交默认做了表单验证，step默认是1,要设置step属性，假如保留2位小数，写法如下：</p>
+<input type="number" step="0.01">
+
+<p>关于step，我在这里做简单的介绍，input 中type=number，一般会自动生成一个上下箭头，点击上箭头默认增加一个step，点击下箭头默认会减少一个step。number中默认step是1。也就是step=0.01,可以允许输入2位小数，并且点击上下箭头分别增加0.01和减少0.01。</p>
+<p>假如step和min一起使用，那么数值必须在min和max之间。</p>
+<p>看下面的例子：</p>
+<input type="number" step="3.1" min="1">
+
+<p>输入框可以输入哪些数字？</p>
+<p>首先，最小值是1，那么可以输入1.0，第二个是可以输入（1+3.1）那就是4.1,以此类推，每次点击上下箭头都会增加或者减少3.1，输入其他数字无效。这就是step的简单介绍。</p>
+<p>问题三，去除input默认样式</p>
+<p>input[type=number] {<br>  -moz-appearance:textfield;<br>}<br>input[type=number]::-webkit-inner-spin-button,<br>input[type=number]::-webkit-outer-spin-button {<br>  -webkit-appearance:none;<br>  margin:0;<br>}</p>
+<p><strong>28、ios 设置input 按钮样式会被默认样式覆盖</strong></p>
+<p>解决方式如下：</p>
+<p>input,<br>textarea {<br>  border: 0;<br>  -webkit-appearance: none;<br>}</p>
+<p>设置默认样式为none</p>
+<p><strong>29、IOS键盘字母输入，默认首字母大写</strong></p>
+<p>解决方案，设置如下属性</p>
+<input type="text" autocapitalize="off">
+
+<p><strong>30、select 下拉选择设置右对齐</strong></p>
+<p>设置如下：</p>
+<p>select option {<br>​       direction: rtl;<br>}</p>
+<p><strong>31、通过transform进行skew变形，rotate旋转会造成出现锯齿现象</strong></p>
+<p>可以设置如下：</p>
+<p>-webkit-transform: rotate(-4deg) skew(10deg) translateZ(0);<br> transform: rotate(-4deg) skew(10deg) translateZ(0);<br> outline: 1px solid rgba(255,255,255,0)</p>
+<p><strong>32、移动端点击300ms延迟</strong></p>
+<p>300ms尚可接受，不过因为300ms产生的问题，我们必须要解决。300ms导致用户体验并不是很好，解决这个问题，我们一般在移动端用tap事件来取代click事件。</p>
+<p>推荐两个js，一个是fastclick，一个是tap.js</p>
+<p>关于300ms延迟，具体请看：<a href="http://thx.github.io/mobile/300ms-click-delay/" target="_blank" rel="external">http://thx.github.io/mobile/300ms-click-delay/</a></p>
+<p><strong>33、移动端点透问题</strong></p>
+<p>案例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;haorooms&quot;&gt;点头事件测试&lt;/div&gt;</div><div class="line">&lt;a href=&quot;www.baidu.net&quot;&gt;www.baidu.com&lt;/a&gt;</div></pre></td></tr></table></figure></p>
+<p>div是绝对定位的蒙层,并且z-index高于a。而a标签是页面中的一个链接，我们给div绑定tap事件：</p>
+<p>$(‘#haorooms’).on(‘tap’,function(){<br>​    $(‘#haorooms’).hide();<br>});</p>
+<p>我们点击蒙层时 div正常消失，但是当我们在a标签上点击蒙层时，发现a链接被触发，这就是所谓的点透事件。</p>
+<p>原因：</p>
+<p>touchstart 早于 touchend 早于click。 亦即click的触发是有延迟的，这个时间大概在300ms左右，也就是说我们tap触发之后蒙层隐藏， 此时 click还没有触发，300ms之后由于蒙层隐藏，我们的click触发到了下面的a链接上。<br>解决：</p>
+<p>（1）尽量都使用touch事件来替换click事件。例如用touchend事件(推荐)。<br>（2）用fastclick，<a href="https://github.com/ftlabs/fastclick" target="_blank" rel="external">https://github.com/ftlabs/fastclick</a><br>（3）用preventDefault阻止a标签的click<br>（4）延迟一定的时间(300ms+)来处理事件 （不推荐）<br>（5）以上一般都能解决，实在不行就换成click事件。<br>下面介绍一下touchend事件，如下：</p>
+<p>$(“#haorooms”).on(“touchend”,function(event) {<br>   event.preventDefault();<br> });</p>
+<p><strong>34、消除 IE10 里面的那个叉号</strong></p>
+<p>input:-ms-clear{display:none;}</p>
+<p><strong>35、关于 iOS 与 OS X 端字体的优化(横竖屏会出现字体加粗不一致等)</strong></p>
+<p>iOS 浏览器横屏时会重置字体大小，设置 text-size-adjust 为 none 可以解决 iOS 上的问题，但桌面版 Safari 的字体缩放功能会失效，因此最佳方案是将 text-size-adjust 为 100% 。</p>
+<p>-webkit-text-size-adjust:100%;<br>-ms-text-size-adjust:100%;<br>text-size-adjust:100%;</p>
+<p><strong>36、关于 iOS 系统中，中文输入法输入英文时，字母之间可能会出现一个六分之一空格</strong></p>
+<p>可以通过正则去掉</p>
+<p>this.value = this.value.replace(/\u2006/g,’’);</p>
+<p><strong>37、移动端 HTML5 audio autoplay 失效问题</strong></p>
+<p>这个不是 BUG，由于自动播放网页中的音频或视频，会给用户带来一些困扰或者不必要的流量消耗，所以苹果系统和安卓系统通常都会禁止自动播放和使用 JS 的触发播放，必须由用户来触发才可以播放。</p>
+<p>解决方法思路：先通过用户 touchstart 触碰，触发播放并暂停（音频开始加载，后面用 JS 再操作就没问题了）。</p>
+<p>解决代码：</p>
+<p>document.addEventListener(‘touchstart’,function() {<br>  document.getElementsByTagName(‘audio’)[0].play();<br>  document.getElementsByTagName(‘audio’)[0].pause();<br>});</p>
+<p><strong>38、移动端 HTML5 input date 不支持 placeholder 问题</strong></p>
+<p>这个我感觉没有什么好的解决方案，用如下方法</p>
+<p><a href="">复制代码</a>代码如下:</p>
+<input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" id="date">
+
+<p>有的浏览器可能要点击两遍！</p>
+<p><strong>39、部分机型存在type为search的input，自带close按钮样式修改方法</strong></p>
+<p>有些机型的搜索input控件会自带close按钮（一个伪元素），而通常为了兼容所有浏览器，我们会自己实现一个，此时去掉原生close按钮的方法为</p>
+<p>#Search::-webkit-search-cancel-button{<br>  display:none;<br>}</p>
+<p>如果想使用原生close按钮，又想使其符合设计风格，可以对这个伪元素的样式进行修改。</p>
+<p><strong>40、唤起select的option展开</strong></p>
+<p>zepto方式:</p>
+<p>$(sltElement).trrgger(“mousedown”);</p>
+<p>原生js方式:</p>
+<p>functionshowDropdown(sltElement) {<br>  varevent;<br>  event = document.createEvent(‘MouseEvents’);<br>  event.initMouseEvent(‘mousedown’,true,true, window);<br>  sltElement.dispatchEvent(event);<br>};</p>
+<p>文章转载：<a href="http://www.jb51.net/article/84973.htm" target="_blank" rel="external">http://www.jb51.net/article/84973.htm</a></p>
+</body>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/移动端常见的一些兼容性问题/">移动端常见的一些兼容性问题</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 荣嬷嬷 的个人博客">荣嬷嬷</a></p>
+        <p><span>发布时间:</span>2017年06月14日 - 18时04分</p>
+        <p><span>最后更新:</span>2017年06月14日 - 18时06分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/移动端常见的一些兼容性问题/" title="移动端常见的一些兼容性问题">http://loeuy.cn/移动端常见的一些兼容性问题/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://loeuy.cn/移动端常见的一些兼容性问题/　　作者: 荣嬷嬷" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/ES6函数新增的特性/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6函数新增的特性</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'cyt3Oo2AJ',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/ES6函数新增的特性/" title="下一篇: ES6函数新增的特性">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/移动端常见的一些兼容性问题/">移动端常见的一些兼容性问题</a></li><li class="post-list-item"><a class="post-list-link" href="/ES6函数新增的特性/">ES6函数新增的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/ES6块级作用域/">ES6块级作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/Flex布局/">Flex布局</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 荣嬷嬷
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 4;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?c774939d26e4c1c2c8cad5e33c5a80ff";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
