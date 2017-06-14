@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://loeuy.cn/"/>
-  <updated>2017-06-14T06:11:00.848Z</updated>
+  <updated>2017-06-14T06:14:11.565Z</updated>
   <id>http://loeuy.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://loeuy.cn/ES6%E5%87%BD%E6%95%B0%E6%96%B0%E5%A2%9E%E7%9A%84%E7%89%B9%E6%80%A7/"/>
     <id>http://loeuy.cn/ES6函数新增的特性/</id>
     <published>2017-06-14T06:09:53.000Z</published>
-    <updated>2017-06-14T06:11:00.848Z</updated>
+    <updated>2017-06-14T06:14:11.565Z</updated>
     
     <content type="html"><![CDATA[<h1 id="函数新增特性"><a href="#函数新增特性" class="headerlink" title="函数新增特性"></a>函数新增特性</h1><h2 id="带默认参数的函数"><a href="#带默认参数的函数" class="headerlink" title="带默认参数的函数"></a>带默认参数的函数</h2><blockquote>
 <p>JavaScript函数的最大的一个特点就是在传递参数的时候，参数的个数不受限制的。为了健壮性考虑，一般在函数内部需要做一些默认值的处理。</p>
@@ -31,6 +31,7 @@
 <p>ES6从语言层面面上增加了 <strong>默认值的</strong> 支持。看下面的代码：</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这个函数如果只传入第一个参数，后面两个不传入，则会使用默认值。如果后面两个也传入了参数，则不会使用默认值。</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeRequest</span>(<span class="params">url, timeout = <span class="number">2000</span>, callback = function(</span>) </span>&#123;&#125;) &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 其余代码</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="默认参数对-arguments-对象的影响"><a href="#默认参数对-arguments-对象的影响" class="headerlink" title="默认参数对 arguments 对象的影响"></a>默认参数对 arguments 对象的影响</h2><blockquote>
 <p>在非严格模式下，arguments总是能反映出命名参数的变化。看下面的代码：</p>
 </blockquote>
@@ -162,7 +163,15 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;函数新增特性&quot;&gt;&lt;a href=&quot;#函数新增特性&quot; class=&quot;headerlink&quot; title=&quot;函数新增特性&quot;&gt;&lt;/a&gt;函数新增特性&lt;/h1&gt;&lt;h2 id=&quot;带默认参数的函数&quot;&gt;&lt;a href=&quot;#带默认参数的函数&quot; class=&quot;headerlink&quot; 
+      &lt;h1 id=&quot;函数新增特性&quot;&gt;&lt;a href=&quot;#函数新增特性&quot; class=&quot;headerlink&quot; title=&quot;函数新增特性&quot;&gt;&lt;/a&gt;函数新增特性&lt;/h1&gt;&lt;h2 id=&quot;带默认参数的函数&quot;&gt;&lt;a href=&quot;#带默认参数的函数&quot; class=&quot;headerlink&quot; title=&quot;带默认参数的函数&quot;&gt;&lt;/a&gt;带默认参数的函数&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;JavaScript函数的最大的一个特点就是在传递参数的时候，参数的个数不受限制的。为了健壮性考虑，一般在函数内部需要做一些默认值的处理。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;makeRequest&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;url, timeout, callback&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    timeout = timeout || &lt;span class=&quot;number&quot;&gt;2000&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    callback = callback || &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;其实上面的默认值方法有个bug：当timeout是0的时候也会当做假值来处理，从而给赋值默认值2000.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ES6从语言层面面上增加了 &lt;strong&gt;默认值的&lt;/strong&gt; 支持。看下面的代码：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//这个函数如果只传入第一个参数，后面两个不传入，则会使用默认值。如果后面两个也传入了参数，则不会使用默认值。&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;makeRequest&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;url, timeout = &lt;span class=&quot;number&quot;&gt;2000&lt;/span&gt;, callback = function(&lt;/span&gt;) &lt;/span&gt;&amp;#123;&amp;#125;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 其余代码&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -176,7 +185,7 @@
     <link href="http://loeuy.cn/ES6%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
     <id>http://loeuy.cn/ES6块级作用域/</id>
     <published>2017-06-14T05:51:45.000Z</published>
-    <updated>2017-06-14T05:55:00.190Z</updated>
+    <updated>2017-06-14T06:14:22.795Z</updated>
     
     <content type="html"><![CDATA[<h2 id="块级作用域绑定"><a href="#块级作用域绑定" class="headerlink" title="块级作用域绑定"></a>块级作用域绑定</h2><blockquote>
 <p>在ES5之前，不存在块级作用域，在编程的时候很多时候会带来很多的不便，ES6新增了块级作用域，补足了这方面的缺陷。</p>
@@ -187,6 +196,7 @@
 <li>在代码块（即 {  }）内部</li>
 </ul>
 <p>块级作用域是很多类C语言的工作机制，ECMAScript 6 引入块级声明的目的是增强 JavaScript 的灵活性，同时又能与其它编程语言保持一致。</p>
+<a id="more"></a>
 <h2 id="let声明"><a href="#let声明" class="headerlink" title="let声明"></a>let声明</h2><blockquote>
 <p>使用let声明变量的语法和使用var声明的语法是一样的。<strong>但是let声明的变量的作用域会限制在当前的代码块中。这是let与var的最大区别</strong>。</p>
 </blockquote>
@@ -237,7 +247,14 @@
     <summary type="html">
     
       &lt;h2 id=&quot;块级作用域绑定&quot;&gt;&lt;a href=&quot;#块级作用域绑定&quot; class=&quot;headerlink&quot; title=&quot;块级作用域绑定&quot;&gt;&lt;/a&gt;块级作用域绑定&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;在ES5之前，不存在块级作用域，在编程的时候很多时候会带来很多的不便，ES
+&lt;p&gt;在ES5之前，不存在块级作用域，在编程的时候很多时候会带来很多的不便，ES6新增了块级作用域，补足了这方面的缺陷。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;块级声明指的是该声明的变量无法被代码块外部访问。块作用域，又被称为词法作用域（lexical scopes），可以在如下的条件下创建：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;函数内部&lt;/li&gt;
+&lt;li&gt;在代码块（即 {  }）内部&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;块级作用域是很多类C语言的工作机制，ECMAScript 6 引入块级声明的目的是增强 JavaScript 的灵活性，同时又能与其它编程语言保持一致。&lt;/p&gt;
     
     </summary>
     
@@ -251,9 +268,12 @@
     <link href="http://loeuy.cn/Flex%E5%B8%83%E5%B1%80/"/>
     <id>http://loeuy.cn/Flex布局/</id>
     <published>2017-06-05T09:07:50.000Z</published>
-    <updated>2017-06-13T09:03:57.742Z</updated>
+    <updated>2017-06-14T06:16:11.635Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="定义容器的display属性"><a href="#定义容器的display属性" class="headerlink" title="定义容器的display属性"></a>定义容器的display属性</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  	<span class="attribute">display</span>: -webkit-flex;</div><div class="line">  	<span class="attribute">dispaly</span>: flex;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*行内样式*/</span></div><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  	<span class="attribute">display</span>: -webkit-inline-flex;</div><div class="line">  	<span class="attribute">display</span>: inline-flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<h2 id="Flex布局是什么？"><a href="#Flex布局是什么？" class="headerlink" title="Flex布局是什么？"></a>Flex布局是什么？</h2><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</p>
+<p>任何一个容器都可以指定为 Flex 布局。</p>
+<a id="more"></a>
+<h3 id="定义容器的display属性"><a href="#定义容器的display属性" class="headerlink" title="定义容器的display属性"></a>定义容器的display属性</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  	<span class="attribute">display</span>: -webkit-flex;</div><div class="line">  	<span class="attribute">dispaly</span>: flex;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*行内样式*/</span></div><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  	<span class="attribute">display</span>: -webkit-inline-flex;</div><div class="line">  	<span class="attribute">display</span>: inline-flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="容器样式"><a href="#容器样式" class="headerlink" title="容器样式"></a>容器样式</h3><p><strong>主轴方向（flex-direction）</strong></p>
 <table>
 <thead>
@@ -412,7 +432,8 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;定义容器的display属性&quot;&gt;&lt;a href=&quot;#定义容器的display属性&quot; class=&quot;headerlink&quot; title=&quot;定义容器的display属性&quot;&gt;&lt;/a&gt;定义容器的display属性&lt;/h3&gt;&lt;figure class=&quot;highlight 
+      &lt;h2 id=&quot;Flex布局是什么？&quot;&gt;&lt;a href=&quot;#Flex布局是什么？&quot; class=&quot;headerlink&quot; title=&quot;Flex布局是什么？&quot;&gt;&lt;/a&gt;Flex布局是什么？&lt;/h2&gt;&lt;p&gt;Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。&lt;/p&gt;
+&lt;p&gt;任何一个容器都可以指定为 Flex 布局。&lt;/p&gt;
     
     </summary>
     
