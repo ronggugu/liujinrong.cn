@@ -7,17 +7,19 @@
   
   
   
-  <title>King&#39;s blog</title>
+  <title>ES6函数新增的特性 | King&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="start from zero">
-<meta property="og:type" content="website">
-<meta property="og:title" content="King&#39;s blog">
-<meta property="og:url" content="http://loeuy.cn/index.html">
+  <meta name="description" content="函数新增特性带默认参数的函数 JavaScript函数的最大的一个特点就是在传递参数的时候，参数的个数不受限制的。为了健壮性考虑，一般在函数内部需要做一些默认值的处理。  1234function makeRequest(url, timeout, callback) &amp;#123;    timeout = timeout || 2000;    callback = callback || fu">
+<meta name="keywords" content="ES6 JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6函数新增的特性">
+<meta property="og:url" content="http://loeuy.cn/ES6函数新增的特性/index.html">
 <meta property="og:site_name" content="King&#39;s blog">
-<meta property="og:description" content="start from zero">
+<meta property="og:description" content="函数新增特性带默认参数的函数 JavaScript函数的最大的一个特点就是在传递参数的时候，参数的个数不受限制的。为了健壮性考虑，一般在函数内部需要做一些默认值的处理。  1234function makeRequest(url, timeout, callback) &amp;#123;    timeout = timeout || 2000;    callback = callback || fu">
+<meta property="og:updated_time" content="2017-06-14T06:11:00.848Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="King&#39;s blog">
-<meta name="twitter:description" content="start from zero">
+<meta name="twitter:title" content="ES6函数新增的特性">
+<meta name="twitter:description" content="函数新增特性带默认参数的函数 JavaScript函数的最大的一个特点就是在传递参数的时候，参数的个数不受限制的。为了健壮性考虑，一般在函数内部需要做一些默认值的处理。  1234function makeRequest(url, timeout, callback) &amp;#123;    timeout = timeout || 2000;    callback = callback || fu">
   
     <link rel="alternative" href="/atom.xml" title="King&#39;s blog" type="application/atom+xml">
   
@@ -31,9 +33,6 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
-    
-    
-  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -44,8 +43,8 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: true,
-          isPost: false,
+          isHome: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -277,9 +276,7 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-ES6函数新增的特性" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ES6函数新增的特性" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a  href="/ES6函数新增的特性/" class="article-date">
@@ -296,13 +293,24 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a  class="article-title" href="/ES6函数新增的特性/">ES6函数新增的特性</a>
+    <h1 class="article-title" itemprop="name">
+      ES6函数新增的特性
     </h1>
   
 
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6-JavaScript/">ES6 JavaScript</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -448,366 +456,149 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6-JavaScript/">ES6 JavaScript</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/ES6函数新增的特性/">ES6函数新增的特性</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 荣嬷嬷 的个人博客">荣嬷嬷</a></p>
+        <p><span>发布时间:</span>2017年06月14日 - 14时09分</p>
+        <p><span>最后更新:</span>2017年06月14日 - 14时11分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/ES6函数新增的特性/" title="ES6函数新增的特性">http://loeuy.cn/ES6函数新增的特性/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://loeuy.cn/ES6函数新增的特性/　　作者: 荣嬷嬷" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/ES6块级作用域/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6块级作用域</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
   
 </article>
 
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数新增特性"><span class="toc-number">1.</span> <span class="toc-text">函数新增特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#带默认参数的函数"><span class="toc-number">1.1.</span> <span class="toc-text">带默认参数的函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#默认参数对-arguments-对象的影响"><span class="toc-number">1.2.</span> <span class="toc-text">默认参数对 arguments 对象的影响</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#默认参数表达式-Default-Parameter-Expressions"><span class="toc-number">1.3.</span> <span class="toc-text">默认参数表达式 (Default Parameter Expressions)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#未命名参数问题"><span class="toc-number">1.4.</span> <span class="toc-text">未命名参数问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数中的扩展运算符"><span class="toc-number">1.5.</span> <span class="toc-text">函数中的扩展运算符</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#全新的函数：箭头函数（-gt-）"><span class="toc-number">2.</span> <span class="toc-text">全新的函数：箭头函数（=>）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#箭头函数语法"><span class="toc-number">2.1.</span> <span class="toc-text">箭头函数语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用箭头函数实现函数自执行"><span class="toc-number">2.2.</span> <span class="toc-text">使用箭头函数实现函数自执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#箭头函数中无this绑定-No-this-Binding"><span class="toc-number">2.3.</span> <span class="toc-text">箭头函数中无this绑定(No this Binding)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无arguments绑定"><span class="toc-number">2.4.</span> <span class="toc-text">无arguments绑定</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
 
 
 
 
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
 
 
 
-
-
-  
-    <article id="post-ES6块级作用域" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/ES6块级作用域/" class="article-date">
-      <time datetime="2017-06-14T05:51:45.000Z" itemprop="datePublished">2017-06-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'cyt3Oo2AJ',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
     
-    
-      <header class="article-header">
+
+
+
+    <div class="scroll" id="post-nav-button">
         
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/ES6块级作用域/">ES6块级作用域</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="块级作用域绑定"><a href="#块级作用域绑定" class="headerlink" title="块级作用域绑定"></a>块级作用域绑定</h2><blockquote>
-<p>在ES5之前，不存在块级作用域，在编程的时候很多时候会带来很多的不便，ES6新增了块级作用域，补足了这方面的缺陷。</p>
-</blockquote>
-<p>块级声明指的是该声明的变量无法被代码块外部访问。块作用域，又被称为词法作用域（lexical scopes），可以在如下的条件下创建：</p>
-<ul>
-<li>函数内部</li>
-<li>在代码块（即 {  }）内部</li>
-</ul>
-<p>块级作用域是很多类C语言的工作机制，ECMAScript 6 引入块级声明的目的是增强 JavaScript 的灵活性，同时又能与其它编程语言保持一致。</p>
-<h2 id="let声明"><a href="#let声明" class="headerlink" title="let声明"></a>let声明</h2><blockquote>
-<p>使用let声明变量的语法和使用var声明的语法是一样的。<strong>但是let声明的变量的作用域会限制在当前的代码块中。这是let与var的最大区别</strong>。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">let</span> a = <span class="number">10</span>;</div><div class="line">    <span class="keyword">if</span>(a &gt; <span class="number">5</span>)&#123;</div><div class="line">        <span class="built_in">console</span>.log(b); <span class="comment">//用let声明的变量没有声明提前这一特性，所以此处也访问不到（报错）</span></div><div class="line">        <span class="keyword">let</span> b = <span class="number">20</span>;</div><div class="line">        <span class="built_in">console</span>.log(b);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(b); <span class="comment">//由于b是在if块中使用let声明的，所以此处无法访问到。（报错）</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：</p>
-</blockquote>
-<ol>
-<li>用 let 声明的变量具有块级作用域，只能在声明的块中访问，在块外面无法访问</li>
-<li>用let声明的变量也没有声明提前这一特性。</li>
-<li>在同一个块中，let声明的变量也不能重复声明。</li>
-<li>在声明变量的时候尽量使用let，慢慢的抛弃var</li>
-</ol>
-<h2 id="const声明-Constant-Declarations"><a href="#const声明-Constant-Declarations" class="headerlink" title="const声明(Constant Declarations)"></a>const声明(Constant Declarations)</h2><blockquote>
-<p>在  ES6 使用const来声明的变量称之为常量。这意味着它们不能再次被赋值。由于这个原因，所有的 const 声明的变量都必须在声明处初始化。const声明的常量和let变量一样也是具有块级作用域的特性。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">20</span>;</div><div class="line">    <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">        <span class="keyword">const</span> b = <span class="number">20</span>;</div><div class="line">        b = <span class="number">30</span>;  <span class="comment">//错误! 常量不能重新赋值</span></div><div class="line">        <span class="keyword">const</span> c; <span class="comment">//错误！ 常量声明的同时必须赋值。</span></div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：</p>
-</blockquote>
-<ol>
-<li>const的特性除了声明的是常量为，其他与let一样。</li>
-<li>在let和const声明前的这段区域称之为暂存性死区（<strong>The Temporal Dead Zone</strong> —TDZ)。</li>
-<li>使用let和const声明的变量和常量不再是window的属性。  也就是说通过window.a是无法访问到的。</li>
-</ol>
-<h2 id="循环中的块级绑定"><a href="#循环中的块级绑定" class="headerlink" title="循环中的块级绑定"></a>循环中的块级绑定</h2><blockquote>
-<p>使用var声明的循环变量在循环结束后仍然可以访问到。   使用let声明的循环变量，在循环结束之后会立即销毁。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)&#123; <span class="comment">// 循环结束之后会立即销毁 i</span></div><div class="line">        <span class="built_in">console</span>.log(i);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(i);  <span class="comment">//此处无法访问到 i 。</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="循环中的函数"><a href="#循环中的函数" class="headerlink" title="循环中的函数"></a>循环中的函数</h2><blockquote>
-<p>看下面的代码，是输出10个10，而不是0，1，2，…</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> funcs = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">        funcs.push(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(i);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    funcs.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">func</span>) </span>&#123;</div><div class="line">        func();     <span class="comment">// 输出 "10" 共10次</span></div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>解决办法需要使用函数的自执行特性。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> funcs = [];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">    funcs.push((<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(value);</div><div class="line">        &#125;</div><div class="line">    &#125;(i)));</div><div class="line">&#125;</div><div class="line">funcs.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">func</span>) </span>&#123;</div><div class="line">    func();     <span class="comment">// 输出 0，1，2 ... 9</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p><strong>如果使用let声明变量，则完全可以避免前面的问题。 这是ES6规范中专门定义的特性。在for … in和for … of循环中也适用</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> funcs = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">        funcs.push(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(i);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    funcs.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">func</span>) </span>&#123;</div><div class="line">        func();     <span class="comment">// 输出 0，1，2 ... 9</span></div><div class="line">    &#125;)</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>说明：</p>
-</blockquote>
-<ol>
-<li>let 声明使得每次迭代都会创建一个变量 i，所以循环内部创建的函数会获得各自的变量 i 的拷贝。每份拷贝都会在每次迭代的开始被创建并被赋值。</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-ES6/">JavaScript,ES6</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Flex布局" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/Flex布局/" class="article-date">
-      <time datetime="2017-06-05T09:07:50.000Z" itemprop="datePublished">2017-06-05</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/Flex布局/">Flex布局</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h3 id="定义容器的display属性"><a href="#定义容器的display属性" class="headerlink" title="定义容器的display属性"></a>定义容器的display属性</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  	<span class="attribute">display</span>: -webkit-flex;</div><div class="line">  	<span class="attribute">dispaly</span>: flex;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*行内样式*/</span></div><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  	<span class="attribute">display</span>: -webkit-inline-flex;</div><div class="line">  	<span class="attribute">display</span>: inline-flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="容器样式"><a href="#容器样式" class="headerlink" title="容器样式"></a>容器样式</h3><p><strong>主轴方向（flex-direction）</strong></p>
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>属性的含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>row</td>
-<td>左到右（默认）</td>
-</tr>
-<tr>
-<td>row-reverse</td>
-<td>右到左</td>
-</tr>
-<tr>
-<td>column</td>
-<td>上到下</td>
-</tr>
-<tr>
-<td>column-reverse</td>
-<td>下到上</td>
-</tr>
-</tbody>
-</table>
-<p><strong>换行（flex-wrap）</strong></p>
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>属性的含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>nowrap</td>
-<td>不换行（默认）</td>
-</tr>
-<tr>
-<td>wrap</td>
-<td>换行</td>
-</tr>
-<tr>
-<td>wrap-reverse</td>
-<td>换行并第一行在下方</td>
-</tr>
-</tbody>
-</table>
-<p><strong>主轴方向和换行简写</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flew-flow:&lt;flex-direction&gt;||&lt;flex-wrap&gt;</div></pre></td></tr></table></figure>
-<p><strong>主轴对齐方式（justify-content）</strong></p>
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>属性的含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>flex-start</td>
-<td>左对齐（默认）</td>
-</tr>
-<tr>
-<td>flex-end</td>
-<td>右对齐</td>
-</tr>
-<tr>
-<td>center</td>
-<td>居中对齐</td>
-</tr>
-<tr>
-<td>space-between</td>
-<td>两端对齐</td>
-</tr>
-<tr>
-<td>space-around</td>
-<td>平均分布</td>
-</tr>
-</tbody>
-</table>
-<p><strong>交叉轴对齐方式（align-items）</strong></p>
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>属性的含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>flex-start</td>
-<td>顶部对齐</td>
-</tr>
-<tr>
-<td>flex-end</td>
-<td>底部对齐</td>
-</tr>
-<tr>
-<td>center</td>
-<td>居中对齐</td>
-</tr>
-<tr>
-<td>baseline</td>
-<td>文本基线对齐</td>
-</tr>
-<tr>
-<td>stretch</td>
-<td>如果项目未设置高度或设为auto，将占满整个容器的高度。（默认）</td>
-</tr>
-</tbody>
-</table>
-<h3 id="子元素属性"><a href="#子元素属性" class="headerlink" title="子元素属性"></a>子元素属性</h3><p><strong>排序（order：<number>）</number></strong>：排序，数值越小，越排前，默认为0</p>
-<p><strong>放大（flex-grow: <number>）</number></strong>：放大：默认0（即如果有剩余空间也不放大，值为1则放大，2是1的双倍大小，以此类推）</p>
-<p><strong>缩小（flex-shrink:<number>）</number></strong>：缩小：如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。负值对该属性无效。</p>
-<p><strong>固定大小（flex-basis:<length> | auto）</length></strong>:固定大小：默认为0，可以设置px值，也可以设置百分比大小</p>
-<p><strong>flex:none | [ &lt;’flex-grow’&gt; &lt;’flex-shrink’&gt;? || &lt;’flex-basis’&gt; ]</strong>：flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。</p>
-<p><strong>单独对齐方式（align-self）</strong></p>
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>auto</td>
-<td>自动（默认）</td>
-</tr>
-<tr>
-<td>flex-start</td>
-<td>顶部对齐</td>
-</tr>
-<tr>
-<td>flex-end</td>
-<td>底部对齐</td>
-</tr>
-<tr>
-<td>center</td>
-<td>居中对齐</td>
-</tr>
-<tr>
-<td>baseline</td>
-<td>文本基线对齐</td>
-</tr>
-<tr>
-<td>stretch</td>
-<td>上下对齐并铺满</td>
-</tr>
-</tbody>
-</table>
-
-      
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/ES6块级作用域/" title="下一篇: ES6块级作用域">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/ES6函数新增的特性/">ES6函数新增的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/ES6块级作用域/">ES6块级作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/Flex布局/">Flex布局</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
 
 
 
 
-
-  
-  
+    <script>
+        
+    </script>
 
 </div>
       <footer id="footer">
