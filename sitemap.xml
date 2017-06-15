@@ -2,7 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://loeuy.cn/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%B8%E8%A7%81%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/</loc>
+    <loc>http://loeuy.cn/js_comfn.html</loc>
+    
+    <lastmod>2017-06-15T03:11:29.808Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://loeuy.cn/mob_com.html</loc>
     
     <lastmod>2017-06-14T10:38:03.023Z</lastmod>
     
@@ -23,21 +30,21 @@
   </url>
   
   <url>
-    <loc>http://loeuy.cn/Flex%E5%B8%83%E5%B1%80/</loc>
+    <loc>http://loeuy.cn/Flex_layout.html</loc>
     
     <lastmod>2017-06-14T06:22:05.065Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://loeuy.cn/ES6%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F/</loc>
+    <loc>http://loeuy.cn/ES6_let.html</loc>
     
     <lastmod>2017-06-14T06:21:56.114Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://loeuy.cn/ES6%E5%87%BD%E6%95%B0%E6%96%B0%E5%A2%9E%E7%9A%84%E7%89%B9%E6%80%A7/</loc>
+    <loc>http://loeuy.cn/ES6_comfn.html</loc>
     
     <lastmod>2017-06-14T06:21:47.481Z</lastmod>
     

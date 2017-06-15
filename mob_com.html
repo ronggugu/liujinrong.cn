@@ -13,7 +13,7 @@
 <meta name="keywords" content="移动端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端常见的一些兼容性问题">
-<meta property="og:url" content="http://loeuy.cn/移动端常见的一些兼容性问题/index.html">
+<meta property="og:url" content="http://loeuy.cn/mob_com.html">
 <meta property="og:site_name" content="一人一马一江湖">
 <meta property="og:description" content="随着手机的普及，移动端的开发也成了一个重要的方向，但由于设备的不统一会造成一些兼容性问题， 1、安卓浏览器看背景图片，有些设备会模糊。用同等比例的图片在PC机上很清楚，但是手机上很模糊，原因是什么呢？ 经过研究，是devicePixelRatio作怪，因为手机分辨率太小，如果按照分辨率来显示网页，这样字会非常小，所以苹果当初就把iPhone 4的960  640分辨率，在网页里只显示了480  3">
 <meta property="og:updated_time" content="2017-06-14T10:38:03.023Z">
@@ -276,10 +276,10 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-移动端常见的一些兼容性问题" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-mob_com" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/移动端常见的一些兼容性问题/" class="article-date">
+      <a  href="/mob_com.html" class="article-date">
       <time datetime="2017-06-14T10:04:45.000Z" itemprop="datePublished">2017-06-14</time>
 </a>
 
@@ -327,7 +327,7 @@
 <h5 id="2、图片加载"><a href="#2、图片加载" class="headerlink" title="2、图片加载"></a>2、图片加载</h5><p>若您遇到图片加载很慢的问题，对这种情况，手机开发一般用canvas方法加载：</p>
 <p>具体的canvas API 参见：<a href="http://javascript.ruanyifeng.com/htmlapi/canvas.html" target="_blank" rel="external">http://javascript.ruanyifeng.com/htmlapi/canvas.html</a></p>
 <p>下面举例说明一个canvas的例子：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">canvas</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">//js动态加载图片和li 总共举例17张图片！</div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="xml"></span></div><div class="line">var total=17; </div><div class="line">var zWin=$(window); </div><div class="line">varrender=function()&#123;</div><div class="line">  var padding=2; </div><div class="line">  var winWidth=zWin.width(); </div><div class="line">  var picWidth=Math.floor((winWidth-padding*3)/4); </div><div class="line">  var tmpl ='';</div><div class="line">  for(var i=1;i<span class="tag">&lt;<span class="name">=totla;i++)&#123;</span> </span></div><div class="line">     <span class="attr">var</span> <span class="attr">p</span>=<span class="string">padding;</span> </div><div class="line">     <span class="attr">var</span> <span class="attr">imgSrc</span>=<span class="string">'img/'</span>+<span class="attr">i</span>+'<span class="attr">.jpg</span>';</div><div class="line">     <span class="attr">if</span>(<span class="attr">i</span>%<span class="attr">4</span>==<span class="string">1)&#123;</span></div><div class="line">        <span class="attr">p</span>=<span class="string">0;</span></div><div class="line">     &#125;</div><div class="line">  <span class="attr">tmpl</span> +=<span class="string">'&lt;li style="width:'</span>+<span class="attr">picWidth</span>+'<span class="attr">px</span>;<span class="attr">height:</span>'+<span class="attr">picWidth</span>+'<span class="attr">px</span>;<span class="attr">padding-left:</span>'+<span class="attr">p</span>+'<span class="attr">px</span>;<span class="attr">padding-top:</span>'+<span class="attr">padding</span>+'<span class="attr">px</span>;"&gt;<span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"cvs_'+i+'"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>';</div><div class="line">  var imageObj = newImage(); </div><div class="line">  imageObj.index = i; </div><div class="line">  imageObj.onload = function()&#123;</div><div class="line">    var cvs =$('#cvs_'+this.index)[0].getContext('2d');</div><div class="line">    cvs.width = this.width;</div><div class="line">    cvs.height=this.height;</div><div class="line">    cvs.drawImage(this,0,0);</div><div class="line">  &#125;</div><div class="line">  imageObj.src=imgSrc;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">render();</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">canvas</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">//js动态加载图片和li 总共举例17张图片！</div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">var</span> total=<span class="number">17</span>; </div><div class="line"><span class="keyword">var</span> zWin=$(<span class="built_in">window</span>); </div><div class="line">varrender=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> padding=<span class="number">2</span>; </div><div class="line">  <span class="keyword">var</span> winWidth=zWin.width(); </div><div class="line">  <span class="keyword">var</span> picWidth=<span class="built_in">Math</span>.floor((winWidth-padding*<span class="number">3</span>)/<span class="number">4</span>); </div><div class="line">  <span class="keyword">var</span> tmpl =<span class="string">''</span>;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=totla;i++)&#123; </div><div class="line">     <span class="keyword">var</span> p=padding; </div><div class="line">     <span class="keyword">var</span> imgSrc=<span class="string">'img/'</span>+i+<span class="string">'.jpg'</span>;</div><div class="line">     <span class="keyword">if</span>(i%<span class="number">4</span>==<span class="number">1</span>)&#123;</div><div class="line">        p=<span class="number">0</span>;</div><div class="line">     &#125;</div><div class="line">  tmpl +=<span class="string">'&lt;li style="width:'</span>+picWidth+<span class="string">'px;height:'</span>+picWidth+<span class="string">'px;padding-left:'</span>+p+<span class="string">'px;padding-top:'</span>+padding+<span class="string">'px;"&gt;&lt;canvas id="cvs_'</span>+i+<span class="string">'"&gt;&lt;/canvas&gt;&lt;/li&gt;'</span>;</div><div class="line">  <span class="keyword">var</span> imageObj = newImage(); </div><div class="line">  imageObj.index = i; </div><div class="line">  imageObj.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> cvs =$(<span class="string">'#cvs_'</span>+<span class="keyword">this</span>.index)[<span class="number">0</span>].getContext(<span class="string">'2d'</span>);</div><div class="line">    cvs.width = <span class="keyword">this</span>.width;</div><div class="line">    cvs.height=<span class="keyword">this</span>.height;</div><div class="line">    cvs.drawImage(<span class="keyword">this</span>,<span class="number">0</span>,<span class="number">0</span>);</div><div class="line">  &#125;</div><div class="line">  imageObj.src=imgSrc;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">render();</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 <h5 id="3、假如手机网站不用兼容IE浏览器，一般我们会使用zeptojs"><a href="#3、假如手机网站不用兼容IE浏览器，一般我们会使用zeptojs" class="headerlink" title="3、假如手机网站不用兼容IE浏览器，一般我们会使用zeptojs"></a>3、假如手机网站不用兼容IE浏览器，一般我们会使用zeptojs</h5><p>zeptojs内置Touch events方法，具体可以看<a href="http://zeptojs.com/#Touch" target="_blank" rel="external">http://zeptojs.com/#Touch</a> events</p>
 <p>看了一下zeptio新版的API，已经支持IE10以上浏览器，对zeptojs可以选择使用！</p>
 <h5 id="4、防止手机中网页放大和缩小。"><a href="#4、防止手机中网页放大和缩小。" class="headerlink" title="4、防止手机中网页放大和缩小。"></a>4、防止手机中网页放大和缩小。</h5><p>这点是最基本的，最为手机网站开发者来说应该都知道的，就是设置meta中的viewport</p>
@@ -480,13 +480,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/移动端常见的一些兼容性问题/">移动端常见的一些兼容性问题</a></p>
+        <p><span>本文标题:</span><a  href="/mob_com.html">移动端常见的一些兼容性问题</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 荣嬷嬷 的个人博客">荣嬷嬷</a></p>
         <p><span>发布时间:</span>2017年06月14日 - 18时04分</p>
         <p><span>最后更新:</span>2017年06月14日 - 18时38分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/移动端常见的一些兼容性问题/" title="移动端常见的一些兼容性问题">http://loeuy.cn/移动端常见的一些兼容性问题/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://loeuy.cn/移动端常见的一些兼容性问题/　　作者: 荣嬷嬷" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/mob_com.html" title="移动端常见的一些兼容性问题">http://loeuy.cn/mob_com.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://loeuy.cn/mob_com.html　　作者: 荣嬷嬷" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -498,7 +498,7 @@
 <nav id="article-nav">
   
   
-    <a  href="/ES6函数新增的特性/" id="article-nav-older" class="article-nav-link-wrap">
+    <a  href="/ES6_comfn.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">ES6函数新增的特性</div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -586,12 +586,12 @@
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/ES6函数新增的特性/" title="下一篇: ES6函数新增的特性">
+            <a  href="/ES6_comfn.html" title="下一篇: ES6函数新增的特性">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/移动端常见的一些兼容性问题/">移动端常见的一些兼容性问题</a></li><li class="post-list-item"><a class="post-list-link" href="/ES6函数新增的特性/">ES6函数新增的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/ES6块级作用域/">ES6块级作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/Flex布局/">Flex布局</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/mob_com.html">移动端常见的一些兼容性问题</a></li><li class="post-list-item"><a class="post-list-link" href="/ES6_comfn.html">ES6函数新增的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/ES6_let.html">ES6块级作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/Flex_layout.html">Flex布局</a></li><li class="post-list-item"><a class="post-list-link" href="/js_comfn.html">JavaScript常用函数汇总</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
