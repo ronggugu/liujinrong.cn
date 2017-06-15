@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://loeuy.cn/ES6_comfn.html</loc>
+    
+    <lastmod>2017-06-15T04:36:55.515Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://loeuy.cn/js_comfn.html</loc>
     
     <lastmod>2017-06-15T03:28:05.575Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://loeuy.cn/ES6_let.html</loc>
     
     <lastmod>2017-06-14T06:21:56.114Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://loeuy.cn/ES6_comfn.html</loc>
-    
-    <lastmod>2017-06-14T06:21:47.481Z</lastmod>
     
   </url>
   
