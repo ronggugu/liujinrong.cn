@@ -1,206 +1,322 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>一人一马一江湖</title>
-  <subtitle>愿你可以朝九晚五，又可以浪迹天涯</subtitle>
-  <link href="/atom.xml" rel="self"/>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
   
-  <link href="http://loeuy.cn/"/>
-  <updated>2017-06-14T10:38:03.023Z</updated>
-  <id>http://loeuy.cn/</id>
   
-  <author>
-    <name>荣嬷嬷</name>
-    
-  </author>
   
-  <generator uri="http://hexo.io/">Hexo</generator>
   
-  <entry>
-    <title>移动端常见的一些兼容性问题</title>
-    <link href="http://loeuy.cn/mob_com.html"/>
-    <id>http://loeuy.cn/mob_com.html</id>
-    <published>2017-06-14T10:04:45.000Z</published>
-    <updated>2017-06-14T10:38:03.023Z</updated>
-    
-    <content type="html"><![CDATA[<p>随着手机的普及，移动端的开发也成了一个重要的方向，但由于设备的不统一会造成一些兼容性问题，</p>
-<h5 id="1、安卓浏览器看背景图片，有些设备会模糊。"><a href="#1、安卓浏览器看背景图片，有些设备会模糊。" class="headerlink" title="1、安卓浏览器看背景图片，有些设备会模糊。"></a>1、安卓浏览器看背景图片，有些设备会模糊。</h5><p>用同等比例的图片在PC机上很清楚，但是手机上很模糊，原因是什么呢？</p>
-<p>经过研究，是devicePixelRatio作怪，因为手机分辨率太小，如果按照分辨率来显示网页，这样字会非常小，所以苹果当初就把iPhone 4的960 <em> 640分辨率，在网页里只显示了480 </em> 320，这样devicePixelRatio＝2。现在android比较乱，有1.5的，有2的也有3的。</p>
-<a id="more"></a>
-<p>想让图片在手机里显示更为清晰，必须使用2x的背景图来代替img标签（一般情况都是用2倍）。例如一个div的宽高是100 <em> 100，背景图必须得200 </em> 200，然后background-size:contain;，这样显示出来的图片就比较清晰了。</p>
-<p>代码可以如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">background:url(../images/icon/all.png) no-repeat center center;</div><div class="line">-webkit-background-size:50px 50px;</div><div class="line">background-size: 50px 50px;display:inline-block; width:100%; height:50px;</div></pre></td></tr></table></figure>
-<p>或者指定 background-size:contain;都可以，大家试试！</p>
-<h5 id="2、图片加载"><a href="#2、图片加载" class="headerlink" title="2、图片加载"></a>2、图片加载</h5><p>若您遇到图片加载很慢的问题，对这种情况，手机开发一般用canvas方法加载：</p>
-<p>具体的canvas API 参见：<a href="http://javascript.ruanyifeng.com/htmlapi/canvas.html" target="_blank" rel="external">http://javascript.ruanyifeng.com/htmlapi/canvas.html</a></p>
-<p>下面举例说明一个canvas的例子：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">canvas</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">//js动态加载图片和li 总共举例17张图片！</div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">var</span> total=<span class="number">17</span>; </div><div class="line"><span class="keyword">var</span> zWin=$(<span class="built_in">window</span>); </div><div class="line">varrender=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> padding=<span class="number">2</span>; </div><div class="line">  <span class="keyword">var</span> winWidth=zWin.width(); </div><div class="line">  <span class="keyword">var</span> picWidth=<span class="built_in">Math</span>.floor((winWidth-padding*<span class="number">3</span>)/<span class="number">4</span>); </div><div class="line">  <span class="keyword">var</span> tmpl =<span class="string">''</span>;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=totla;i++)&#123; </div><div class="line">     <span class="keyword">var</span> p=padding; </div><div class="line">     <span class="keyword">var</span> imgSrc=<span class="string">'img/'</span>+i+<span class="string">'.jpg'</span>;</div><div class="line">     <span class="keyword">if</span>(i%<span class="number">4</span>==<span class="number">1</span>)&#123;</div><div class="line">        p=<span class="number">0</span>;</div><div class="line">     &#125;</div><div class="line">  tmpl +=<span class="string">'&lt;li style="width:'</span>+picWidth+<span class="string">'px;height:'</span>+picWidth+<span class="string">'px;padding-left:'</span>+p+<span class="string">'px;padding-top:'</span>+padding+<span class="string">'px;"&gt;&lt;canvas id="cvs_'</span>+i+<span class="string">'"&gt;&lt;/canvas&gt;&lt;/li&gt;'</span>;</div><div class="line">  <span class="keyword">var</span> imageObj = newImage(); </div><div class="line">  imageObj.index = i; </div><div class="line">  imageObj.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> cvs =$(<span class="string">'#cvs_'</span>+<span class="keyword">this</span>.index)[<span class="number">0</span>].getContext(<span class="string">'2d'</span>);</div><div class="line">    cvs.width = <span class="keyword">this</span>.width;</div><div class="line">    cvs.height=<span class="keyword">this</span>.height;</div><div class="line">    cvs.drawImage(<span class="keyword">this</span>,<span class="number">0</span>,<span class="number">0</span>);</div><div class="line">  &#125;</div><div class="line">  imageObj.src=imgSrc;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">render();</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<h5 id="3、假如手机网站不用兼容IE浏览器，一般我们会使用zeptojs"><a href="#3、假如手机网站不用兼容IE浏览器，一般我们会使用zeptojs" class="headerlink" title="3、假如手机网站不用兼容IE浏览器，一般我们会使用zeptojs"></a>3、假如手机网站不用兼容IE浏览器，一般我们会使用zeptojs</h5><p>zeptojs内置Touch events方法，具体可以看<a href="http://zeptojs.com/#Touch" target="_blank" rel="external">http://zeptojs.com/#Touch</a> events</p>
-<p>看了一下zeptio新版的API，已经支持IE10以上浏览器，对zeptojs可以选择使用！</p>
-<h5 id="4、防止手机中网页放大和缩小。"><a href="#4、防止手机中网页放大和缩小。" class="headerlink" title="4、防止手机中网页放大和缩小。"></a>4、防止手机中网页放大和缩小。</h5><p>这点是最基本的，最为手机网站开发者来说应该都知道的，就是设置meta中的viewport</p>
-<p>还有就是，有些手机网站我们看到如下声明：</p>
-<p>代码如下:</p>
-<p><code>&lt;!DOCTYPE html PUBLIC &quot;-//WAPFORUM//DTD XHTML Mobile 1.0//EN&quot; &quot;http://www.wapforum.org/DTD/xhtml-mobile10.dtd&quot;&gt;</code></p>
-<p>设置了DTD的方式是XHTML的写法，假如我们页面运用的是html5，可以不用设置DTD,直接声明&lt;!DOCTYPE html&gt;。</p>
-<p>使用viewport使页面禁止缩放。 通常把user-scalable设置为0来关闭用户对页面视图缩放的行为。</p>
-<p><code>&lt;meta name=&quot;viewport&quot;content=&quot;user-scalable=0&quot;/&gt;</code></p>
-<p>但是为了更好的兼容，我们会使用完整的viewport设置。</p>
-<p><a href="">复制代码</a>代码如下:</p>
-<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0&quot; /&gt;</code></p>
-<p>当然，<code>user-scalable=0</code>,有的人也写成<code>user-scalable=no</code>，都可以的。</p>
-<h5 id="5、apple-mobile-web-app-capable"><a href="#5、apple-mobile-web-app-capable" class="headerlink" title="5、apple-mobile-web-app-capable"></a>5、apple-mobile-web-app-capable</h5><p>apple-mobile-web-app-capable是设置Web应用是否以全屏模式运行。</p>
-<p>语法：</p>
-<p><code>&lt;meta name=&quot;apple-mobile-web-app-capable&quot;content=&quot;yes&quot;&gt;</code></p>
-<p>说明：</p>
-<p>如果content设置为yes，Web应用会以全屏模式运行，反之，则不会。content的默认值是no，表示正常显示。你可以通过只读属性window.navigator.standalone来确定网页是否以全屏模式显示。</p>
-<h5 id="6、format-detection"><a href="#6、format-detection" class="headerlink" title="6、format-detection"></a>6、format-detection</h5><p>format-detection 启动或禁用自动识别页面中的电话号码。</p>
-<p>语法：</p>
-<p><code>&lt;meta name=&quot;format-detection&quot;content=&quot;telephone=no&quot;&gt;</code></p>
-<p>说明：</p>
-<p>默认情况下，设备会自动识别任何可能是电话号码的字符串。设置telephone=no可以禁用这项功能。</p>
-<h5 id="7、html5调用安卓或者ios的拨号功能"><a href="#7、html5调用安卓或者ios的拨号功能" class="headerlink" title="7、html5调用安卓或者ios的拨号功能"></a>7、html5调用安卓或者ios的拨号功能</h5><p>html5提供了自动调用拨号的标签，只要在a标签的href中添加tel:就可以了。</p>
-<p>如下：</p>
-<p><code>&lt;a href=&quot;tel:4008106999,1034&quot;&gt;400-810-6999 转 1034&lt;/a&gt;</code></p>
-<p>拨打手机直接如下</p>
-<p><code>&lt;a href=&quot;tel:15677776767&quot;&gt;点击拨打15677776767&lt;/a&gt;</code></p>
-<h5 id="8、html5GPS定位功能"><a href="#8、html5GPS定位功能" class="headerlink" title="8、html5GPS定位功能"></a>8、html5GPS定位功能</h5><p>具体请看：<a href="http://www.w3school.com.cn/html5/html_5_geolocation.asp" target="_blank" rel="external">http://www.w3school.com.cn/html5/html_5_geolocation.asp</a></p>
-<h5 id="9、上下拉动滚动条时卡顿、慢"><a href="#9、上下拉动滚动条时卡顿、慢" class="headerlink" title="9、上下拉动滚动条时卡顿、慢"></a>9、上下拉动滚动条时卡顿、慢</h5><p><code>body {-webkit-overflow-scrolling: touch; overflow-scrolling: touch;}</code></p>
-<p>Android3+和iOS5+支持CSS3的新属性为overflow-scrolling</p>
-<h5 id="10、禁止复制、选中文本"><a href="#10、禁止复制、选中文本" class="headerlink" title="10、禁止复制、选中文本"></a>10、禁止复制、选中文本</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Element</span> &#123;<span class="attribute">-webkit-user-select</span>:none;</div><div class="line">  <span class="attribute">-moz-user-select</span>:none;</div><div class="line">  <span class="attribute">-khtml-user-select</span>:none;</div><div class="line">  <span class="attribute">user-select</span>:none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>解决移动设备可选中页面文本(视产品需要而定)</p>
-<h5 id="11、长时间按住页面出现闪退"><a href="#11、长时间按住页面出现闪退" class="headerlink" title="11、长时间按住页面出现闪退"></a>11、长时间按住页面出现闪退</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">element</span> &#123;</div><div class="line">  <span class="attribute">-webkit-touch-callout</span>:none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="12、iphone及ipad下输入框默认内阴影"><a href="#12、iphone及ipad下输入框默认内阴影" class="headerlink" title="12、iphone及ipad下输入框默认内阴影"></a>12、iphone及ipad下输入框默认内阴影</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Element</span>&#123;</div><div class="line">  <span class="attribute">-webkit-appearance</span>:none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="13、ios和android下触摸元素时出现半透明灰色遮罩"><a href="#13、ios和android下触摸元素时出现半透明灰色遮罩" class="headerlink" title="13、ios和android下触摸元素时出现半透明灰色遮罩"></a>13、ios和android下触摸元素时出现半透明灰色遮罩</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Element</span> &#123;</div><div class="line">  <span class="attribute">-webkit-tap-highlight-color</span>:<span class="built_in">rgba</span>(255,255,255,0)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>设置alpha值为0就可以去除半透明灰色遮罩，备注：transparent的属性值在android下无效。</p>
-<p>后面一篇文章有详细介绍，地址：<a href="http://www.jb51.net/post/phone_web_ysk" target="_blank" rel="external">http://www.jb51.net/post/phone_web_ysk</a></p>
-<h5 id="14、active兼容处理-即-伪类-active-失效"><a href="#14、active兼容处理-即-伪类-active-失效" class="headerlink" title="14、active兼容处理 即 伪类 :active 失效"></a>14、active兼容处理 即 伪类 :active 失效</h5><p>方法一：body添加ontouchstart</p>
-<p><code>&lt;body ontouchstart=&quot;&quot;&gt;</code></p>
-<p>方法二：js给 document 绑定 touchstart 或 touchend 事件<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">   a &#123;</div><div class="line">     color:#000;</div><div class="line">   &#125;</div><div class="line">   a:active &#123;</div><div class="line">      color:#fff;</div><div class="line">    &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">    &lt;a herf=foo &gt;bar&lt;/a&gt;</div><div class="line"> &lt;script&gt;</div><div class="line">    document.addEventListener('touchstart',function()&#123;&#125;,false);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-<h5 id="15、动画定义3D启用硬件加速"><a href="#15、动画定义3D启用硬件加速" class="headerlink" title="15、动画定义3D启用硬件加速"></a>15、动画定义3D启用硬件加速</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Element</span> &#123;</div><div class="line">  <span class="attribute">-webkit-transform</span>:<span class="built_in">translate3d</span>(0,0,0)</div><div class="line">  transform: <span class="built_in">translate3d</span>(0,0,0);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>注意：3D变形会消耗更多的内存与功耗</p>
-<h5 id="16、Retina屏的1px边框"><a href="#16、Retina屏的1px边框" class="headerlink" title="16、Retina屏的1px边框"></a>16、Retina屏的1px边框</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Element</span>&#123;</div><div class="line">  <span class="attribute">border-width</span>:thin;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="17、webkit-mask-兼容处理"><a href="#17、webkit-mask-兼容处理" class="headerlink" title="17、webkit mask 兼容处理"></a>17、webkit mask 兼容处理</h5><p>某些低端手机不支持css3 mask，可以选择性的降级处理。</p>
-<p>比如可以使用js判断来引用不同class：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="string">'WebkitMask'</span>indocument.documentElement.style)&#123;</div><div class="line">  alert(<span class="string">'支持mask'</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">  alert(<span class="string">'不支持mask'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="18、旋转屏幕时，字体大小调整的问题"><a href="#18、旋转屏幕时，字体大小调整的问题" class="headerlink" title="18、旋转屏幕时，字体大小调整的问题"></a>18、旋转屏幕时，字体大小调整的问题</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span>, <span class="selector-tag">body</span>, <span class="selector-tag">form</span>, <span class="selector-tag">fieldset</span>, <span class="selector-tag">p</span>, <span class="selector-tag">div</span>, <span class="selector-tag">h1</span>, <span class="selector-tag">h2</span>, <span class="selector-tag">h3</span>, <span class="selector-tag">h4</span>, <span class="selector-tag">h5</span>, <span class="selector-tag">h6</span>&#123;</div><div class="line">  <span class="attribute">-webkit-text-size-adjust</span>:<span class="number">100%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="19、transition闪屏"><a href="#19、transition闪屏" class="headerlink" title="19、transition闪屏"></a>19、transition闪屏</h5><p>设置内嵌的元素在3D 空间如何呈现：保留3D<br><code>-webkit-transform-style: preserve-3d;</code><br>设置进行转换的元素的背面在面对用户时是否可见：隐藏 /<br><code>-webkit-backface-visibility:hidden;</code></p>
-<h5 id="20、圆角bug"><a href="#20、圆角bug" class="headerlink" title="20、圆角bug"></a>20、圆角bug</h5><p>某些Android手机圆角失效</p>
-<p><code>background-clip: padding-box;</code></p>
-<h5 id="21、顶部状态栏背景色"><a href="#21、顶部状态栏背景色" class="headerlink" title="21、顶部状态栏背景色"></a>21、顶部状态栏背景色</h5><p><code>meta name=&quot;apple-mobile-web-app-status-bar-style&quot;content=&quot;black&quot;/&gt;</code></p>
-<p>说明：</p>
-<p>除非你先使用apple-mobile-web-app-capable指定全屏模式，否则这个meta标签不会起任何作用。</p>
-<p>如果content设置为default，则状态栏正常显示。如果设置为blank，则状态栏会有一个黑色的背景。如果设置为blank-translucent，则状态栏显示为黑色半透明。如果设置为default或blank，则页面显示在状态栏的下方，即状态栏占据上方部分，页面占据下方部分，二者没有遮挡对方或被遮挡。如果设置为blank-translucent，则页面会充满屏幕，其中页面顶部会被状态栏遮盖住（会覆盖页面20px高度，而iphone4和itouch4的Retina屏幕为40px）。默认值是default。</p>
-<h5 id="22、设置缓存"><a href="#22、设置缓存" class="headerlink" title="22、设置缓存"></a>22、设置缓存</h5><p><code>&lt;meta http-equiv=&quot;Cache-Control&quot;content=&quot;no-cache&quot;/&gt;</code></p>
-<p>手机页面通常在第一次加载后会进行缓存，然后每次刷新会使用缓存而不是去重新向服务器发送请求。如果不希望使用缓存可以设置no-cache。</p>
-<h5 id="23、桌面图标"><a href="#23、桌面图标" class="headerlink" title="23、桌面图标"></a>23、桌面图标</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon"</span><span class="attr">href</span>=<span class="string">"touch-icon-iphone.png"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon"</span><span class="attr">sizes</span>=<span class="string">"76x76"</span><span class="attr">href</span>=<span class="string">"touch-icon-ipad.png"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon"</span><span class="attr">sizes</span>=<span class="string">"120x120"</span><span class="attr">href</span>=<span class="string">"touch-icon-iphone-retina.png"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon"</span><span class="attr">sizes</span>=<span class="string">"152x152"</span><span class="attr">href</span>=<span class="string">"touch-icon-ipad-retina.png"</span>/&gt;</span></div></pre></td></tr></table></figure>
-<p>iOS下针对不同设备定义不同的桌面图标。如果不定义则以当前屏幕截图作为图标。</p>
-<p>上面的写法可能大家会觉得会有默认光泽，下面这种设置方法可以去掉光泽效果，还原设计图的效果！</p>
-<p> <code>&lt;link rel=&quot;apple-touch-icon-precomposed&quot;href=&quot;touch-icon-iphone.png&quot;/&gt;</code></p>
-<p>图片尺寸可以设定为5757（px）或者Retina可以定为114114（px），ipad尺寸为72*72（px)</p>
-<h5 id="24、启动画面"><a href="#24、启动画面" class="headerlink" title="24、启动画面"></a>24、启动画面</h5><p><code>&lt;link rel=&quot;apple-touch-startup-image&quot;href=&quot;start.png&quot;/&gt;</code></p>
-<p>iOS下页面启动加载时显示的画面图片，避免加载时的白屏。</p>
-<p>可以通过madia来指定不同的大小：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--iPhone--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"apple-touch-startup-image-320x460.png"</span><span class="attr">media</span>=<span class="string">"(device-width: 320px)"</span> <span class="attr">rel</span>=<span class="string">"apple-touch-startup-image"</span>/&gt;</span></div><div class="line"><span class="comment">&lt;!-- iPhone Retina --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"apple-touch-startup-image-640x920.png"</span><span class="attr">media</span>=<span class="string">"(device-width: 320px) and (-webkit-device-pixel-ratio: 2)"</span> <span class="attr">rel</span>=<span class="string">"apple-touch-startup-image"</span>/&gt;</span></div><div class="line"><span class="comment">&lt;!-- iPhone 5--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-startup-image"</span><span class="attr">media</span>=<span class="string">"(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"</span> <span class="attr">href</span>=<span class="string">"apple-touch-startup-image-640x1096.png"</span>&gt;</span>t</div><div class="line"><span class="comment">&lt;!-- iPad portrait--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"apple-touch-startup-image-768x1004.png"</span><span class="attr">media</span>=<span class="string">"(device-width: 768px) and (orientation: portrait)"</span> <span class="attr">rel</span>=<span class="string">"apple-touch-startup-image"</span>/&gt;</span>t</div><div class="line"><span class="comment">&lt;!-- iPad landscape--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"apple-touch-startup-image-748x1024.png"</span><span class="attr">media</span>=<span class="string">"(device-width: 768px) and (orientation: landscape)"</span> <span class="attr">rel</span>=<span class="string">"apple-touch-startup-image"</span>/&gt;</span>t</div><div class="line"><span class="comment">&lt;!-- iPad Retina portrait--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"apple-touch-startup-image-1536x2008.png"</span><span class="attr">media</span>=<span class="string">"(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"</span> <span class="attr">rel</span>=<span class="string">"apple-touch-startup-image"</span>/&gt;</span>t</div><div class="line"><span class="comment">&lt;!-- iPad Retina landscape--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"apple-touch-startup-image-1496x2048.png"</span><span class="attr">media</span>=<span class="string">"(device-width: 1536px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)"</span><span class="attr">rel</span>=<span class="string">"apple-touch-startup-image"</span>/&gt;</span></div></pre></td></tr></table></figure>
-<h5 id="25、浏览器私有及其它meta"><a href="#25、浏览器私有及其它meta" class="headerlink" title="25、浏览器私有及其它meta"></a>25、浏览器私有及其它meta</h5><p>以下属性在项目中没有应用过，可以写一个demo测试以下！</p>
-<p>QQ浏览器私有</p>
-<p>全屏模式</p>
-<p><code>&lt;meta name=&quot;x5-fullscreen&quot;content=&quot;true&quot;&gt;</code></p>
-<p>强制竖屏</p>
-<p><code>&lt;meta name=&quot;x5-orientation&quot;content=&quot;portrait&quot;&gt;</code></p>
-<p>强制横屏</p>
-<p><code>&lt;meta name=&quot;x5-orientation&quot;content=&quot;landscape&quot;&gt;</code></p>
-<p>应用模式</p>
-<p><code>meta name=&quot;x5-page-mode&quot;content=&quot;app&quot;&gt;</code></p>
-<p>UC浏览器私有</p>
-<p>全屏模式</p>
-<p><code>&lt;meta name=&quot;full-screen&quot;content=&quot;yes&quot;&gt;</code></p>
-<p>强制竖屏</p>
-<p><code>&lt;meta name=&quot;screen-orientation&quot;content=&quot;portrait&quot;&gt;</code></p>
-<p>强制横屏</p>
-<p><code>&lt;meta name=&quot;screen-orientation&quot;content=&quot;landscape&quot;&gt;</code></p>
-<p>应用模式</p>
-<p><code>&lt;meta name=&quot;browsermode&quot;content=&quot;application&quot;&gt;</code></p>
-<p>其它</p>
-<p>针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓<br><code>&lt;meta name=&quot;HandheldFriendly&quot;content=&quot;true&quot;&gt;</code><br>微软的老式浏览器<br><code>&lt;meta name=&quot;MobileOptimized&quot;content=&quot;320&quot;&gt;</code><br>windows phone 点击无高光<br><code>&lt;meta name=&quot;msapplication-tap-highlight&quot;content=&quot;no&quot;&gt;</code></p>
-<h5 id="26、-IOS中input键盘事件keyup、keydown、keypress支持不是很好"><a href="#26、-IOS中input键盘事件keyup、keydown、keypress支持不是很好" class="headerlink" title="26、 IOS中input键盘事件keyup、keydown、keypress支持不是很好"></a>26、 IOS中input键盘事件keyup、keydown、keypress支持不是很好</h5><p>问题是这样的，用input search做模糊搜索的时候，在键盘里面输入关键词，会通过ajax后台查询，然后返回数据，然后再对返回的数据进行关键词标红。用input监听键盘keyup事件，在安卓手机浏览器中是可以的，但是在ios手机浏览器中变红很慢，用输入法输入之后，并未立刻相应keyup事件，只有在通过删除之后才能相应！</p>
-<p>解决办法：</p>
-<p>可以用html5的oninput事件去代替keyup<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"text"</span>id=<span class="string">"testInput"</span>&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></span></div><div class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'testInput'</span>).addEventListener(<span class="string">'input'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> value = e.target.value;</div><div class="line">  &#125;);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>然后就达到类似keyup的效果！</p>
-<h5 id="27、h5网站input-设置为type-number的问题"><a href="#27、h5网站input-设置为type-number的问题" class="headerlink" title="27、h5网站input 设置为type=number的问题"></a>27、h5网站input 设置为type=number的问题</h5><p>h5网页input 的type设置为number一般会产生三个问题，一个问题是maxlength属性不好用了。另外一个是form提交的时候，默认给取整了。三是部分安卓手机出现样式问题。</p>
-<p>问题一解决，我目前用的是js。如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;input type=<span class="string">"number"</span>oninput=<span class="string">"checkTextLength(this ,10)"</span>&gt;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkTextLength</span>(<span class="params">obj, length</span>) </span>&#123;  </div><div class="line">      <span class="keyword">if</span>(obj.value.length &gt; length)  &#123;     </div><div class="line">        obj.value = obj.value.substr(<span class="number">0</span>, length);  </div><div class="line">      &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>问题二，是因为form提交默认做了表单验证，step默认是1,要设置step属性，假如保留2位小数，写法如下：</p>
-<p><code>&lt;input type=&quot;number&quot; step=&quot;0.01&quot;/&gt;</code></p>
-<p>关于step，我在这里做简单的介绍，input 中type=number，一般会自动生成一个上下箭头，点击上箭头默认增加一个step，点击下箭头默认会减少一个step。number中默认step是1。也就是step=0.01,可以允许输入2位小数，并且点击上下箭头分别增加0.01和减少0.01。</p>
-<p>假如step和min一起使用，那么数值必须在min和max之间。</p>
-<p>看下面的例子：</p>
-<p><code>&lt;input type=&quot;number&quot;step=&quot;3.1&quot;min=&quot;1&quot;/&gt;</code></p>
-<p>输入框可以输入哪些数字？</p>
-<p>首先，最小值是1，那么可以输入1.0，第二个是可以输入（1+3.1）那就是4.1,以此类推，每次点击上下箭头都会增加或者减少3.1，输入其他数字无效。这就是step的简单介绍。</p>
-<p>问题三，去除input默认样式</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=number]</span> &#123;</div><div class="line">  <span class="attribute">-moz-appearance</span>:textfield;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=number]</span><span class="selector-pseudo">::-webkit-inner-spin-button</span>,</div><div class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=number]</span><span class="selector-pseudo">::-webkit-outer-spin-button</span> &#123;</div><div class="line">  <span class="attribute">-webkit-appearance</span>:none;</div><div class="line">  <span class="attribute">margin</span>:<span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="28、ios-设置input-按钮样式会被默认样式覆盖"><a href="#28、ios-设置input-按钮样式会被默认样式覆盖" class="headerlink" title="28、ios 设置input 按钮样式会被默认样式覆盖"></a>28、ios 设置input 按钮样式会被默认样式覆盖</h5><p>解决方式如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">input</span>,<span class="selector-tag">textarea</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">0</span>; </div><div class="line">  <span class="attribute">-webkit-appearance</span>: none; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>设置默认样式为none</p>
-<h5 id="29、IOS键盘字母输入，默认首字母大写"><a href="#29、IOS键盘字母输入，默认首字母大写" class="headerlink" title="29、IOS键盘字母输入，默认首字母大写"></a>29、IOS键盘字母输入，默认首字母大写</h5><p>解决方案，设置如下属性</p>
-<p><code>&lt;input type=&quot;text&quot;autocapitalize=&quot;off&quot;/&gt;</code></p>
-<h5 id="30、select-下拉选择设置右对齐"><a href="#30、select-下拉选择设置右对齐" class="headerlink" title="30、select 下拉选择设置右对齐"></a>30、select 下拉选择设置右对齐</h5><p>设置如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">select</span> <span class="selector-tag">option</span> &#123;</div><div class="line">       <span class="attribute">direction</span>: rtl;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="31、通过transform进行skew变形，rotate旋转会造成出现锯齿现象"><a href="#31、通过transform进行skew变形，rotate旋转会造成出现锯齿现象" class="headerlink" title="31、通过transform进行skew变形，rotate旋转会造成出现锯齿现象"></a>31、通过transform进行skew变形，rotate旋转会造成出现锯齿现象</h5><p>可以设置如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">rotate</span>(<span class="selector-tag">-4deg</span>) <span class="selector-tag">skew</span>(10<span class="selector-tag">deg</span>) <span class="selector-tag">translateZ</span>(0);</div><div class="line"> <span class="selector-tag">transform</span>: <span class="selector-tag">rotate</span>(<span class="selector-tag">-4deg</span>) <span class="selector-tag">skew</span>(10<span class="selector-tag">deg</span>) <span class="selector-tag">translateZ</span>(0);</div><div class="line"> <span class="selector-tag">outline</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">rgba</span>(255,255,255,0)</div></pre></td></tr></table></figure>
-<h5 id="32、移动端点击300ms延迟"><a href="#32、移动端点击300ms延迟" class="headerlink" title="32、移动端点击300ms延迟"></a>32、移动端点击300ms延迟</h5><p>300ms尚可接受，不过因为300ms产生的问题，我们必须要解决。300ms导致用户体验并不是很好，解决这个问题，我们一般在移动端用tap事件来取代click事件。</p>
-<p>推荐两个js，一个是fastclick，一个是tap.js</p>
-<p>关于300ms延迟，具体请看：<a href="http://thx.github.io/mobile/300ms-click-delay/" target="_blank" rel="external">http://thx.github.io/mobile/300ms-click-delay/</a></p>
-<h5 id="33、移动端点透问题"><a href="#33、移动端点透问题" class="headerlink" title="33、移动端点透问题"></a>33、移动端点透问题</h5><p>案例如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"haorooms"</span>&gt;</span>点头事件测试<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"www.baidu.net"</span>&gt;</span>www.baidu.com<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>div是绝对定位的蒙层,并且z-index高于a。而a标签是页面中的一个链接，我们给div绑定tap事件：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#haorooms'</span>).on(<span class="string">'tap'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">'#haorooms'</span>).hide();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>我们点击蒙层时 div正常消失，但是当我们在a标签上点击蒙层时，发现a链接被触发，这就是所谓的点透事件。</p>
-<p>原因：</p>
-<p>touchstart 早于 touchend 早于click。 亦即click的触发是有延迟的，这个时间大概在300ms左右，也就是说我们tap触发之后蒙层隐藏， 此时 click还没有触发，300ms之后由于蒙层隐藏，我们的click触发到了下面的a链接上。<br>解决：</p>
-<p>（1）尽量都使用touch事件来替换click事件。例如用touchend事件(推荐)。<br>（2）用fastclick，<a href="https://github.com/ftlabs/fastclick" target="_blank" rel="external">https://github.com/ftlabs/fastclick</a><br>（3）用preventDefault阻止a标签的click<br>（4）延迟一定的时间(300ms+)来处理事件 （不推荐）<br>（5）以上一般都能解决，实在不行就换成click事件。<br>下面介绍一下touchend事件，如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#haorooms"</span>).on(<span class="string">"touchend"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">   event.preventDefault();</div><div class="line"> &#125;);</div></pre></td></tr></table></figure>
-<h5 id="34、消除-IE10-里面的那个叉号"><a href="#34、消除-IE10-里面的那个叉号" class="headerlink" title="34、消除 IE10 里面的那个叉号"></a>34、消除 IE10 里面的那个叉号</h5><p><code>input:-ms-clear{display:none;}</code></p>
-<h5 id="35、关于-iOS-与-OS-X-端字体的优化-横竖屏会出现字体加粗不一致等"><a href="#35、关于-iOS-与-OS-X-端字体的优化-横竖屏会出现字体加粗不一致等" class="headerlink" title="35、关于 iOS 与 OS X 端字体的优化(横竖屏会出现字体加粗不一致等)"></a>35、关于 iOS 与 OS X 端字体的优化(横竖屏会出现字体加粗不一致等)</h5><p>iOS 浏览器横屏时会重置字体大小，设置 text-size-adjust 为 none 可以解决 iOS 上的问题，但桌面版 Safari 的字体缩放功能会失效，因此最佳方案是将 text-size-adjust 为 100% 。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-text-size-adjust</span><span class="selector-pseudo">:100</span>%;</div><div class="line"></div><div class="line"><span class="selector-tag">-ms-text-size-adjust</span><span class="selector-pseudo">:100</span>%;</div><div class="line"></div><div class="line"><span class="selector-tag">text-size-adjust</span><span class="selector-pseudo">:100</span>%;</div></pre></td></tr></table></figure>
-<h5 id="36、关于-iOS-系统中，中文输入法输入英文时，字母之间可能会出现一个六分之一空格"><a href="#36、关于-iOS-系统中，中文输入法输入英文时，字母之间可能会出现一个六分之一空格" class="headerlink" title="36、关于 iOS 系统中，中文输入法输入英文时，字母之间可能会出现一个六分之一空格"></a>36、关于 iOS 系统中，中文输入法输入英文时，字母之间可能会出现一个六分之一空格</h5><p>可以通过正则去掉</p>
-<p><code>his.value = this.value.replace(/\u2006/g,&#39;&#39;);</code></p>
-<h5 id="37、移动端-HTML5-audio-autoplay-失效问题"><a href="#37、移动端-HTML5-audio-autoplay-失效问题" class="headerlink" title="37、移动端 HTML5 audio autoplay 失效问题"></a>37、移动端 HTML5 audio autoplay 失效问题</h5><p>这个不是 BUG，由于自动播放网页中的音频或视频，会给用户带来一些困扰或者不必要的流量消耗，所以苹果系统和安卓系统通常都会禁止自动播放和使用 JS 的触发播放，必须由用户来触发才可以播放。</p>
-<p>解决方法思路：先通过用户 touchstart 触碰，触发播放并暂停（音频开始加载，后面用 JS 再操作就没问题了）。</p>
-<p>解决代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'touchstart'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">document</span>.getElementsByTagName(<span class="string">'audio'</span>)[<span class="number">0</span>].play();</div><div class="line">  <span class="built_in">document</span>.getElementsByTagName(<span class="string">'audio'</span>)[<span class="number">0</span>].pause();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h5 id="38、移动端-HTML5-input-date-不支持-placeholder-问题"><a href="#38、移动端-HTML5-input-date-不支持-placeholder-问题" class="headerlink" title="38、移动端 HTML5 input date 不支持 placeholder 问题"></a>38、移动端 HTML5 input date 不支持 placeholder 问题</h5><p>这个我感觉没有什么好的解决方案，用如下方法</p>
-<p><a href="">复制代码</a>代码如下:</p>
-<p><code>&lt;input placeholder=&quot;Date&quot; class=&quot;textbox-n&quot; type=&quot;text&quot; onfocus=&quot;(this.type=&#39;date&#39;)&quot;  id=&quot;date&quot;&gt;</code></p>
-<p>有的浏览器可能要点击两遍！</p>
-<h5 id="39、部分机型存在type为search的input，自带close按钮样式修改方法"><a href="#39、部分机型存在type为search的input，自带close按钮样式修改方法" class="headerlink" title="39、部分机型存在type为search的input，自带close按钮样式修改方法"></a>39、部分机型存在type为search的input，自带close按钮样式修改方法</h5><p>有些机型的搜索input控件会自带close按钮（一个伪元素），而通常为了兼容所有浏览器，我们会自己实现一个，此时去掉原生close按钮的方法为</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#Search</span><span class="selector-pseudo">::-webkit-search-cancel-button</span>&#123;</div><div class="line">  <span class="attribute">display</span>:none; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果想使用原生close按钮，又想使其符合设计风格，可以对这个伪元素的样式进行修改。</p>
-<h5 id="40、唤起select的option展开"><a href="#40、唤起select的option展开" class="headerlink" title="40、唤起select的option展开"></a>40、唤起select的option展开</h5><p>zepto方式:</p>
-<p><code>$(sltElement).trrgger(&quot;mousedown&quot;);</code></p>
-<p>原生js方式:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">functionshowDropdown(sltElement) &#123;</div><div class="line">  <span class="keyword">var</span> event;</div><div class="line">  event = <span class="built_in">document</span>.createEvent(<span class="string">'MouseEvents'</span>);</div><div class="line">  event.initMouseEvent(<span class="string">'mousedown'</span>,<span class="literal">true</span>,<span class="literal">true</span>, <span class="built_in">window</span>);</div><div class="line">  sltElement.dispatchEvent(event);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>文章转载：<a href="http://www.jb51.net/article/84973.html" target="_blank" rel="external">http://www.jb51.net/article/84973.html</a> 已修改~</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;随着手机的普及，移动端的开发也成了一个重要的方向，但由于设备的不统一会造成一些兼容性问题，&lt;/p&gt;
-&lt;h5 id=&quot;1、安卓浏览器看背景图片，有些设备会模糊。&quot;&gt;&lt;a href=&quot;#1、安卓浏览器看背景图片，有些设备会模糊。&quot; class=&quot;headerlink&quot; title=&quot;1、安卓浏览器看背景图片，有些设备会模糊。&quot;&gt;&lt;/a&gt;1、安卓浏览器看背景图片，有些设备会模糊。&lt;/h5&gt;&lt;p&gt;用同等比例的图片在PC机上很清楚，但是手机上很模糊，原因是什么呢？&lt;/p&gt;
-&lt;p&gt;经过研究，是devicePixelRatio作怪，因为手机分辨率太小，如果按照分辨率来显示网页，这样字会非常小，所以苹果当初就把iPhone 4的960 &lt;em&gt; 640分辨率，在网页里只显示了480 &lt;/em&gt; 320，这样devicePixelRatio＝2。现在android比较乱，有1.5的，有2的也有3的。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="移动端" scheme="http://loeuy.cn/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
-    
-  </entry>
+  <title>2017年前端面试题整理汇总100题 | 一人一马一江湖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.一些开放性题目1234567891.自我介绍：除了基本个人信息以外，面试官更想听的是你与众不同的地方和你的优势。2.项目介绍3.如何看待前端开发？4.平时是如何学习前端开发的？5.未来三到五年的规划是怎样的？">
+<meta name="keywords" content="移动端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017年前端面试题整理汇总100题">
+<meta property="og:url" content="http://loeuy.cn/100question.html">
+<meta property="og:site_name" content="一人一马一江湖">
+<meta property="og:description" content="1.一些开放性题目1234567891.自我介绍：除了基本个人信息以外，面试官更想听的是你与众不同的地方和你的优势。2.项目介绍3.如何看待前端开发？4.平时是如何学习前端开发的？5.未来三到五年的规划是怎样的？">
+<meta property="og:updated_time" content="2017-07-04T06:49:00.920Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2017年前端面试题整理汇总100题">
+<meta name="twitter:description" content="1.一些开放性题目1234567891.自我介绍：除了基本个人信息以外，面试官更想听的是你与众不同的地方和你的优势。2.项目介绍3.如何看待前端开发？4.平时是如何学习前端开发的？5.未来三到五年的规划是怎样的？">
   
-  <entry>
-    <title>2017年前端面试题整理汇总100题</title>
-    <link href="http://loeuy.cn/100question.html"/>
-    <id>http://loeuy.cn/100question.html</id>
-    <published>2017-06-14T10:04:45.000Z</published>
-    <updated>2017-07-04T06:49:00.920Z</updated>
+    <link rel="alternative" href="/atom.xml" title="一人一马一江湖" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/author.jpg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">荣嬷嬷</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">愿你可以朝九晚五，又可以浪迹天涯</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder=" Search...">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/wandering/">浪迹天涯</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/RongMo" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="http://weibo.com/omgonR" title="weibo">weibo</a>
+                            
+                                <a class="fl zhihu"  target="_blank" href="https://www.zhihu.com/people/rongmo" title="zhihu">zhihu</a>
+                            
+                                <a class="fl facebook"  target="_blank" href="https://www.facebook.com/Rongmomo2014" title="facebook">facebook</a>
+                            
+                                <a class="fl twitter"  target="_blank" href="https://twitter.com/RongM0Mo" title="twitter">twitter</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/移动端/" style="font-size: 15px;">移动端</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://segmentfault.com/u/rongmo">segmentfault</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.jianshu.com/u/21d6f5b55dc9">简书</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱游戏(亡者农药),爱编程(前端小白),爱运动,爱的太多了!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">荣嬷嬷</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/author.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">荣嬷嬷</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">愿你可以朝九晚五，又可以浪迹天涯</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/wandering/">浪迹天涯</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/RongMo" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/omgonR" title="weibo">weibo</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/rongmo" title="zhihu">zhihu</a>
+                    
+                        <a class="facebook" target="_blank" href="https://www.facebook.com/Rongmomo2014" title="facebook">facebook</a>
+                    
+                        <a class="twitter" target="_blank" href="https://twitter.com/RongM0Mo" title="twitter">twitter</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-100question" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/100question.html" class="article-date">
+      <time datetime="2017-06-14T10:04:45.000Z" itemprop="datePublished">2017-06-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
     
-    <content type="html"><![CDATA[<h4 id="1-一些开放性题目"><a href="#1-一些开放性题目" class="headerlink" title="1.一些开放性题目"></a>1.一些开放性题目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">1.自我介绍：除了基本个人信息以外，面试官更想听的是你与众不同的地方和你的优势。</div><div class="line"></div><div class="line">2.项目介绍</div><div class="line"></div><div class="line">3.如何看待前端开发？</div><div class="line"></div><div class="line">4.平时是如何学习前端开发的？</div><div class="line"></div><div class="line">5.未来三到五年的规划是怎样的？</div></pre></td></tr></table></figure>
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2017年前端面试题整理汇总100题
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h4 id="1-一些开放性题目"><a href="#1-一些开放性题目" class="headerlink" title="1.一些开放性题目"></a>1.一些开放性题目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">1.自我介绍：除了基本个人信息以外，面试官更想听的是你与众不同的地方和你的优势。</div><div class="line"></div><div class="line">2.项目介绍</div><div class="line"></div><div class="line">3.如何看待前端开发？</div><div class="line"></div><div class="line">4.平时是如何学习前端开发的？</div><div class="line"></div><div class="line">5.未来三到五年的规划是怎样的？</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="position的值，-relative和absolute分别是相对于谁进行定位的？"><a href="#position的值，-relative和absolute分别是相对于谁进行定位的？" class="headerlink" title="position的值， relative和absolute分别是相对于谁进行定位的？"></a>position的值， relative和absolute分别是相对于谁进行定位的？</h4><ul>
 <li><code>absolute</code> :生成绝对定位的元素， 相对于最近一级的 定位不是 static 的父元素来进行定位。</li>
@@ -697,491 +813,283 @@
 <p>304是HTTP状态码，服务器用来标识这个文件没修改，不返回内容，浏览器在接收到个状态码后，会使用浏览器已缓存的文件</p>
 <p>客户端请求一个页面（A）。 服务器返回页面A，并在给<code>A</code>加上一个<code>ETag</code>。 客户端展现该页面，并将页面连同<code>ETag</code>一起缓存。 客户再次请求页面<code>A</code>，并将上次请求时服务器返回的<code>ETag</code>一起传递给服务器。 服务器检查该<code>ETag</code>，并判断出该页面自上次客户端请求之后还未被修改，直接返回响应<code>304</code>（未修改——<code>Not Modified</code>）和一个空的响应体。</p>
 <h4 id="什么样的前端代码是好的"><a href="#什么样的前端代码是好的" class="headerlink" title="什么样的前端代码是好的"></a>什么样的前端代码是好的</h4><p>高复用低耦合，这样文件小，好维护，而且好扩展。</p>
-]]></content>
+
+      
+    </div>
     
-    <summary type="html">
-    
-      &lt;h4 id=&quot;1-一些开放性题目&quot;&gt;&lt;a href=&quot;#1-一些开放性题目&quot; class=&quot;headerlink&quot; title=&quot;1.一些开放性题目&quot;&gt;&lt;/a&gt;1.一些开放性题目&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1.自我介绍：除了基本个人信息以外，面试官更想听的是你与众不同的地方和你的优势。&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2.项目介绍&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3.如何看待前端开发？&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4.平时是如何学习前端开发的？&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5.未来三到五年的规划是怎样的？&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="移动端" scheme="http://loeuy.cn/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
-    
-  </entry>
+  </div>
   
-  <entry>
-    <title>ES6函数新增的特性</title>
-    <link href="http://loeuy.cn/ES6_comfn.html"/>
-    <id>http://loeuy.cn/ES6_comfn.html</id>
-    <published>2017-06-14T06:09:53.000Z</published>
-    <updated>2017-06-15T04:36:55.515Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="带默认参数的函数"><a href="#带默认参数的函数" class="headerlink" title="带默认参数的函数"></a>带默认参数的函数</h2><blockquote>
-<p>JavaScript函数的最大的一个特点就是在传递参数的时候，参数的个数不受限制的。为了健壮性考虑，一般在函数内部需要做一些默认值的处理。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeRequest</span>(<span class="params">url, timeout, callback</span>) </span>&#123;</div><div class="line">    timeout = timeout || <span class="number">2000</span>;</div><div class="line">    callback = callback || <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>其实上面的默认值方法有个bug：当timeout是0的时候也会当做假值来处理，从而给赋值默认值2000.</p>
-<blockquote>
-<p>ES6从语言层面面上增加了 <strong>默认值的</strong> 支持。看下面的代码：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//这个函数如果只传入第一个参数，后面两个不传入，则会使用默认值。如果后面两个也传入了参数，则不会使用默认值。</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeRequest</span>(<span class="params">url, timeout = <span class="number">2000</span>, callback = function(</span>) </span>&#123;&#125;) &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 其余代码</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="默认参数对-arguments-对象的影响"><a href="#默认参数对-arguments-对象的影响" class="headerlink" title="默认参数对 arguments 对象的影响"></a>默认参数对 arguments 对象的影响</h2><blockquote>
-<p>在非严格模式下，arguments总是能反映出命名参数的变化。看下面的代码：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="comment">//非严格模式</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>] === a); <span class="comment">//true</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">1</span>] === b); <span class="comment">//true</span></div><div class="line">        a = <span class="number">10</span>;</div><div class="line">        b = <span class="number">20</span>;</div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>] === a); <span class="comment">//true</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">1</span>] === b); <span class="comment">//true</span></div><div class="line">    &#125;</div><div class="line">    foo(<span class="number">1</span>, <span class="number">2</span>);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>在ES5的严格模式下</strong>，arguments只反映参数的初始值，而不再反映命名参数的变化！</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="comment">//严格模式</span></div><div class="line"><span class="meta">        "use strict"</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>] === a); <span class="comment">//true</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">1</span>] === b); <span class="comment">//true</span></div><div class="line">        a = <span class="number">10</span>;</div><div class="line">        b = <span class="number">20</span>;</div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>] === a); <span class="comment">//false。  修改a的值不会影响到arguments[0]的值</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">1</span>] === b); <span class="comment">//false</span></div><div class="line">    &#125;</div><div class="line">    foo(<span class="number">1</span>, <span class="number">2</span>);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>当使用ES6参数默认值的时候，不管是否是在严格模式下，都和ES5的严格模式相同。看下面的代码：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, b = <span class="number">30</span></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>] === a); <span class="comment">//true</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">1</span>] === b); <span class="comment">//true</span></div><div class="line">        a = <span class="number">10</span>;</div><div class="line">        b = <span class="number">20</span>;</div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>]  === a); <span class="comment">//false。  由于b使用了默认值。虽然a没有使用默认值，但是仍然表现的和严格模式一样。</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">1</span>] === b); <span class="comment">//false。  b使用了默认值，所以表现的和严格模式一样。</span></div><div class="line">    &#125;</div><div class="line">    foo(<span class="number">1</span>, <span class="number">2</span>);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：如果这样调用foo(1),则 a == 1， b == 30， arguments[0] == 1, arguments[1] == undefined。也就是说默认值并不会赋值给arguments参数。</p>
-</blockquote>
-<h2 id="默认参数表达式-Default-Parameter-Expressions"><a href="#默认参数表达式-Default-Parameter-Expressions" class="headerlink" title="默认参数表达式 (Default Parameter Expressions)"></a>默认参数表达式 (<strong>Default Parameter Expressions</strong>)</h2><blockquote>
-<p>参数的默认值，也可以是一个表达式或者函数调用等。看下面的代码</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getValue</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">5</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">first, second = getValue(</span>)) </span>&#123; <span class="comment">//表示使用getValue这个函数的返回值作为second的默认值。</span></div><div class="line">        <span class="keyword">return</span> first + second;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(add(<span class="number">1</span>, <span class="number">1</span>));     <span class="comment">// 2.  调用add函数的时候，传入了第二个参数，则以传入的参数为准。</span></div><div class="line">    <span class="built_in">console</span>.log(add(<span class="number">1</span>));        <span class="comment">// 6。 调用add函数的时候，没有传入第二个参数，则会调用getValue函数。</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>有一点需要要注意：getValue()只会在调用add且不传入第二个参数的时候才会去调用。不是在解析阶段调用的。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">let</span> value = <span class="number">5</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getValue</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> value++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">first, second = getValue(</span>)) </span>&#123;  <span class="comment">//</span></div><div class="line">        <span class="keyword">return</span> first + second;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(add(<span class="number">1</span>, <span class="number">1</span>));     <span class="comment">// 2</span></div><div class="line">    <span class="built_in">console</span>.log(add(<span class="number">1</span>));        <span class="comment">// 6。 </span></div><div class="line">    <span class="built_in">console</span>.log(add(<span class="number">1</span>));        <span class="comment">// 7</span></div><div class="line">    <span class="built_in">console</span>.log(add(<span class="number">1</span>));        <span class="comment">// 8</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>由于默认值可以表达式，所以我们甚至可以使用前面的参数作为后面参数的默认值。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">first, second = first</span>) </span>&#123;  <span class="comment">// 使用第一个参数作为第二个参数的默认值</span></div><div class="line">        <span class="keyword">return</span> first + second;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：可以把前面的参数作为后面参数的默认值，但是不能把后面的参数作为第一个参数的默认值。这可以前面说的let和const的暂存性死区一个意思。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">first = second, second</span>)) </span>&#123;  <span class="comment">// 这种写法是错误的</span></div><div class="line"></div><div class="line">        <span class="keyword">return</span> first + second;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="未命名参数问题"><a href="#未命名参数问题" class="headerlink" title="未命名参数问题"></a>未命名参数问题</h2><blockquote>
-<p>Javascript并不限制传入的参数的数量。在调用函数的时候，传入的实参的个数超过形参的个数的时候，超过的部分就成为了未命名参数。在ES5之前，我们一般可以通过arguments对象来获取到未命名参数的值。但是罗显繁琐。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(a);</div><div class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">1</span>])  <span class="comment">//取得传入的多余的参数。</span></div><div class="line">    &#125;</div><div class="line">    foo(<span class="number">2</span>, <span class="number">3</span>);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>ES6，提供了一种更加优雅处理未命名参数的问题：<strong>剩余参数</strong>( <strong>Rest Parameters</strong> )</p>
-<p>语法：function a(a, … b){ }   </p>
-<p>剩余参数使用三个点( … )和变量名来表示。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, ...b</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(a);</div><div class="line">        <span class="built_in">console</span>.log(b <span class="keyword">instanceof</span> <span class="built_in">Array</span>);  <span class="comment">//true  .多余的参数都被放入了b中。b其实就是一个数组。</span></div><div class="line">    &#125;</div><div class="line">    foo(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：</p>
-</blockquote>
-<ol>
-<li>函数最多只能有一个剩余参数b。而且这个剩余参数必须位于参数列表的最后位置。</li>
-<li>虽然有了剩余参数，但是arguments仍然存在，但是arguments完全无视了剩余参数的存在。</li>
-<li>剩余参数是在函数声明的时候出现的。</li>
-</ol>
-<h2 id="函数中的扩展运算符"><a href="#函数中的扩展运算符" class="headerlink" title="函数中的扩展运算符"></a>函数中的扩展运算符</h2><blockquote>
-<p>例如:Math中的max函数可以返回任意多个参数中的最大值。但是如果这些参数在一个数组中，则没有办法直接传入。以前通用的做法是使用applay方法。</p>
-<p>看下面的代码：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">let</span> values = [<span class="number">25</span>, <span class="number">50</span>, <span class="number">75</span>, <span class="number">100</span>]	</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, values));  <span class="comment">// 100</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>上面这种方法虽然可行，但是总是不是那么直观。</p>
-<p>使用ES6提供的扩展运算符可以很容易的解决这个问题。在数组前加前缀 … (三个点)。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">let</span> values = [<span class="number">25</span>, <span class="number">50</span>, <span class="number">75</span>, <span class="number">100</span>]</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Math</span>.max(...values));  <span class="comment">//使用扩展运算符。相当于拆解了数组了。</span></div><div class="line">	<span class="built_in">console</span>.log(<span class="built_in">Math</span>.max(...values, <span class="number">200</span>));  <span class="comment">//也可以使用扩展运算符和参数的混用，则这个时候就有 5 个数参与比较了。</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>注意：剩余参数和扩展运算符都是 使用三个点作为前缀。但是他们使用的位置是不一样的。</strong></p>
-<ol>
-<li><em>**</em>剩余参数是用在函数的声明的时候的参数列表中，而且必须在参数列表的后面</li>
-<li>扩展运算符是用在函数调用的时候作为实参来传递的，在实参中的位置没有限制。</li>
-</ol>
-</blockquote>
-<h1 id="全新的函数：箭头函数（-gt-）"><a href="#全新的函数：箭头函数（-gt-）" class="headerlink" title="全新的函数：箭头函数（=&gt;）"></a>全新的函数：箭头函数（=&gt;）</h1><blockquote>
-<p>ECMAScript 6 最有意思的部分之一就是箭头函数。正如其名，箭头函数由 “箭头”（=&gt;）这种新的语法来定义。</p>
-<p>其实在别的语言中早就有了这种语法结构，不过他们叫拉姆达表达式。</p>
-</blockquote>
-<h2 id="箭头函数语法"><a href="#箭头函数语法" class="headerlink" title="箭头函数语法"></a>箭头函数语法</h2><blockquote>
-<p>基本语法如下：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(形参列表)=&gt;&#123;</div><div class="line">  <span class="comment">//函数体</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<blockquote>
-<p>箭头函数可以赋值给变量，也可以像匿名函数一样直接作为参数传递。</p>
-</blockquote>
-<ul>
-<li>示例1：</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> sum = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span>&#123;</div><div class="line">        <span class="keyword">return</span> num1 + num2;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(sum(<span class="number">3</span>, <span class="number">4</span>));</div><div class="line">    <span class="comment">//前面的箭头函数等同于下面的传统函数</span></div><div class="line">    <span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span> (<span class="params">num1, num2</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> num1 + num2;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(add(<span class="number">2</span>, <span class="number">4</span>))</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<hr>
-<blockquote>
-<p>如果函数体内只有一行代码，则包裹函数体的 <strong>大括号</strong> ({ })完全可以省略。如果有return，return关键字也可以省略。</p>
-<p>如果函数体内有多条语句，则 {} 不能省略。</p>
-</blockquote>
-<ul>
-<li>示例2：</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> sum = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2;</div><div class="line">    <span class="built_in">console</span>.log(sum(<span class="number">5</span>, <span class="number">4</span>));</div><div class="line">    <span class="comment">//前面的箭头函数等同于下面的传统函数</span></div><div class="line">    <span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span> (<span class="params">num1, num2</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> num1 + num2;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(add(<span class="number">2</span>, <span class="number">4</span>));</div><div class="line"></div><div class="line">	<span class="comment">//如果这一行代码是没有返回值的，则方法的返回自也是undefined</span></div><div class="line">	<span class="keyword">var</span> foo = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">"aaa"</span>);</div><div class="line">	<span class="built_in">console</span>.log(foo(<span class="number">3</span>,<span class="number">4</span>));  <span class="comment">//这个地方的返回值就是undefined</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<hr>
-<blockquote>
-<p>如果箭头函数只有一个参数，则包裹参数的小括号可以省略。其余情况下都不可以省略。<strong>当然如果不传入参数也不可以省略</strong></p>
-</blockquote>
-<ul>
-<li>示例3：</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> foo = <span class="function"><span class="params">a</span>=&gt;</span> a+<span class="number">3</span>; <span class="comment">//因为只有一个参数，所以()可以省略</span></div><div class="line">    <span class="built_in">console</span>.log(foo(<span class="number">4</span>)); <span class="comment">// 7</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<hr>
-<blockquote>
-<p>如果想直接返回一个js对象，而且还不想添加传统的大括号和return，则必须给整个对象添加一个<strong>小括号 ()</strong></p>
-</blockquote>
-<ul>
-<li>示例4：</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> foo = <span class="function"><span class="params">()</span>=&gt;</span>(&#123;<span class="attr">name</span>:<span class="string">"lisi"</span>, <span class="attr">age</span>:<span class="number">30</span>&#125;);</div><div class="line">    <span class="built_in">console</span>.log(foo());</div><div class="line">	<span class="comment">//等同于下面的；</span></div><div class="line">	<span class="keyword">var</span> foo1 = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">      	<span class="keyword">return</span> &#123;</div><div class="line">          	<span class="attr">name</span>:<span class="string">"lisi"</span>,</div><div class="line">          	<span class="attr">age</span> : <span class="number">30</span></div><div class="line">      	&#125;;</div><div class="line">	&#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="使用箭头函数实现函数自执行"><a href="#使用箭头函数实现函数自执行" class="headerlink" title="使用箭头函数实现函数自执行"></a>使用箭头函数实现函数自执行</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> person = (<span class="function"><span class="params">name</span> =&gt;</span> &#123;</div><div class="line">            <span class="keyword">return</span> &#123;</div><div class="line">                <span class="attr">name</span>: name,</div><div class="line">                <span class="attr">age</span>: <span class="number">30</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    )(<span class="string">"zs"</span>);</div><div class="line">    <span class="built_in">console</span>.log(person);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h2 id="箭头函数中无this绑定-No-this-Binding"><a href="#箭头函数中无this绑定-No-this-Binding" class="headerlink" title="箭头函数中无this绑定(No this Binding)"></a>箭头函数中无this绑定(No this Binding)</h2><blockquote>
-<p>在ES5之前this的绑定是个比较麻烦的问题，稍不注意就达不到自己想要的效果。因为this的绑定和定义位置无关，只和调用方式有关。</p>
-<p><strong>在箭头函数中则没有这样的问题，在箭头函数中，this和定义时的作用域相关，不用考虑调用方式</strong></p>
-<p>箭头函数没有 this 绑定，意味着 this 只能通过查找作用域链来确定。<strong>如果箭头函数被另一个不包含箭头函数的函数囊括，那么 this 的值和该函数中的 this 相等，否则 this 的值为 window。</strong></p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> PageHandler = &#123;</div><div class="line">        <span class="attr">id</span>: <span class="string">"123456"</span>,</div><div class="line">        <span class="attr">init</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">document</span>.addEventListener(<span class="string">"click"</span>,</div><div class="line">                event =&gt; <span class="keyword">this</span>.doSomething(event.type), <span class="literal">false</span>); <span class="comment">// 在此处this的和init函数内的this相同。</span></div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        <span class="attr">doSomething</span>: <span class="function"><span class="keyword">function</span> (<span class="params">type</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">"Handling "</span> + type + <span class="string">" for "</span> + <span class="keyword">this</span>.id);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    PageHandler.init();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>看下面的一段代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> p = &#123;</div><div class="line">        <span class="attr">foo</span>:<span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">console</span>.log(<span class="keyword">this</span>)   <span class="comment">//此处this为window</span></div><div class="line">    &#125;</div><div class="line">    p.foo();  <span class="comment">//输出为 window对象。   并不是我想要的。所以在定义对象的方法的时候应该避免使用箭头函数。</span></div><div class="line"><span class="comment">//箭头函数一般用在传递参数，或者在函数内部声明函数的时候使用。</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>说明：</p>
-</blockquote>
-<ol>
-<li>箭头函数作为一个使用完就扔的函数，不能作为构造函数使用。也就是不能使用new 的方式来使用箭头函数。</li>
-<li>由于箭头函数中的this与函数的作用域相关，所以不能使用call、apply、bind来重新绑定this。但是虽然this不能重新绑定，但是还是可以使用call和apply方法去执行箭头函数的。</li>
-</ol>
-<h2 id="无arguments绑定"><a href="#无arguments绑定" class="headerlink" title="无arguments绑定"></a>无arguments绑定</h2><blockquote>
-<p>虽然箭头函数没有自己的arguments对象，但是在箭头函数内部还是可以使用它外部函数的arguments对象的。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">//这里的arguments是foo函数的arguments对象。箭头函数自己是没有 arguments 对象的。</span></div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="params">()</span>=&gt;</span><span class="built_in">arguments</span>[<span class="number">0</span>]; <span class="comment">//箭头函数的返回值是foo函数的第一个参数</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> arrow = foo(<span class="number">4</span>, <span class="number">5</span>);</div><div class="line">    <span class="built_in">console</span>.log(arrow()); <span class="comment">// 4</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;带默认参数的函数&quot;&gt;&lt;a href=&quot;#带默认参数的函数&quot; class=&quot;headerlink&quot; title=&quot;带默认参数的函数&quot;&gt;&lt;/a&gt;带默认参数的函数&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;JavaScript函数的最大的一个特点就是在传递参数的时候，参数的个数不受限制的。为了健壮性考虑，一般在函数内部需要做一些默认值的处理。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;makeRequest&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;url, timeout, callback&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    timeout = timeout || &lt;span class=&quot;number&quot;&gt;2000&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    callback = callback || &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://loeuy.cn/tags/JavaScript/"/>
-    
-  </entry>
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/100question.html">2017年前端面试题整理汇总100题</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 荣嬷嬷 的个人博客">荣嬷嬷</a></p>
+        <p><span>发布时间:</span>2017年06月14日 - 18时04分</p>
+        <p><span>最后更新:</span>2017年07月04日 - 14时49分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/100question.html" title="2017年前端面试题整理汇总100题">http://loeuy.cn/100question.html</a>
+            <span class="copy-path" data-clipboard-text="原文: http://loeuy.cn/100question.html　　作者: 荣嬷嬷" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
   
-  <entry>
-    <title>ES6块级作用域</title>
-    <link href="http://loeuy.cn/ES6_let.html"/>
-    <id>http://loeuy.cn/ES6_let.html</id>
-    <published>2017-06-14T05:51:45.000Z</published>
-    <updated>2017-06-14T06:21:56.114Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="块级作用域绑定"><a href="#块级作用域绑定" class="headerlink" title="块级作用域绑定"></a>块级作用域绑定</h2><blockquote>
-<p>在ES5之前，不存在块级作用域，在编程的时候很多时候会带来很多的不便，ES6新增了块级作用域，补足了这方面的缺陷。</p>
-</blockquote>
-<p>块级声明指的是该声明的变量无法被代码块外部访问。块作用域，又被称为词法作用域（lexical scopes），可以在如下的条件下创建：</p>
-<ul>
-<li>函数内部</li>
-<li>在代码块（即 {  }）内部</li>
-</ul>
-<p>块级作用域是很多类C语言的工作机制，ECMAScript 6 引入块级声明的目的是增强 JavaScript 的灵活性，同时又能与其它编程语言保持一致。</p>
-<a id="more"></a>
-<h2 id="let声明"><a href="#let声明" class="headerlink" title="let声明"></a>let声明</h2><blockquote>
-<p>使用let声明变量的语法和使用var声明的语法是一样的。<strong>但是let声明的变量的作用域会限制在当前的代码块中。这是let与var的最大区别</strong>。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">let</span> a = <span class="number">10</span>;</div><div class="line">    <span class="keyword">if</span>(a &gt; <span class="number">5</span>)&#123;</div><div class="line">        <span class="built_in">console</span>.log(b); <span class="comment">//用let声明的变量没有声明提前这一特性，所以此处也访问不到（报错）</span></div><div class="line">        <span class="keyword">let</span> b = <span class="number">20</span>;</div><div class="line">        <span class="built_in">console</span>.log(b);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(b); <span class="comment">//由于b是在if块中使用let声明的，所以此处无法访问到。（报错）</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：</p>
-</blockquote>
-<ol>
-<li>用 let 声明的变量具有块级作用域，只能在声明的块中访问，在块外面无法访问</li>
-<li>用let声明的变量也没有声明提前这一特性。</li>
-<li>在同一个块中，let声明的变量也不能重复声明。</li>
-<li>在声明变量的时候尽量使用let，慢慢的抛弃var</li>
-</ol>
-<h2 id="const声明-Constant-Declarations"><a href="#const声明-Constant-Declarations" class="headerlink" title="const声明(Constant Declarations)"></a>const声明(Constant Declarations)</h2><blockquote>
-<p>在  ES6 使用const来声明的变量称之为常量。这意味着它们不能再次被赋值。由于这个原因，所有的 const 声明的变量都必须在声明处初始化。const声明的常量和let变量一样也是具有块级作用域的特性。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">20</span>;</div><div class="line">    <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">        <span class="keyword">const</span> b = <span class="number">20</span>;</div><div class="line">        b = <span class="number">30</span>;  <span class="comment">//错误! 常量不能重新赋值</span></div><div class="line">        <span class="keyword">const</span> c; <span class="comment">//错误！ 常量声明的同时必须赋值。</span></div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：</p>
-</blockquote>
-<ol>
-<li>const的特性除了声明的是常量为，其他与let一样。</li>
-<li>在let和const声明前的这段区域称之为暂存性死区（<strong>The Temporal Dead Zone</strong> —TDZ)。</li>
-<li>使用let和const声明的变量和常量不再是window的属性。  也就是说通过window.a是无法访问到的。</li>
-</ol>
-<h2 id="循环中的块级绑定"><a href="#循环中的块级绑定" class="headerlink" title="循环中的块级绑定"></a>循环中的块级绑定</h2><blockquote>
-<p>使用var声明的循环变量在循环结束后仍然可以访问到。   使用let声明的循环变量，在循环结束之后会立即销毁。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)&#123; <span class="comment">// 循环结束之后会立即销毁 i</span></div><div class="line">        <span class="built_in">console</span>.log(i);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(i);  <span class="comment">//此处无法访问到 i 。</span></div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="循环中的函数"><a href="#循环中的函数" class="headerlink" title="循环中的函数"></a>循环中的函数</h2><blockquote>
-<p>看下面的代码，是输出10个10，而不是0，1，2，…</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> funcs = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">        funcs.push(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(i);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    funcs.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">func</span>) </span>&#123;</div><div class="line">        func();     <span class="comment">// 输出 "10" 共10次</span></div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>解决办法需要使用函数的自执行特性。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> funcs = [];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">    funcs.push((<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(value);</div><div class="line">        &#125;</div><div class="line">    &#125;(i)));</div><div class="line">&#125;</div><div class="line">funcs.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">func</span>) </span>&#123;</div><div class="line">    func();     <span class="comment">// 输出 0，1，2 ... 9</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p><strong>如果使用let声明变量，则完全可以避免前面的问题。 这是ES6规范中专门定义的特性。在for … in和for … of循环中也适用</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> funcs = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">        funcs.push(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(i);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    funcs.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">func</span>) </span>&#123;</div><div class="line">        func();     <span class="comment">// 输出 0，1，2 ... 9</span></div><div class="line">    &#125;)</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>说明：</p>
-</blockquote>
-<ol>
-<li>let 声明使得每次迭代都会创建一个变量 i，所以循环内部创建的函数会获得各自的变量 i 的拷贝。每份拷贝都会在每次迭代的开始被创建并被赋值。</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;块级作用域绑定&quot;&gt;&lt;a href=&quot;#块级作用域绑定&quot; class=&quot;headerlink&quot; title=&quot;块级作用域绑定&quot;&gt;&lt;/a&gt;块级作用域绑定&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;在ES5之前，不存在块级作用域，在编程的时候很多时候会带来很多的不便，ES6新增了块级作用域，补足了这方面的缺陷。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;块级声明指的是该声明的变量无法被代码块外部访问。块作用域，又被称为词法作用域（lexical scopes），可以在如下的条件下创建：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;函数内部&lt;/li&gt;
-&lt;li&gt;在代码块（即 {  }）内部&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;块级作用域是很多类C语言的工作机制，ECMAScript 6 引入块级声明的目的是增强 JavaScript 的灵活性，同时又能与其它编程语言保持一致。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://loeuy.cn/tags/JavaScript/"/>
-    
-  </entry>
+    <a  href="/mob_com.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          移动端常见的一些兼容性问题
+        
+      </div>
+    </a>
   
-  <entry>
-    <title>Flex布局</title>
-    <link href="http://loeuy.cn/Flex_layout.html"/>
-    <id>http://loeuy.cn/Flex_layout.html</id>
-    <published>2017-06-05T09:07:50.000Z</published>
-    <updated>2017-06-14T06:22:05.065Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Flex布局是什么？"><a href="#Flex布局是什么？" class="headerlink" title="Flex布局是什么？"></a>Flex布局是什么？</h2><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</p>
-<p>任何一个容器都可以指定为 Flex 布局。</p>
-<a id="more"></a>
-<h3 id="定义容器的display属性"><a href="#定义容器的display属性" class="headerlink" title="定义容器的display属性"></a>定义容器的display属性</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  	<span class="attribute">display</span>: -webkit-flex;</div><div class="line">  	<span class="attribute">dispaly</span>: flex;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*行内样式*/</span></div><div class="line"><span class="selector-class">.box</span>&#123;</div><div class="line">  	<span class="attribute">display</span>: -webkit-inline-flex;</div><div class="line">  	<span class="attribute">display</span>: inline-flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="容器样式"><a href="#容器样式" class="headerlink" title="容器样式"></a>容器样式</h3><p><strong>主轴方向（flex-direction）</strong></p>
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>属性的含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>row</td>
-<td>左到右（默认）</td>
-</tr>
-<tr>
-<td>row-reverse</td>
-<td>右到左</td>
-</tr>
-<tr>
-<td>column</td>
-<td>上到下</td>
-</tr>
-<tr>
-<td>column-reverse</td>
-<td>下到上</td>
-</tr>
-</tbody>
-</table>
-<p><strong>换行（flex-wrap）</strong></p>
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>属性的含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>nowrap</td>
-<td>不换行（默认）</td>
-</tr>
-<tr>
-<td>wrap</td>
-<td>换行</td>
-</tr>
-<tr>
-<td>wrap-reverse</td>
-<td>换行并第一行在下方</td>
-</tr>
-</tbody>
-</table>
-<p><strong>主轴方向和换行简写</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flew-flow:&lt;flex-direction&gt;||&lt;flex-wrap&gt;</div></pre></td></tr></table></figure>
-<p><strong>主轴对齐方式（justify-content）</strong></p>
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>属性的含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>flex-start</td>
-<td>左对齐（默认）</td>
-</tr>
-<tr>
-<td>flex-end</td>
-<td>右对齐</td>
-</tr>
-<tr>
-<td>center</td>
-<td>居中对齐</td>
-</tr>
-<tr>
-<td>space-between</td>
-<td>两端对齐</td>
-</tr>
-<tr>
-<td>space-around</td>
-<td>平均分布</td>
-</tr>
-</tbody>
-</table>
-<p><strong>交叉轴对齐方式（align-items）</strong></p>
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>属性的含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>flex-start</td>
-<td>顶部对齐</td>
-</tr>
-<tr>
-<td>flex-end</td>
-<td>底部对齐</td>
-</tr>
-<tr>
-<td>center</td>
-<td>居中对齐</td>
-</tr>
-<tr>
-<td>baseline</td>
-<td>文本基线对齐</td>
-</tr>
-<tr>
-<td>stretch</td>
-<td>如果项目未设置高度或设为auto，将占满整个容器的高度。（默认）</td>
-</tr>
-</tbody>
-</table>
-<h3 id="子元素属性"><a href="#子元素属性" class="headerlink" title="子元素属性"></a>子元素属性</h3><p><strong>排序（order：<number>）</number></strong>：排序，数值越小，越排前，默认为0</p>
-<p><strong>放大（flex-grow: <number>）</number></strong>：放大：默认0（即如果有剩余空间也不放大，值为1则放大，2是1的双倍大小，以此类推）</p>
-<p><strong>缩小（flex-shrink:<number>）</number></strong>：缩小：如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。负值对该属性无效。</p>
-<p><strong>固定大小（flex-basis:<length> | auto）</length></strong>:固定大小：默认为0，可以设置px值，也可以设置百分比大小</p>
-<p><strong>flex:none | [ &lt;’flex-grow’&gt; &lt;’flex-shrink’&gt;? || &lt;’flex-basis’&gt; ]</strong>：flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。</p>
-<p><strong>单独对齐方式（align-self）</strong></p>
-<table>
-<thead>
-<tr>
-<th>属性值</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>auto</td>
-<td>自动（默认）</td>
-</tr>
-<tr>
-<td>flex-start</td>
-<td>顶部对齐</td>
-</tr>
-<tr>
-<td>flex-end</td>
-<td>底部对齐</td>
-</tr>
-<tr>
-<td>center</td>
-<td>居中对齐</td>
-</tr>
-<tr>
-<td>baseline</td>
-<td>文本基线对齐</td>
-</tr>
-<tr>
-<td>stretch</td>
-<td>上下对齐并铺满</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Flex布局是什么？&quot;&gt;&lt;a href=&quot;#Flex布局是什么？&quot; class=&quot;headerlink&quot; title=&quot;Flex布局是什么？&quot;&gt;&lt;/a&gt;Flex布局是什么？&lt;/h2&gt;&lt;p&gt;Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。&lt;/p&gt;
-&lt;p&gt;任何一个容器都可以指定为 Flex 布局。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="css3" scheme="http://loeuy.cn/tags/css3/"/>
-    
-  </entry>
   
-  <entry>
-    <title>JavaScript常用函数汇总</title>
-    <link href="http://loeuy.cn/js_comfn.html"/>
-    <id>http://loeuy.cn/js_comfn.html</id>
-    <published>2017-03-15T03:00:20.000Z</published>
-    <updated>2017-06-15T03:28:05.575Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>在很多传统语言（C/C++/Java/C#等）中，函数都是作为一个二等公民存在，你只能用语言的关键字声明一个函数然后调用它，如果需要把函数作为参数传给另一个函数，或是赋值给一个本地变量，又或是作为返回值，就需要通过函数指针(function pointer)、代理(delegate)等特殊的方式周折一番。而在JavaScript世界中函数却是一等公民，它不仅拥有一切传统函数的使用方式（声明和调用），而且可以做到像简单值一样赋值、传参、返回，这样的函数也称之为第一级函数（First-class Function）。不仅如此，JavaScript中的函数还充当了类的构造函数的作用，同时又是一个Function类的实例(instance)。这样的多重身份让JavaScript的函数变得非常重要。</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="1-原生JavaScript实现字符串长度截取"><a href="#1-原生JavaScript实现字符串长度截取" class="headerlink" title="1.原生JavaScript实现字符串长度截取"></a>1.原生JavaScript实现字符串长度截取</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cutstr</span>(<span class="params">str, len</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> temp;</div><div class="line">      <span class="keyword">var</span> icount = <span class="number">0</span>;</div><div class="line">      <span class="keyword">var</span> patrn = <span class="regexp">/[^\x00-\xff]/</span>;</div><div class="line">      <span class="keyword">var</span> strre = <span class="string">""</span>;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; str.length; i++) &#123;</div><div class="line">          <span class="keyword">if</span> (icount &lt; len - <span class="number">1</span>) &#123;</div><div class="line">              temp = str.substr(i, <span class="number">1</span>);</div><div class="line">              <span class="keyword">if</span> (patrn.exec(temp) == <span class="literal">null</span>) &#123;</div><div class="line">                  icount = icount + <span class="number">1</span></div><div class="line">              &#125; <span class="keyword">else</span> &#123;</div><div class="line">                  icount = icount + <span class="number">2</span></div><div class="line">              &#125;</div><div class="line">              strre += temp</div><div class="line">          &#125; <span class="keyword">else</span> &#123;</div><div class="line">              <span class="keyword">break</span></div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> strre + <span class="string">"..."</span></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<h2 id="2-原生JavaScript获取域名主机"><a href="#2-原生JavaScript获取域名主机" class="headerlink" title="2.原生JavaScript获取域名主机"></a>2.原生JavaScript获取域名主机</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getHost</span>(<span class="params">url</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> host = <span class="string">"null"</span>;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> url == <span class="string">"undefined"</span>|| <span class="literal">null</span> == url) &#123;</div><div class="line">            url = <span class="built_in">window</span>.location.href;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> regex = <span class="regexp">/^\w+\:\/\/([^\/]*).*/</span>;</div><div class="line">        <span class="keyword">var</span> match = url.match(regex);</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> match != <span class="string">"undefined"</span> &amp;&amp; <span class="literal">null</span> != match) &#123;</div><div class="line">            host = match[<span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> host;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="3-原生JavaScript元素显示的通用方法"><a href="#3-原生JavaScript元素显示的通用方法" class="headerlink" title="3.原生JavaScript元素显示的通用方法"></a>3.原生JavaScript元素显示的通用方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">$</span>(<span class="params">id</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> !id ? <span class="literal">null</span> : <span class="built_in">document</span>.getElementById(id);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">display</span>(<span class="params">id</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> obj = $(id);</div><div class="line">        <span class="keyword">if</span>(obj.style.visibility) &#123;</div><div class="line">            obj.style.visibility = obj.style.visibility == <span class="string">'visible'</span> ? <span class="string">'hidden'</span> : <span class="string">'visible'</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            obj.style.display = obj.style.display == <span class="string">''</span> ? <span class="string">'none'</span> : <span class="string">''</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h2 id="4-原生JavaScript实现checkbox全选与全不选"><a href="#4-原生JavaScript实现checkbox全选与全不选" class="headerlink" title="4.原生JavaScript实现checkbox全选与全不选"></a>4.原生JavaScript实现checkbox全选与全不选</h2><pre><code>function checkAll() {
-    var selectall = document.getElementById(&quot;selectall&quot;);
-    var allbox = document.getElementsByName(&quot;allbox&quot;);
-    if (selectall.checked) {
-        for (var i = 0; i &lt; allbox.length; i++) {
-            allbox[i].checked = true;
-        }
-    } else {
-        for (var i = 0; i &lt; allbox.length; i++) {
-            allbox[i].checked = false;
-        }
+    <a  href="/ES6_comfn.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6函数新增的特性</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-一些开放性题目"><span class="toc-number">1.</span> <span class="toc-text">1.一些开放性题目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#position的值，-relative和absolute分别是相对于谁进行定位的？"><span class="toc-number">2.</span> <span class="toc-text">position的值， relative和absolute分别是相对于谁进行定位的？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何解决跨域问题"><span class="toc-number">3.</span> <span class="toc-text">如何解决跨域问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XML和JSON的区别？"><span class="toc-number">4.</span> <span class="toc-text">XML和JSON的区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#谈谈你对webpack的看法"><span class="toc-number">5.</span> <span class="toc-text">谈谈你对webpack的看法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#说说TCP传输的三次握手四次挥手策略"><span class="toc-number">6.</span> <span class="toc-text">说说TCP传输的三次握手四次挥手策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP和UDP的区别"><span class="toc-number">7.</span> <span class="toc-text">TCP和UDP的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#说说你对作用域链的理解"><span class="toc-number">8.</span> <span class="toc-text">说说你对作用域链的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建ajax过程"><span class="toc-number">9.</span> <span class="toc-text">创建ajax过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#渐进增强和优雅降级"><span class="toc-number">10.</span> <span class="toc-text">渐进增强和优雅降级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见web安全及防护原理"><span class="toc-number">11.</span> <span class="toc-text">常见web安全及防护原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Web-Worker-和webSocket"><span class="toc-number">12.</span> <span class="toc-text">Web Worker 和webSocket</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP和HTTPS"><span class="toc-number">13.</span> <span class="toc-text">HTTP和HTTPS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么HTTPS安全"><span class="toc-number">14.</span> <span class="toc-text">为什么HTTPS安全</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对前端模块化的认识"><span class="toc-number">15.</span> <span class="toc-text">对前端模块化的认识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Javascript垃圾回收方法"><span class="toc-number">16.</span> <span class="toc-text">Javascript垃圾回收方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#你觉得前端工程的价值体现在哪"><span class="toc-number">17.</span> <span class="toc-text">你觉得前端工程的价值体现在哪</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#谈谈性能优化问题"><span class="toc-number">18.</span> <span class="toc-text">谈谈性能优化问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移动端性能优化"><span class="toc-number">19.</span> <span class="toc-text">移动端性能优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是Etag？"><span class="toc-number">20.</span> <span class="toc-text">什么是Etag？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Expires和Cache-Control"><span class="toc-number">21.</span> <span class="toc-text">Expires和Cache-Control</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ETag应用"><span class="toc-number">22.</span> <span class="toc-text">ETag应用:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#栈和队列的区别"><span class="toc-number">23.</span> <span class="toc-text">栈和队列的区别?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#栈和堆的区别？"><span class="toc-number">24.</span> <span class="toc-text">栈和堆的区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#快速-排序的思想并实现一个快排？"><span class="toc-number">25.</span> <span class="toc-text">快速 排序的思想并实现一个快排？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#你觉得jQuery或zepto源码有哪些写的好的地方"><span class="toc-number">26.</span> <span class="toc-text">你觉得jQuery或zepto源码有哪些写的好的地方</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ES6的了解"><span class="toc-number">27.</span> <span class="toc-text">ES6的了解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js继承方式及其优缺点"><span class="toc-number">28.</span> <span class="toc-text">js继承方式及其优缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于Http-2-0-你知道多少？"><span class="toc-number">29.</span> <span class="toc-text">关于Http 2.0 你知道多少？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#defer和async"><span class="toc-number">30.</span> <span class="toc-text">defer和async</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#谈谈浮动和清除浮动"><span class="toc-number">31.</span> <span class="toc-text">谈谈浮动和清除浮动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何评价AngularJS和BackboneJS"><span class="toc-number">32.</span> <span class="toc-text">如何评价AngularJS和BackboneJS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用过哪些设计模式？"><span class="toc-number">33.</span> <span class="toc-text">用过哪些设计模式？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#说说你对闭包的理解"><span class="toc-number">34.</span> <span class="toc-text">说说你对闭包的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#请你谈谈Cookie的弊端"><span class="toc-number">35.</span> <span class="toc-text">请你谈谈Cookie的弊端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器本地存储"><span class="toc-number">36.</span> <span class="toc-text">浏览器本地存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#web-storage和cookie的区别"><span class="toc-number">37.</span> <span class="toc-text">web storage和cookie的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cookie-和session-的区别："><span class="toc-number">38.</span> <span class="toc-text">cookie 和session 的区别：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#content-box（默认）"><span class="toc-number">39.</span> <span class="toc-text">content-box（默认）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#padding-box"><span class="toc-number">40.</span> <span class="toc-text">padding-box</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#border-box"><span class="toc-number">41.</span> <span class="toc-text">border-box</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#说说你对语义化的理解？"><span class="toc-number">42.</span> <span class="toc-text">说说你对语义化的理解？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Doctype作用-严格模式与混杂模式如何区分？它们有何意义"><span class="toc-number">43.</span> <span class="toc-text">Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#你知道多少种Doctype文档类型？"><span class="toc-number">44.</span> <span class="toc-text">你知道多少种Doctype文档类型？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML与XHTML——二者有什么区别"><span class="toc-number">45.</span> <span class="toc-text">HTML与XHTML——二者有什么区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见兼容性问题？"><span class="toc-number">46.</span> <span class="toc-text">常见兼容性问题？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解释下浮动和它的工作原理？清除浮动的技巧"><span class="toc-number">47.</span> <span class="toc-text">解释下浮动和它的工作原理？清除浮动的技巧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浮动元素引起的问题和解决办法？"><span class="toc-number">48.</span> <span class="toc-text">浮动元素引起的问题和解决办法？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DOM操作——怎样添加、移除、移动、复制、创建和查找节点。"><span class="toc-number">49.</span> <span class="toc-text">DOM操作——怎样添加、移除、移动、复制、创建和查找节点。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分-HTML-和-HTML5？"><span class="toc-number">50.</span> <span class="toc-text">html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何实现浏览器内多个标签页之间的通信"><span class="toc-number">51.</span> <span class="toc-text">如何实现浏览器内多个标签页之间的通信?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是-FOUC（无样式内容闪烁）？你如何来避免-FOUC？"><span class="toc-number">52.</span> <span class="toc-text">什么是 FOUC（无样式内容闪烁）？你如何来避免 FOUC？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#null和undefined的区别？"><span class="toc-number">53.</span> <span class="toc-text">null和undefined的区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#new操作符具体干了什么呢"><span class="toc-number">54.</span> <span class="toc-text">new操作符具体干了什么呢?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js延迟加载的方式有哪些？"><span class="toc-number">55.</span> <span class="toc-text">js延迟加载的方式有哪些？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#call-和-apply-的区别和作用？"><span class="toc-number">56.</span> <span class="toc-text">call() 和 apply() 的区别和作用？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#哪些操作会造成内存泄漏？"><span class="toc-number">57.</span> <span class="toc-text">哪些操作会造成内存泄漏？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#列举IE-与其他浏览器不一样的特性？"><span class="toc-number">58.</span> <span class="toc-text">列举IE 与其他浏览器不一样的特性？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WEB应用从服务器主动推送Data到客户端有那些方式？"><span class="toc-number">59.</span> <span class="toc-text">WEB应用从服务器主动推送Data到客户端有那些方式？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？"><span class="toc-number">60.</span> <span class="toc-text">对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？"><span class="toc-number">61.</span> <span class="toc-text">一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#javascript对象的几种创建方式"><span class="toc-number">62.</span> <span class="toc-text">javascript对象的几种创建方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#javascript继承的6种方法"><span class="toc-number">63.</span> <span class="toc-text">javascript继承的6种方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建ajax的过程"><span class="toc-number">64.</span> <span class="toc-text">创建ajax的过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#异步加载和延迟加载"><span class="toc-number">65.</span> <span class="toc-text">异步加载和延迟加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ie各版本和chrome可以并行下载多少个资源"><span class="toc-number">66.</span> <span class="toc-text">ie各版本和chrome可以并行下载多少个资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Flash、Ajax各自的优缺点，在使用中如何取舍？"><span class="toc-number">67.</span> <span class="toc-text">Flash、Ajax各自的优缺点，在使用中如何取舍？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#请解释一下-JavaScript-的同源策略。"><span class="toc-number">68.</span> <span class="toc-text">请解释一下 JavaScript 的同源策略。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么要有同源限制？"><span class="toc-number">69.</span> <span class="toc-text">为什么要有同源限制？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GET和POST的区别，何时使用POST？"><span class="toc-number">70.</span> <span class="toc-text">GET和POST的区别，何时使用POST？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事件、IE与火狐的事件机制有什么区别？-如何阻止冒泡？"><span class="toc-number">71.</span> <span class="toc-text">事件、IE与火狐的事件机制有什么区别？ 如何阻止冒泡？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ajax的缺点和在IE下的问题？"><span class="toc-number">72.</span> <span class="toc-text">ajax的缺点和在IE下的问题？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#谈谈你对重构的理解"><span class="toc-number">73.</span> <span class="toc-text">谈谈你对重构的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP状态码"><span class="toc-number">74.</span> <span class="toc-text">HTTP状态码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#说说你对Promise的理解"><span class="toc-number">75.</span> <span class="toc-text">说说你对Promise的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#说说你对前端架构师的理解"><span class="toc-number">76.</span> <span class="toc-text">说说你对前端架构师的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean）进行值复制"><span class="toc-number">77.</span> <span class="toc-text">实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean）进行值复制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#说说严格模式的限制"><span class="toc-number">78.</span> <span class="toc-text">说说严格模式的限制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何删除一个cookie"><span class="toc-number">79.</span> <span class="toc-text">如何删除一个cookie</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lt-strong-gt-，-lt-em-gt-和-lt-b-gt-，-lt-i-gt-标签"><span class="toc-number">80.</span> <span class="toc-text"><strong>，<em>和<b>，<i>标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#说说你对AMD和Commonjs的理解"><span class="toc-number">81.</span> <span class="toc-text">说说你对AMD和Commonjs的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#document-write-的用法"><span class="toc-number">82.</span> <span class="toc-text">document.write()的用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编写一个方法-求一个字符串的字节长度"><span class="toc-number">83.</span> <span class="toc-text">编写一个方法 求一个字符串的字节长度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git-fetch和git-pull的区别"><span class="toc-number">84.</span> <span class="toc-text">git fetch和git pull的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#说说你对MVC和MVVM的理解"><span class="toc-number">85.</span> <span class="toc-text">说说你对MVC和MVVM的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#请解释什么是事件代理"><span class="toc-number">86.</span> <span class="toc-text">请解释什么是事件代理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#attribute和property的区别是什么？"><span class="toc-number">87.</span> <span class="toc-text">attribute和property的区别是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#说说网络分层里七层模型是哪七层"><span class="toc-number">88.</span> <span class="toc-text">说说网络分层里七层模型是哪七层</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#说说mongoDB和MySQL的区别"><span class="toc-number">89.</span> <span class="toc-text">说说mongoDB和MySQL的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#讲讲304缓存的原理"><span class="toc-number">90.</span> <span class="toc-text">讲讲304缓存的原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么样的前端代码是好的"><span class="toc-number">91.</span> <span class="toc-text">什么样的前端代码是好的</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
     }
-}
-</code></pre><h2 id="5-原生JavaScript完美判断是否为网址"><a href="#5-原生JavaScript完美判断是否为网址" class="headerlink" title="5.原生JavaScript完美判断是否为网址"></a>5.原生JavaScript完美判断是否为网址</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">IsURL</span>(<span class="params">strUrl</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> regular = <span class="regexp">/^\b(((https?|ftp):\/\/)?[-a-z0-9]+(\.[-a-z0-9]+)*\.(?:com|edu|gov|int|mil|net|org|biz|info|name|museum|asia|coop|aero|[a-z][a-z]|((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]\d)|\d))\b(\/[-a-z0-9_:\@&amp;?=+,.!\/~%\$]*)?)$/i</span></div><div class="line">    <span class="keyword">if</span> (regular.test(strUrl)) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="6-原生JavaScript获得URL中GET参数值"><a href="#6-原生JavaScript获得URL中GET参数值" class="headerlink" title="6.原生JavaScript获得URL中GET参数值"></a>6.原生JavaScript获得URL中GET参数值</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 用法：如果地址是 test.htm?t1=1&amp;t2=2&amp;t3=3, 那么能取得：GET["t1"], GET["t2"], GET["t3"]</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_get</span>(<span class="params"></span>)</span>&#123; </div><div class="line">  querystr = <span class="built_in">window</span>.location.href.split(<span class="string">"?"</span>)</div><div class="line">  <span class="keyword">if</span>(querystr[<span class="number">1</span>])&#123;</div><div class="line">    GETs = querystr[<span class="number">1</span>].split(<span class="string">"&amp;"</span>)</div><div class="line">    GET =<span class="keyword">new</span> <span class="built_in">Array</span>()</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;GETs.length;i++)&#123;</div><div class="line">      tmp_arr = GETs[i].split(<span class="string">"="</span>)</div><div class="line">      key=tmp_arr[<span class="number">0</span>]</div><div class="line">      GET[key] = tmp_arr[<span class="number">1</span>]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> querystr[<span class="number">1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="7-原生JavaScript跨浏览器添加事件"><a href="#7-原生JavaScript跨浏览器添加事件" class="headerlink" title="7.原生JavaScript跨浏览器添加事件"></a>7.原生JavaScript跨浏览器添加事件</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvt</span>(<span class="params">oTarget,sEvtType,fnHandle</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(!oTarget)&#123;<span class="keyword">return</span>;&#125;</div><div class="line">    <span class="keyword">if</span>(oTarget.addEventListener)&#123;</div><div class="line">        oTarget.addEventListener(sEvtType,fnHandle,<span class="literal">false</span>);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(oTarget.attachEvent)&#123;</div><div class="line">        oTarget.attachEvent(<span class="string">"on"</span> + sEvtType,fnHandle);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        oTarget[<span class="string">"on"</span> + sEvtType] = fnHandle;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="8-原生JavaScript实现返回顶部的通用方法"><a href="#8-原生JavaScript实现返回顶部的通用方法" class="headerlink" title="8.原生JavaScript实现返回顶部的通用方法"></a>8.原生JavaScript实现返回顶部的通用方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">backTop</span>(<span class="params">btnId</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(btnId);</div><div class="line">    <span class="keyword">var</span> d = <span class="built_in">document</span>.documentElement;</div><div class="line">    <span class="keyword">var</span> b = <span class="built_in">document</span>.body;</div><div class="line">    <span class="built_in">window</span>.onscroll = set;</div><div class="line">    btn.style.display = <span class="string">"none"</span>;</div><div class="line">    btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        btn.style.display = <span class="string">"none"</span>;</div><div class="line">        <span class="built_in">window</span>.onscroll = <span class="literal">null</span>;</div><div class="line">        <span class="keyword">this</span>.timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            d.scrollTop -= <span class="built_in">Math</span>.ceil((d.scrollTop + b.scrollTop) * <span class="number">0.1</span>);</div><div class="line">            b.scrollTop -= <span class="built_in">Math</span>.ceil((d.scrollTop + b.scrollTop) * <span class="number">0.1</span>);</div><div class="line">            <span class="keyword">if</span> ((d.scrollTop + b.scrollTop) == <span class="number">0</span>) clearInterval(btn.timer, <span class="built_in">window</span>.onscroll = set);</div><div class="line">        &#125;,</div><div class="line">        <span class="number">10</span>);</div><div class="line">    &#125;;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">set</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        btn.style.display = (d.scrollTop + b.scrollTop &gt; <span class="number">100</span>) ? <span class="string">'block'</span>: <span class="string">"none"</span></div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">backTop(<span class="string">'goTop'</span>);</div></pre></td></tr></table></figure>
-<h2 id="9-原生JavaScript实现全选通用方法"><a href="#9-原生JavaScript实现全选通用方法" class="headerlink" title="9.原生JavaScript实现全选通用方法"></a>9.原生JavaScript实现全选通用方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkall</span>(<span class="params">form, prefix, checkall</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> checkall = checkall ? checkall : <span class="string">'chkall'</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; form.elements.length; i++) &#123;</div><div class="line">        <span class="keyword">var</span> e = form.elements[i];</div><div class="line">        <span class="keyword">if</span>(e.type==<span class="string">"checkbox"</span>)&#123;</div><div class="line">            e.checked = form.elements[checkall].checked;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="10-原生JavaScript实现全部取消选择通用方法"><a href="#10-原生JavaScript实现全部取消选择通用方法" class="headerlink" title="10.原生JavaScript实现全部取消选择通用方法"></a>10.原生JavaScript实现全部取消选择通用方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">uncheckAll</span>(<span class="params">form</span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;form.elements.length;i++)&#123;</div><div class="line">        <span class="keyword">var</span> e = form.elements[i];</div><div class="line">        <span class="keyword">if</span> (e.name != <span class="string">'chkall'</span>)</div><div class="line">        e.checked=!e.checked;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="11-原生JavaScript获取单选按钮的值"><a href="#11-原生JavaScript获取单选按钮的值" class="headerlink" title="11.原生JavaScript获取单选按钮的值"></a>11.原生JavaScript获取单选按钮的值</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_radio_value</span>(<span class="params">field</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(field&amp;&amp;field.length)&#123;    </div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;field.length;i++)&#123;        </div><div class="line">            <span class="keyword">if</span>(field[i].checked)&#123;            </div><div class="line">                <span class="keyword">return</span> field[i].value;                                </div><div class="line">            &#125;            </div><div class="line">        &#125;        </div><div class="line">    &#125;<span class="keyword">else</span> &#123;        </div><div class="line">        <span class="keyword">return</span> ;                </div><div class="line">    &#125;    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="12-原生JavaScript获取复选框的值"><a href="#12-原生JavaScript获取复选框的值" class="headerlink" title="12.原生JavaScript获取复选框的值"></a>12.原生JavaScript获取复选框的值</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_checkbox_value</span>(<span class="params">field</span>)</span>&#123;    </div><div class="line">    <span class="keyword">if</span>(field&amp;&amp;field.length)&#123;    </div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;field.length;i++)&#123;            </div><div class="line">            <span class="keyword">if</span>(field[i].checked &amp;&amp; !field[i].disabled)&#123;</div><div class="line">                <span class="keyword">return</span> field[i].value;</div><div class="line">            &#125;</div><div class="line">        &#125;        </div><div class="line">    &#125;<span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;            </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="13-原生JavaScript判断变量是否空值"><a href="#13-原生JavaScript判断变量是否空值" class="headerlink" title="13.原生JavaScript判断变量是否空值"></a>13.原生JavaScript判断变量是否空值</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 判断变量是否空值</div><div class="line"> * undefined, null, '', false, 0, [], &#123;&#125; 均返回true，否则返回false</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">empty</span>(<span class="params">v</span>)</span>&#123;</div><div class="line">    <span class="keyword">switch</span> (<span class="keyword">typeof</span> v)&#123;</div><div class="line">        <span class="keyword">case</span> <span class="string">'undefined'</span> : <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        <span class="keyword">case</span> <span class="string">'string'</span>    : <span class="keyword">if</span>(trim(v).length == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>; <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="string">'boolean'</span>   : <span class="keyword">if</span>(!v) <span class="keyword">return</span> <span class="literal">true</span>; <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="string">'number'</span>    : <span class="keyword">if</span>(<span class="number">0</span> === v) <span class="keyword">return</span> <span class="literal">true</span>; <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="string">'object'</span>    : </div><div class="line">            <span class="keyword">if</span>(<span class="literal">null</span> === v) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            <span class="keyword">if</span>(<span class="literal">undefined</span> !== v.length &amp;&amp; v.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> v)&#123;<span class="keyword">return</span> <span class="literal">false</span>;&#125; <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="14-后记"><a href="#14-后记" class="headerlink" title="14.后记"></a>14.后记</h2><p>本文转自<a href="http://www.jianshu.com/u/5a2fd0b8fb30" target="_blank" rel="external">MR<em>LP__</em>李鹏</a>参考于 <a href="https://zhuanlan.zhihu.com/p/24205965" target="_blank" rel="external">小萧ovo</a> 的码农在线，感谢作者。</p>
-]]></content>
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
     
-    <summary type="html">
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'cyt3Oo2AJ',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
     
-      &lt;blockquote&gt;
-&lt;p&gt;在很多传统语言（C/C++/Java/C#等）中，函数都是作为一个二等公民存在，你只能用语言的关键字声明一个函数然后调用它，如果需要把函数作为参数传给另一个函数，或是赋值给一个本地变量，又或是作为返回值，就需要通过函数指针(function pointer)、代理(delegate)等特殊的方式周折一番。而在JavaScript世界中函数却是一等公民，它不仅拥有一切传统函数的使用方式（声明和调用），而且可以做到像简单值一样赋值、传参、返回，这样的函数也称之为第一级函数（First-class Function）。不仅如此，JavaScript中的函数还充当了类的构造函数的作用，同时又是一个Function类的实例(instance)。这样的多重身份让JavaScript的函数变得非常重要。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://loeuy.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-</feed>
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/mob_com.html" title="上一篇: 移动端常见的一些兼容性问题">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/ES6_comfn.html" title="下一篇: ES6函数新增的特性">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/mob_com.html">移动端常见的一些兼容性问题</a></li><li class="post-list-item"><a class="post-list-link" href="/100question.html">2017年前端面试题整理汇总100题</a></li><li class="post-list-item"><a class="post-list-link" href="/ES6_comfn.html">ES6函数新增的特性</a></li><li class="post-list-item"><a class="post-list-link" href="/ES6_let.html">ES6块级作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/Flex_layout.html">Flex布局</a></li><li class="post-list-item"><a class="post-list-link" href="/js_comfn.html">JavaScript常用函数汇总</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 荣嬷嬷
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 5;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-92549976-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?c774939d26e4c1c2c8cad5e33c5a80ff";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
