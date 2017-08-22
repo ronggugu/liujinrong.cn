@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://loeuy.cn/about/index.html</loc>
+    
+    <lastmod>2017-08-22T02:17:50.447Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://loeuy.cn/100question.html</loc>
     
     <lastmod>2017-07-04T06:49:00.920Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://loeuy.cn/wandering/index.html</loc>
     
     <lastmod>2017-06-14T07:53:33.719Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://loeuy.cn/about/index.html</loc>
-    
-    <lastmod>2017-06-14T07:52:48.296Z</lastmod>
     
   </url>
   
