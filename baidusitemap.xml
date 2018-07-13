@@ -5,6 +5,21 @@
     
     
   <url>
+    <loc>http://loeuy.cn/resume.html</loc>
+    <lastmod>2018-07-13T16:56:19.944Z</lastmod>
+    <data>
+        <display>
+        <title>简历</title>
+        <pubTime>1996-11-21T07:28:10.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://loeuy.cn/ClassName.html</loc>
     <lastmod>2018-06-25T15:32:57.415Z</lastmod>
     <data>
@@ -74,12 +89,12 @@
 
     
   <url>
-    <loc>http://loeuy.cn/ES6_comfn.html</loc>
+    <loc>http://loeuy.cn/ES6_let.html</loc>
     <lastmod>2018-05-27T13:52:21.953Z</lastmod>
     <data>
         <display>
-        <title>ES6函数新增的特性</title>
-        <pubTime>2017-06-14T06:09:53.000Z</pubTime>
+        <title>ES6块级作用域</title>
+        <pubTime>2017-06-14T05:51:45.000Z</pubTime>
         
         <tag>JavaScript</tag>
          
@@ -91,12 +106,12 @@
 
     
   <url>
-    <loc>http://loeuy.cn/ES6_let.html</loc>
+    <loc>http://loeuy.cn/ES6_comfn.html</loc>
     <lastmod>2018-05-27T13:52:21.953Z</lastmod>
     <data>
         <display>
-        <title>ES6块级作用域</title>
-        <pubTime>2017-06-14T05:51:45.000Z</pubTime>
+        <title>ES6函数新增的特性</title>
+        <pubTime>2017-06-14T06:09:53.000Z</pubTime>
         
         <tag>JavaScript</tag>
          
