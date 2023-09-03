@@ -1,0 +1,430 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>荣咕咕 | 荣咕咕</title><meta name="author" content="荣咕咕"><meta name="copyright" content="荣咕咕"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="单选 关于微任务和宏任务，以下说法错误的是：( ) A. 微任务是一个需要异步执行的函数，可以通过 Promise.reject 或者 Promise.resolve 来触发，执行时机是在当前调用 reject 或者 resolve 函数执行结束之后、 当前宏任务结束之前 B. 在微任务中循环触发新的微任务不会造成线程的卡死 C. v8 在每个宏任务中维护了一个微任务队列 D. v8 的宿主维护了">
+<meta property="og:type" content="website">
+<meta property="og:title" content="荣咕咕">
+<meta property="og:url" content="http://liujinrong.cn/hidden/Interview/Examination/%E5%89%8D%E7%AB%AF%E4%BA%8C%E7%BA%A7%20%E6%97%A0%E7%AD%94%E6%A1%88%E7%89%88%E6%9C%AC.html">
+<meta property="og:site_name" content="荣咕咕">
+<meta property="og:description" content="单选 关于微任务和宏任务，以下说法错误的是：( ) A. 微任务是一个需要异步执行的函数，可以通过 Promise.reject 或者 Promise.resolve 来触发，执行时机是在当前调用 reject 或者 resolve 函数执行结束之后、 当前宏任务结束之前 B. 在微任务中循环触发新的微任务不会造成线程的卡死 C. v8 在每个宏任务中维护了一个微任务队列 D. v8 的宿主维护了">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bu.dusays.com/2022/06/05/629c5257753d1.png">
+<meta property="article:published_time" content="2023-08-30T12:09:46.316Z">
+<meta property="article:modified_time" content="2023-08-30T12:09:46.316Z">
+<meta property="article:author" content="荣咕咕">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bu.dusays.com/2022/06/05/629c5257753d1.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://liujinrong.cn/hidden/Interview/Examination/%E5%89%8D%E7%AB%AF%E4%BA%8C%E7%BA%A7%20%E6%97%A0%E7%AD%94%E6%A1%88%E7%89%88%E6%9C%AC"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 荣咕咕","link":"链接: ","source":"来源: 荣咕咕","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-08-30 20:09:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="css/custom.css"><style type="text/css">#toggle-sidebar {bottom: 80px; left:100px}</style><link rel="stylesheet" href="/css/rightMenu.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.liujinrong.cn/blog/2023/03/24/J8hQoE.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">荣咕咕</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="page-site-info"><h1 id="site-title">荣咕咕</h1></div></header><main class="layout" id="content-inner"><div id="page"><div id="article-container"><h3 id="单选"><a href="#单选" class="headerlink" title="单选"></a>单选</h3><ol>
+<li><p>关于微任务和宏任务，以下说法错误的是：( )</p>
+<p>A. 微任务是一个需要异步执行的函数，可以通过 Promise.reject 或者 Promise.resolve 来触发，执行时机是在当前调用 reject 或者 resolve 函数执行结束之后、 当前宏任务结束之前</p>
+<p>B. 在微任务中循环触发新的微任务不会造成线程的卡死</p>
+<p>C. v8 在每个宏任务中维护了一个微任务队列</p>
+<p>D. v8 的宿主维护了消息队列，主线程不断从消息队列中取出任务，并依次执行，我们把消息队列中的任务称为宏任务</p>
+</li>
+<li><p>小程序主包最大多少 M？ (2M)</p>
+</li>
+<li><p>RESTfulAPI 对资源的操作中，以下哪种方法安全性最高？(  )</p>
+<p>A. GET</p>
+<p>B. POST</p>
+<p>C. PUT</p>
+<p>D. DELETE</p>
+</li>
+<li><p>通常对象有很多属性，但对于外部对象来说某些属性应该不能被直接访问， 下面哪个不是 UML 中的类成员访问限定性（ ）</p>
+<p>A. public</p>
+<p>B. private</p>
+<p>C. protected</p>
+<p>D. default</p>
+</li>
+<li><p>迭代器模式提供一种方法顺序一个聚合对象中各个元素，而又不暴露该对象的内部表示，拥有迭代器的对象，我们称之为可迭代对象，下面哪项不是可迭代对象? ( D )</p>
+<p>A. Array</p>
+<p>B. Map</p>
+<p>C. Set</p>
+<p>D. Object</p>
+<p>E. String</p>
+</li>
+<li><p>关于 Vue 的生命周期，下列哪项是不正确的? (  )</p>
+<p>A. DOM 渲染在 mounted 中就已经完成了</p>
+<p>B. 页面首次加载过程中，会依次触发 beforeCreate， created， beforeMount,mounted，beforeUpdate， updated</p>
+<p>C. created 表示完成数据观测、属性和方法的运算和初始化事件，此时$el 属性还未显示出来</p>
+<p>D. Vue 实例从创建到销毁的过程，就是生命周期</p>
+</li>
+<li><p>状态码 401 对应的使用场景是?(  )</p>
+<p>A.服务器异常</p>
+<p>B.未经验证的用户</p>
+<p>C.参数校验</p>
+<p>D.无权限的用户</p>
+</li>
+<li><p>小程序页面路由说法错误的是? (  )</p>
+<p>A. navigateBack 的时候设置 delta 来返回指定页面数,delta 可以大于现有页面数。</p>
+<p>B. redirectTo 关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面</p>
+<p>C. reLaunch 会关闭所有页面，打开到应用内的某个页面</p>
+<p>D. switchTab 总是不能通过使用 urI 带参数来传递数据的</p>
+</li>
+<li><p>关于抽象类和具体类，下列说法不正确的是(  )</p>
+<p>A. 如果一个类有父类， 该类就是具体类</p>
+<p>B. 在 UML 通过把一个类的名称写为斜体来指明该类是抽象类</p>
+<p>C. 抽象类没有任何直接的实力，而具体类则有直接实例</p>
+<p>D. 如果个类继承了父类的抽象操作&#x2F;方法，而该类未提供实现，那么该类是抽象类</p>
+</li>
+<li><p>RESfulAPI 对资源的操作中，以下哪种方法安全性最高? (  )</p>
+<p>A. PUT</p>
+<p>B. DELETE</p>
+<p>C. GET</p>
+<p>D. POST</p>
+</li>
+<li><p>RESTful 规范描述错误的是? (   )</p>
+<p>A.建议使用 https 作为网络通信协议</p>
+<p>B. GET、PUT、DELETE. POST 都是幕等</p>
+<p>C.接口的 ur 建议加上’ai’字符，清晰地表明此 ur 是个接口</p>
+<p>D.接口版本号相关字符 v1&#x2F;v&#x2F;3..建议加在接口的 ur 上，表明当前接口的版本号</p>
+</li>
+<li><p>在 UML 中，() 把活动图中的活动划分为若干组，并将划分的组指定给对象，这些对象必须履行该组所包括的活<br>动，它能够明确地表示哪些活动是由哪些对象完成的。( )</p>
+<p>A.活动</p>
+<p>B.泳道</p>
+<p>C.组合活动</p>
+<p>D.同步条</p>
+</li>
+<li></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> data = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">data[i] = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data[<span class="number">0</span>]();</span><br><span class="line">data[<span class="number">1</span>]();</span><br><span class="line">data[<span class="number">2</span>]();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3 3 3</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="多选"><a href="#多选" class="headerlink" title="多选"></a>多选</h3><ol>
+<li><p>关于媒体查询，下列说法正确的是? (  )</p>
+<p>A.常见尺寸宽度有: 320px、480px、640px、768px、960px、1024px、1200px 等</p>
+<p>B.用于电脑屏幕，平板电脑，智能手机等.</p>
+<p>C.媒体查询的语法是@media，你可以针对不同的媒体类型定义不同的样式</p>
+<p>D.可以在 link 标签中使用媒体查询定义需要加载的 css 文件</p>
+</li>
+<li><p>Webpack 的核心概念描述错误的是？(  )</p>
+<p>A. Module: 模块，在 Webpack 里一切皆模块，一个模块对应着多个文件。</p>
+<p>B. Chunk: 代码块，Chunk 是一个模块组，用于代码合并与分割。</p>
+<p>C. Entry: 入口，Webpack 执行构建的第一步将从 Entry 开始，可抽象成输入.</p>
+<p>D. output: 出口，告诉 webpack 在哪里输出它打包好的代码以及如何命名，默认为.&#x2F;dist</p>
+<blockquote>
+<p>Module: 模块，在 Webpack 里一切皆模块，一个模块对应着一个文件。Chunk: 代码块，Chunk 是一个模块组，用于代码合并与分割。Entry: 入口，Webpack 执行构建的第一步将从 Entry 开始，可抽象成输入。output: 出口，告诉 webpack 在哪里输出它打包好的代码以及如何命名，默认为.&#x2F;dist</p>
+</blockquote>
+</li>
+<li><p>设备像素比 devicepixelratio 简称 dpr，这个像素比会产生一个非常经典的问题，1 像素边框的问题。下面关于设备像素比的说法正确的是？（  ）</p>
+<p>A.浏览器为我们提供了 window.minDevicePixelRatio 查询设备像素比</p>
+<p>B.即物理像素和设备独立像素的比值</p>
+<p>C.即设备独立像素和物理像素的比值</p>
+<p>D.浏览器为我们提供了 window.devicePixelRatio 查询设备像素比</p>
+</li>
+<li><p>关于 Git 回滚，以下说法正确的是? （  ）</p>
+<p>A.git reset 和 git revert 都可以用于代码回滚</p>
+<p>B.git revert 会清除指定版本之后的所有提交历史</p>
+<p>C.git reset 会保留提交历史记录，并重新生成提交记录</p>
+<p>D.git revert 比较适合已经 push 到远端后的回滚操作，</p>
+</li>
+<li><p>如下的一段代码，以下哪些处理方式可以在不改变原有代码的情况下使得图片的宽度变成 200px。 (  )</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;example.jpg&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:400px!important;&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>A. <code>&lt;imgsrc=&quot;example.jpg&quot;style=&quot;width:400px!important;float:left;width:200px&quot;&gt;</code></p>
+<p>B. <code>&lt;imgsrc=&quot;example.jpg&quot;style=&quot;width:400px!important;max-width:200px&quot;&gt;</code></p>
+<p>C. <code>&lt;imgsrc=&quot;examplejpg&quot;style=&quot;width:400px!important;width:200px!important;&quot;&gt;</code></p>
+<p>D. <code>&lt;imgsrc=&quot;example.jpg&quot; style=&quot;width:400px!important; transform: scale(0.5, 1)&quot; &gt;</code></p>
+</li>
+<li><p>移动端开发常常出现点击和滑动穿透的问题，下面的场景中容易出现穿透的情况有哪些？( )</p>
+<p>A.单击蒙层 (mask) 上的“关闭”按钮，蒙层消失后，发现触发了按钮下面元素的 click 事件</p>
+<p>B.单击页内按钮跳转至新页，然后发现新页面中对应位置元素的 click 事件被触发了。</p>
+<p>C.蒙层浮于文档流上方，蒙层内容可以滚动，滚动蒙层内容，文档流跟随一起滚动</p>
+<p>D.如果按钮下面恰好是一个有 href 属性的 a 标签，那么页面就会发生跳转</p>
+</li>
+<li><p>关于 wxs 下列说法正确的是? ( )</p>
+<p>A.WXS 代码可以编写在 wxml 文件中的<wxs>标签内，或以.wxs 为后缀名的文件内</p>
+<p>B.WXS 是小程序的一套脚本语言其语法是和 JavaScript 不完全一致的</p>
+<p>C.只需要在<wxs/>标签的 src 属性上设置.wxs 为后缀名的文件路径就可在 wxml 中使用了</p>
+<p>D.WXS 模块要想对外暴露其内部的私有变量与函数，只能通过 module.exports 实现</p>
+</li>
+<li><p>有调试过程中以下哪些方式可以触发代码暂停? ( )</p>
+<p>A.debugger 命令</p>
+<p>B.一个代码错误 (如果开发者工具是打开状态，并且设置遇到异常时暂停)</p>
+<p>C.针对 XHR 请求设置触发条件断点</p>
+<p>D.在调试器中设置代码行的断点</p>
+</li>
+<li><p>以下对 gitpull 和 gitfetch 的描述中有哪些是正确的？（  ）</p>
+<p>A.gitfetch 将会用远程分支内容直接覆盖当前本地内容</p>
+<p>B.gitfetch 可以从远程获取最新版本到本地，但不会自动 merge</p>
+<p>C.gitfetch 和 gitpull 都可以将远端仓库更新至本地</p>
+<p>D.gitpull 可以获取远程分支内容并合并到本地分支上</p>
+<blockquote>
+<p>git fetch 可以从远程获取最新版本到本地，但不会自动合并。git fetch 和 git pull 都可以将远端仓库更新至本地。git pull 可以获取远程分支内容并合并到本地分支上。</p>
+</blockquote>
+</li>
+<li><p>对于浏览器发起的资源请求,如果服务器端返回 304,则表示？(  )</p>
+<p>A.代表资源该更新了,需要重新请求</p>
+<p>B.代表资源无更新,可以使用浏览器缓存</p>
+<p>C.说明协商缓存生效</p>
+<p>D.已返回了服务器端的缓存资源</p>
+</li>
+<li><p>在 Webpack 中，哪些 loader 是用来处理 LESS 的?(  )</p>
+<p>A. url-loader</p>
+<p>B. style-loader</p>
+<p>C. less-loader</p>
+<p>D. css-loader</p>
+</li>
+<li><p>以下对 gitstash 的描述中有哪些是正确的? ()</p>
+<p>A. stash 会将修改后的跟踪文件和暂存的更改保存在临时进度中，你可以随时重新应用这些更改。</p>
+<p>B. 通过 gitstashpop 命令恢复进度后,会删除该进度。</p>
+<p>C. 新添加的文件，直接执行 gitstash 是不会被保存到进度中的</p>
+<p>D. gitstash 在当前分支的暂存进度只能在当前分支中恢复。</p>
+</li>
+</ol>
+<h3 id="判断题"><a href="#判断题" class="headerlink" title="判断题"></a>判断题</h3><ol>
+<li><p>Webpack 是基于任务运行的打包工具? （ 不正确 ）</p>
+<blockquote>
+<p>Webpack 不是基于任务运行的打包工具，而是基于模块的打包工具。它通过递归地构建一个依赖关系图，其中包含应用程序需要的每个模块，然后将这些模块打包成一个或多个 bundle。</p>
+</blockquote>
+</li>
+<li><p>webpack 是基于入口的，webpack 会自动的递归解析入口所需要加载的所有资源文件，然后用不同的 Loader 来处理不同的文件，用 Plugin 来扩展 webpack 功能 （正确）</p>
+</li>
+<li><p>DOM 的 addEventListener 就是一种观察者的应用这种说法是否正确？（正确）</p>
+</li>
+</ol>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.liujinrong.cn/blog/2023/03/24/J8hQoE.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">荣咕咕</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/ljr2014ncu@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/article/wepack5-0.html" title="webpack：Webpack 5 详解"><img src="https://bu.dusays.com/2022/05/26/628fa0426213d.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="webpack：Webpack 5 详解"/></a><div class="content"><a class="title" href="/article/wepack5-0.html" title="webpack：Webpack 5 详解">webpack：Webpack 5 详解</a><time datetime="2023-03-28T08:00:00.000Z" title="发表于 2023-03-28 16:00:00">2023-03-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/vue-3.html" title="Vue 3 相关知识点"><img src="https://bu.dusays.com/2022/05/29/62939662553c9.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue 3 相关知识点"/></a><div class="content"><a class="title" href="/article/vue-3.html" title="Vue 3 相关知识点">Vue 3 相关知识点</a><time datetime="2023-03-22T08:00:00.000Z" title="发表于 2023-03-22 16:00:00">2023-03-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/rust-0.html" title="Rust 基础入门"><img src="https://bu.dusays.com/2022/05/26/628fa0426213d.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rust 基础入门"/></a><div class="content"><a class="title" href="/article/rust-0.html" title="Rust 基础入门">Rust 基础入门</a><time datetime="2022-10-10T08:00:00.000Z" title="发表于 2022-10-10 16:00:00">2022-10-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/react-1.html" title="React"><img src="https://bu.dusays.com/2022/05/26/628fa0426213d.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="React"/></a><div class="content"><a class="title" href="/article/react-1.html" title="React">React</a><time datetime="2019-03-22T08:00:00.000Z" title="发表于 2019-03-22 16:00:00">2019-03-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/vue-2.html" title="Vue 2 相关知识点"><img src="https://bu.dusays.com/2022/05/26/628fa0426213d.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue 2 相关知识点"/></a><div class="content"><a class="title" href="/article/vue-2.html" title="Vue 2 相关知识点">Vue 2 相关知识点</a><time datetime="2019-03-22T08:00:00.000Z" title="发表于 2019-03-22 16:00:00">2019-03-22</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/React/"><span class="card-category-list-name">React</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Rust/"><span class="card-category-list-name">Rust</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Vue/"><span class="card-category-list-name">Vue</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/webpack/"><span class="card-category-list-name">webpack</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 1.5em; color: #99a9bf">JavaScript</a> <a href="/tags/React/" style="font-size: 1.1em; color: #999">React</a> <a href="/tags/Rust/" style="font-size: 1.1em; color: #999">Rust</a> <a href="/tags/Vue/" style="font-size: 1.3em; color: #99a1ac">Vue</a> <a href="/tags/webpack/" style="font-size: 1.1em; color: #999">webpack</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.3em; color: #99a1ac">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" style="font-size: 1.3em; color: #99a1ac">前端框架</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">十月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/03/"><span class="card-archive-list-date">三月 2019</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/07/"><span class="card-archive-list-date">七月 2018</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2017/07/"><span class="card-archive-list-date">七月 2017</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">10</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2018-06-06T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">26.2k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-09-03T15:50:02.177Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2023 By 荣咕咕</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="7427714271" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-lrctype="1" data-preload="none" data-autoplay="true" muted></div><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script data-pjax defer src="https://npm.elemecdn.com/tzy-blog/lib/js/theme/chocolate.js"></script><script defer data-pjax src="/js/rightMenu.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/music/"]):not([href="/no-pjax/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '09d13da69c214cf6a33a99db6f39260f';
+  var gaud_map_key = 'e7683cf2c1db46ddeb87eb1b760adae3';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '121.48941,31.40527';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(https://assets.akilar.top/image/cover1.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Hexo/&quot;);" href="javascript:void(0);">Hexo</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">Ubuntu指南</span></li><li class="categoryBar-list-item" style="background:url(https://assets.akilar.top/image/cover2.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/React/&quot;);" href="javascript:void(0);">React</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">玩转Win10</span></li><li class="categoryBar-list-item" style="background:url(https://assets.akilar.top/image/cover3.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/JavaScript/&quot;);" href="javascript:void(0);">JavaScript</a><span class="categoryBar-list-count">2</span><span class="categoryBar-list-descr">长篇小说连载</span></li><li class="categoryBar-list-item" style="background:url(https://assets.akilar.top/image/cover4.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Vue/&quot;);" href="javascript:void(0);">Vue</a><span class="categoryBar-list-count">4</span><span class="categoryBar-list-descr">个人日记</span></li><li class="categoryBar-list-item" style="background:url(https://assets.akilar.top/image/cover5.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Rust/&quot;);" href="javascript:void(0);">Rust</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">诗词歌赋</span></li><li class="categoryBar-list-item" style="background:url(https://assets.akilar.top/image/cover6.webp);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/webpack/&quot;);" href="javascript:void(0);">webpack</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">杂谈教程</span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><!-- hexo injector body_end end --></body></html>
